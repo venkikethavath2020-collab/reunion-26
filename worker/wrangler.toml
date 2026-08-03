@@ -1,0 +1,11 @@
+name = "grand-reunion-2026-photos"
+main = "index.js"
+compatibility_date = "2025-02-01"
+
+[[r2_buckets]]
+binding = "PHOTOS"
+bucket_name = "grand-reunion-2026"
+
+[vars]
+# Set this to the public R2 custom domain or public-development URL for the bucket.
+PUBLIC_R2_URL = "https://pub-43df0cd858534626baf9acb5476ba90b.r2.dev"

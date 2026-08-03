@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#153B3A" />
+  <title>Upload Memories | TGTWURJC Grand Reunion 2026</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { colors: { ink: '#153B3A', coral: '#F46352', sun: '#FFD166', mist: '#F7F4EC', leaf: '#49886B' }, fontFamily: { display: ['Georgia', 'serif'] } } } };
+  </script>
+</head>
+<body class="min-h-screen bg-mist text-ink antialiased">
+  <header class="bg-ink text-white"><nav class="mx-auto flex max-w-5xl items-center justify-between px-5 py-5"><a href="../" class="font-display text-xl font-bold">Reunion <span class="text-sun">'26</span></a><a href="../#gallery" class="text-sm font-bold text-white/80 hover:text-sun">View gallery</a></nav></header>
+  <main class="mx-auto max-w-3xl px-5 py-12 sm:py-18">
+    <div class="text-center"><p class="text-sm font-bold uppercase tracking-[.18em] text-coral">TGTWURJC Grand Reunion 2026</p><h1 class="mt-4 font-display text-4xl font-bold sm:text-5xl">Upload Your Reunion Memories</h1><p class="mx-auto mt-4 max-w-lg text-lg leading-8 text-ink/70">Share your best moments from the reunion. Every photo is compressed securely in your browser before uploading.</p></div>
+    <form id="uploadForm" class="mt-10 bg-white p-5 shadow-xl shadow-ink/10 sm:p-8">
+      <label id="dropZone" for="photoInput" class="flex min-h-64 cursor-pointer flex-col items-center justify-center border-2 border-dashed border-ink/25 bg-mist px-5 text-center transition hover:border-coral hover:bg-[#fffaf1]">
+        <span class="flex h-16 w-16 items-center justify-center rounded-full bg-sun text-3xl font-light">+</span><span class="mt-4 font-display text-2xl font-bold">Drag & Drop</span><span class="mt-2 text-sm text-ink/60">Choose JPG, PNG, WebP, HEIC, or HEIF images up to 25 MB</span>
+        <input id="photoInput" class="sr-only" type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" multiple />
+      </label>
+      <label for="photoInput" class="mx-auto mt-4 flex w-fit cursor-pointer items-center rounded-md border border-ink/20 px-4 py-2 text-sm font-bold transition hover:border-coral hover:text-coral">Choose Photos</label>
+      <ul id="uploadList" class="mt-5 grid gap-2" aria-live="polite"></ul>
+      <div class="mt-7 grid gap-4 sm:grid-cols-2"><label class="text-sm font-bold">Your Name<input name="name" maxlength="80" class="mt-2 w-full rounded-md border border-ink/20 px-3 py-3 font-normal outline-none focus:border-coral" placeholder="Optional" /></label><label class="text-sm font-bold">Batch<select name="batch" class="mt-2 w-full rounded-md border border-ink/20 bg-white px-3 py-3 font-normal outline-none focus:border-coral"><option value="">Select batch (optional)</option><option>2007</option><option>2008</option><option>2009</option><option>2010</option><option>2011</option><option>2012</option></select></label></div>
+      <label class="mt-4 block text-sm font-bold">Caption<textarea name="caption" maxlength="220" rows="3" class="mt-2 w-full resize-none rounded-md border border-ink/20 px-3 py-3 font-normal outline-none focus:border-coral" placeholder="A short note about this moment (optional)"></textarea></label>
+      <button type="submit" class="mt-6 w-full rounded-md bg-coral px-6 py-4 font-bold text-white transition hover:bg-[#dc4f41]">Upload Photos</button>
+      <p id="uploadMessage" class="mt-4 text-center text-sm" aria-live="polite"></p>
+    </form>
+    <p class="mx-auto mt-6 max-w-xl text-center text-xs leading-6 text-ink/55">Photos are resized to a maximum of 1920px and compressed before upload. Please upload only images you have permission to share.</p>
+  </main>
+  <script type="module">import { initUpload } from '../js/upload.js'; initUpload();</script>
+</body>
+</html>
