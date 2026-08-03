@@ -104,7 +104,8 @@
         <div class="mt-14 flex flex-wrap items-center gap-x-9 gap-y-3 border-t border-white/20 pt-5 text-sm">
           <span><strong class="mr-2 text-sun">16 AUG</strong> Sunday, 2026</span><span><strong
               class="mr-2 text-sun">10:00 AM</strong> onwards</span><span><strong
-              class="mr-2 text-sun">TGTWURJC</strong> Jinnaram, Telangana</span></div>
+              class="mr-2 text-sun">TGTWURJC</strong> Jinnaram, Telangana</span>
+        </div>
       </div>
     </section>
 
@@ -122,12 +123,14 @@
         <h2 class="mt-4 max-w-xl font-display text-4xl font-bold leading-tight sm:text-5xl">Welcome Back to Our Alma
           Mater</h2>
         <p class="mt-6 max-w-xl text-lg leading-8 text-ink/75">Years may have passed, but the memories we created at
-          <strong>Government Tribal Welfare Residential Junior College (TGTWURJC), Jinnaram</strong> remain close to our
-          hearts.</p>
+          <strong>Telangana Government Tribal Welfare Residential Upgraded Junior College (TGTWURJC), Jinnaram</strong> remain close to our
+          hearts.
+        </p>
         <p class="mt-4 max-w-xl leading-8 text-ink/75">From morning assemblies and classrooms to hostel life, sports,
           cultural events, examinations, and lifelong friendships, this campus shaped who we are today. The
           <strong>Grand Reunion 2026</strong> is our opportunity to reconnect with classmates, honor our beloved
-          teachers, revisit cherished memories, and create new ones together.</p>
+          teachers, revisit cherished memories, and create new ones together.
+        </p>
         <p class="mt-5 max-w-xl font-display text-2xl font-bold leading-relaxed text-coral">Once a TGTWURJC student,
           always a part of the TGTWURJC family.</p>
       </div>
@@ -147,12 +150,12 @@
       <div class="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[.8fr_1.2fr] lg:px-8">
         <div>
           <p class="text-sm font-bold uppercase tracking-[.18em] text-coral">About our school</p>
-          <h2 class="mt-4 font-display text-4xl font-bold leading-tight sm:text-5xl">Government Tribal Welfare
-            Residential Junior College</h2>
+          <h2 class="mt-4 font-display text-4xl font-bold leading-tight sm:text-5xl">Telangana Tribal Welfare
+            Residential Upgraded Junior College</h2>
           <p class="mt-5 font-semibold text-ink/70">TGTWURJC, Jinnaram, Sangareddy District</p>
         </div>
         <div class="text-lg leading-8 text-ink/75">
-          <p>Government Tribal Welfare Residential Junior College has played an important role in nurturing generations
+          <p>Telangana Government Tribal Welfare Residential Upgraded Junior College has played an important role in nurturing generations
             of students through quality education, discipline, values, and character.</p>
           <p class="mt-5">The institution has provided opportunities for academic excellence while fostering leadership,
             teamwork, respect, and lifelong friendships. For every student from the <strong>2007-2012 batches</strong>,
@@ -255,11 +258,25 @@
         </div>
         <div id="galleryGrid" class="mt-10 columns-2 gap-3 sm:columns-3 lg:columns-4"></div>
         <p id="galleryState" class="hidden mx-auto mt-10 max-w-md text-center text-lg leading-8 text-ink/70"></p>
-        <button id="loadMore" class="mx-auto mt-10 hidden rounded-md bg-ink px-5 py-3 text-sm font-bold text-white transition hover:bg-[#245553]">Load more memories</button>
+        <button id="loadMore"
+          class="mx-auto mt-10 hidden rounded-md bg-ink px-5 py-3 text-sm font-bold text-white transition hover:bg-[#245553]">Load
+          more memories</button>
       </div>
     </section>
 
-    <section class="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28"><div class="flex flex-col items-start justify-between gap-8 border-y border-ink/15 py-12 lg:flex-row lg:items-center"><div><p class="text-sm font-bold uppercase tracking-[.18em] text-coral">Live photo upload</p><h2 class="mt-3 font-display text-4xl font-bold">Your lens. Our memory.</h2><p class="mt-3 max-w-xl text-ink/70">Share your moments from the reunion directly from your phone. Compressed photos will appear in the gallery shortly after upload.</p></div><a href="upload/" class="rounded-md bg-coral px-7 py-4 font-bold text-white transition hover:bg-[#dc4f41]">Upload reunion photos</a></div></section>
+    <section class="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
+      <div
+        class="flex flex-col items-start justify-between gap-8 border-y border-ink/15 py-12 lg:flex-row lg:items-center">
+        <div>
+          <p class="text-sm font-bold uppercase tracking-[.18em] text-coral">Live photo upload</p>
+          <h2 class="mt-3 font-display text-4xl font-bold">Your lens. Our memory.</h2>
+          <p class="mt-3 max-w-xl text-ink/70">Share your moments from the reunion directly from your phone. Compressed
+            photos will appear in the gallery shortly after upload.</p>
+        </div><a href="upload/"
+          class="rounded-md bg-coral px-7 py-4 font-bold text-white transition hover:bg-[#dc4f41]">Upload reunion
+          photos</a>
+      </div>
+    </section>
 
     <section id="guidelines" class="bg-sun py-20 lg:py-28">
       <div class="mx-auto max-w-7xl px-5 lg:px-8">
@@ -462,7 +479,7 @@
     document.addEventListener('keydown', event => { if (event.key === 'Escape' && !contactModal.classList.contains('hidden')) setContacts(false); });
     lucide.createIcons();
   </script>
-  <script type="module">import { initGallery } from './js/gallery.js'; initGallery();</script>
+  <script type="module">import { initGallery } from './js/gallery.js'; initGallery({ preview: true });</script>
 </body>
 
 </html>

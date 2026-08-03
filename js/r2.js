@@ -49,8 +49,8 @@ export async function uploadImage(file, metadata, onProgress) {
   });
 }
 
-export async function fetchGallery(cursor = "") {
-  const url = `${PHOTO_API}?limit=24${
+export async function fetchGallery(cursor = "", limit = 24) {
+  const url = `${PHOTO_API}?limit=${limit}${
     cursor ? `&cursor=${encodeURIComponent(cursor)}` : ""
   }`;
 
