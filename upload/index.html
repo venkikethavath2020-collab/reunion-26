@@ -25,17 +25,14 @@
     };
   </script>
   <style>
-    /* Smooth progress bar animation */
     .bar {
-      transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    /* Subtle pulse for drop zone active state */
     #dropZone.is-active {
       border-color: #F46352;
       background-color: #fffaf1;
       box-shadow: 0 0 0 4px rgba(244, 99, 82, 0.12);
     }
-    /* Spinner */
     @keyframes spin {
       to { transform: rotate(360deg); }
     }
@@ -51,7 +48,7 @@
       <a href="../" class="font-display text-xl font-bold tracking-tight">
         Reunion <span class="text-sun">'26</span>
       </a>
-      <a href="../#gallery"
+      <a href="../gallery/"
         class="rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-white/90 transition hover:bg-white/20 hover:text-sun">
         View gallery
       </a>
@@ -78,7 +75,7 @@
       <div class="p-5 sm:p-8">
         <!-- Drop zone -->
         <label id="dropZone" for="photoInput"
-          class="group relative flex min-h-56 cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-ink/20 bg-mist/80 px-5 text-center transition-all duration-200 hover:border-coral/70 hover:bg-[#fffaf1]">
+          class="group relative flex min-h-52 cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-ink/20 bg-mist/80 px-5 text-center transition-all duration-200 hover:border-coral/70 hover:bg-[#fffaf1]">
           <span
             class="flex h-14 w-14 items-center justify-center rounded-full bg-sun text-2xl font-light text-ink shadow-sm transition group-hover:scale-105">
             +
@@ -87,7 +84,7 @@
             Drag &amp; drop photos
           </span>
           <span class="mt-2 max-w-xs text-sm leading-6 text-ink/55">
-            JPG, PNG, WebP, HEIC or HEIF · max 25&nbsp;MB each
+            JPG, PNG, WebP, HEIC or HEIF · max 25&nbsp;MB each · up to 10 photos
           </span>
           <input id="photoInput" class="sr-only" type="file"
             accept="image/jpeg,image/png,image/webp,image/heic,image/heif" multiple />
@@ -105,8 +102,28 @@
           </label>
         </div>
 
-        <!-- File list (rows injected by JS) -->
-        <ul id="uploadList" class="mt-6 space-y-2.5" aria-live="polite"></ul>
+        <!-- Selected summary (no individual rows) -->
+        <div id="selectedSummary" class="mt-6 hidden rounded-xl bg-mist/80 px-4 py-3.5 text-sm">
+          <div class="flex items-center justify-between gap-3">
+            <span id="selectedCount" class="font-semibold text-ink"></span>
+            <button type="button" id="clearFiles"
+              class="text-xs font-semibold text-coral transition hover:text-[#dc4f41]">
+              Clear
+            </button>
+          </div>
+        </div>
+
+        <!-- Overall progress (shown only while uploading) -->
+        <div id="progressPanel" class="mt-6 hidden">
+          <div class="flex items-center justify-between text-sm">
+            <span id="progressLabel" class="font-medium text-ink/70">Preparing…</span>
+            <span id="progressPercent" class="font-bold text-coral">0%</span>
+          </div>
+          <div class="mt-2 h-2.5 overflow-hidden rounded-full bg-ink/10">
+            <div id="progressBar" class="bar h-full rounded-full bg-coral" style="width: 0%"></div>
+          </div>
+          <p id="progressDetail" class="mt-2 text-xs text-ink/50"></p>
+        </div>
 
         <!-- Meta fields -->
         <div class="mt-8 grid gap-4 sm:grid-cols-2">
@@ -156,7 +173,7 @@
 
     <p class="mx-auto mt-6 max-w-xl text-center text-xs leading-6 text-ink/50">
       Photos are resized to a maximum of 1920&nbsp;px and compressed before upload.
-      Please upload only images you have permission to share.
+      Maximum 10 photos per upload. Please upload only images you have permission to share.
     </p>
   </main>
 

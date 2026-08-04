@@ -12,7 +12,7 @@ export async function initGallery({ preview = false } = {}) {
     async function loadPage() {
       if (loading || cursor === null) return;
       loading = true; more.textContent = 'Loading memories...';
-      const page = await fetchGallery(cursor, preview ? 8 : 24); cursor = page.cursor || null;
+      const page = await fetchGallery(cursor, preview ? 8 : 30); cursor = page.cursor || null;
       if (!page.items.length && !grid.children.length) { state.classList.remove('hidden'); state.textContent = 'No memories uploaded yet. Be the first to upload your reunion moments.'; }
       renderGallery(page.items, grid, lightbox, 0, page.items.length);
       more.classList.toggle('hidden', cursor === null);

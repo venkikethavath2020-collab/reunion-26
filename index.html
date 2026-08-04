@@ -12,12 +12,27 @@
     tailwind.config = {
       theme: {
         extend: {
-          colors: { ink: '#153B3A', coral: '#F46352', sun: '#FFD166', mist: '#F7F4EC', leaf: '#49886B' },
-          fontFamily: { display: ['Georgia', 'serif'] },
-          boxShadow: { lift: '0 18px 45px rgba(21,59,58,.13)' }
-        }
-      }
-    }
+          colors: {
+            ink: '#0F2E2D',
+            coral: '#E85A4A',
+            sun: '#F5C84C',
+            mist: '#F6F3EB',
+            leaf: '#3F7A5F',
+            surface: '#FFFFFF',
+            muted: '#5C6B6A',
+          },
+          fontFamily: {
+            display: ['Georgia', 'Cambria', 'Times New Roman', 'serif'],
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            soft: '0 4px 24px rgba(15, 46, 45, 0.06)',
+            lift: '0 20px 50px rgba(15, 46, 45, 0.12)',
+            glow: '0 8px 30px rgba(232, 90, 74, 0.25)',
+          },
+        },
+      },
+    };
   </script>
   <style>
     html {
@@ -29,8 +44,8 @@
     }
 
     .grain {
-      background-image: radial-gradient(rgba(255, 255, 255, .25) 1px, transparent 1px);
-      background-size: 14px 14px;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+      background-size: 16px 16px;
     }
 
     .photo-tile:nth-child(3n) {
@@ -41,20 +56,24 @@
       display: flex;
       justify-content: space-between;
       gap: 12px;
-      border-radius: 4px;
+      border-radius: 10px;
       background: white;
-      padding: 10px 12px;
+      padding: 11px 14px;
       font-size: 14px;
-      font-weight: 700;
-      transition: background-color .2s ease;
+      font-weight: 600;
+      color: #0F2E2D;
+      box-shadow: 0 1px 2px rgba(15, 46, 45, 0.04);
+      transition: all 0.2s ease;
     }
 
     #contactModal details a:hover {
-      background: #FFD166;
+      background: #FFF8E7;
+      color: #E85A4A;
     }
 
     #contactModal details a span {
-      color: #F46352;
+      color: #E85A4A;
+      font-weight: 500;
       white-space: nowrap;
     }
 
@@ -63,601 +82,938 @@
         transform: none;
       }
     }
+
+    /* Hero carousel */
+    #heroSlides .hero-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1.4s ease-in-out;
+      will-change: opacity;
+    }
+
+    #heroSlides .hero-slide.is-active {
+      opacity: 1;
+    }
+
+    #heroSlides img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #heroSlides .hero-slide.is-active img {
+      animation: kenburns 8s ease-out forwards;
+    }
+
+    @keyframes kenburns {
+      from { transform: scale(1); }
+      to { transform: scale(1.08); }
+    }
+
+    #heroDots button {
+      width: 8px;
+      height: 8px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.35);
+      transition: all 0.3s ease;
+    }
+
+    #heroDots button.is-active {
+      width: 24px;
+      background: #F5C84C;
+    }
+
+    @keyframes fade-up {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-up {
+      animation: fade-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
   </style>
 </head>
 
 <body class="bg-mist text-ink antialiased">
+  <!-- Header -->
   <header class="absolute inset-x-0 top-0 z-20">
     <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 lg:px-8" aria-label="Main navigation">
-      <a href="#top" class="font-display text-xl font-bold tracking-wide text-white">Reunion <span
-          class="text-sun">'26</span></a>
-      <div class="hidden items-center gap-7 text-sm font-semibold text-white/90 md:flex">
-        <a class="hover:text-sun" href="#about">Our school</a><a class="hover:text-sun" href="#schedule">Schedule</a><a
-          class="rounded-md border border-sun/70 px-3 py-2 text-sun transition hover:bg-sun hover:text-ink"
-          href="#guidelines">Guidelines</a><a class="hover:text-sun" href="#gallery">Gallery</a><a
-          class="hover:text-sun" href="#contact">Contact</a>
+      <a href="#top" class="font-display text-xl font-bold tracking-wide text-white">
+        Reunion <span class="text-sun">'26</span>
+      </a>
+      <div class="hidden items-center gap-8 text-sm font-semibold text-white/85 md:flex">
+        <a class="transition hover:text-sun" href="#about">Our school</a>
+        <a class="transition hover:text-sun" href="#schedule">Schedule</a>
+        <a class="rounded-full border border-sun/60 px-3.5 py-1.5 text-sun transition hover:bg-sun hover:text-ink"
+          href="#guidelines">Guidelines</a>
+        <a class="transition hover:text-sun" href="#gallery">Gallery</a>
+        <a class="transition hover:text-sun" href="#contact">Contact</a>
       </div>
-      <a href="upload/" class="rounded-md bg-sun px-4 py-2 text-sm font-bold text-ink transition hover:bg-white">Share a
-        photo</a>
+      <a href="upload/"
+        class="rounded-full bg-sun px-4 py-2 text-sm font-bold text-ink shadow-sm transition hover:bg-white hover:shadow-md">
+        Share a photo
+      </a>
     </nav>
   </header>
 
   <main id="top">
-    <section class="relative min-h-[760px] overflow-hidden bg-ink text-white sm:min-h-[720px]">
-      <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=1800&q=85"
-        alt="Friends celebrating together outdoors" class="absolute inset-0 h-full w-full object-cover opacity-35" />
-      <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/35"></div>
-      <div class="grain absolute inset-0 opacity-30"></div>
-      <div
-        class="relative mx-auto flex min-h-[760px] max-w-7xl flex-col justify-end px-5 pb-16 pt-32 sm:min-h-[720px] sm:pb-20 lg:px-8">
-        <p class="mb-5 flex items-center gap-3 text-sm font-bold uppercase tracking-[.2em] text-sun"><span
-            class="h-px w-10 bg-sun"></span> 2007 - 2012 Batch</p>
-        <h1 class="max-w-4xl font-display text-5xl font-bold leading-[.95] sm:text-7xl lg:text-8xl">Some
-          bonds<br />never graduate.</h1>
-        <p class="mt-7 max-w-xl text-lg leading-8 text-white/80">One classroom. A thousand stories. Let’s come home for
-          a day that brings every memory back to life.</p>
-        <div class="mt-9 flex flex-wrap gap-3"><a href="#guidelines"
-            class="rounded-md bg-coral px-6 py-3 font-bold text-white transition hover:bg-[#dc4f41]">School
-            guidelines</a><a href="#details"
-            class="rounded-md border border-white/35 px-6 py-3 font-bold text-white transition hover:bg-white/10">See
-            the plan</a></div>
-        <div class="mt-14 flex flex-wrap items-center gap-x-9 gap-y-3 border-t border-white/20 pt-5 text-sm">
-          <span><strong class="mr-2 text-sun">16 AUG</strong> Sunday, 2026</span><span><strong
-              class="mr-2 text-sun">10:00 AM</strong> onwards</span><span><strong
-              class="mr-2 text-sun">TGTWURJC</strong> Jinnaram, Telangana</span>
+    <!-- Hero -->
+    <section id="hero" class="relative min-h-[100svh] overflow-hidden bg-ink text-white">
+      <div id="heroSlides" class="absolute inset-0"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/80 to-ink/25"></div>
+      <div class="grain pointer-events-none absolute inset-0 opacity-20"></div>
+
+      <div class="relative mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-end px-5 pb-16 pt-28 sm:pb-20 lg:px-8">
+        <p class="mb-5 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.22em] text-sun">
+          <span class="h-px w-10 bg-sun"></span>
+          2007 – 2012 Batch
+        </p>
+
+        <h1 class="max-w-4xl font-display text-5xl font-bold leading-[0.95] tracking-tight sm:text-7xl lg:text-8xl">
+          Some bonds<br />never graduate.
+        </h1>
+
+        <p class="mt-7 max-w-xl text-base leading-8 text-white/75 sm:text-lg">
+          One classroom. A thousand stories. Let’s come home for a day that brings every memory back to life.
+        </p>
+
+        <div class="mt-9 flex flex-wrap gap-3">
+          <a href="#guidelines"
+            class="rounded-full bg-coral px-7 py-3.5 text-sm font-bold text-white shadow-glow transition hover:bg-[#d44e3f]">
+            School guidelines
+          </a>
+          <a href="#details"
+            class="rounded-full border border-white/25 px-7 py-3.5 text-sm font-bold text-white transition hover:bg-white/10">
+            See the plan
+          </a>
         </div>
+
+        <div class="mt-14 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-white/12 pt-6 text-sm">
+          <span><strong class="mr-2 text-sun">16 AUG</strong> Sunday, 2026</span>
+          <span><strong class="mr-2 text-sun">09:00 AM</strong> onwards</span>
+          <span><strong class="mr-2 text-sun">TGTWURJC</strong> Jinnaram, Telangana</span>
+        </div>
+
+        <div id="heroDots" class="mt-8 flex gap-2"></div>
       </div>
     </section>
 
-    <section class="border-b border-ink/10 bg-sun py-7" aria-label="Event countdown">
+    <!-- Countdown -->
+    <section class="border-b border-ink/8 bg-sun py-7" aria-label="Event countdown">
       <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-5 sm:flex-row lg:px-8">
-        <p class="font-display text-2xl font-bold">The countdown to our next chapter</p>
-        <div id="countdown" class="flex gap-5 text-center sm:gap-8" aria-live="polite"></div>
+        <p class="font-display text-2xl font-bold text-ink">The countdown to our next chapter</p>
+        <div id="countdown" class="flex gap-5 text-center text-ink sm:gap-8" aria-live="polite"></div>
       </div>
     </section>
 
+    <!-- Welcome -->
     <section id="about"
-      class="mx-auto grid max-w-7xl gap-12 px-5 py-20 lg:grid-cols-2 lg:items-center lg:px-8 lg:py-28">
-      <div>
-        <p class="text-sm font-bold uppercase tracking-[.18em] text-coral">Welcome message</p>
-        <h2 class="mt-4 max-w-xl font-display text-4xl font-bold leading-tight sm:text-5xl">Welcome Back to Our Alma
-          Mater</h2>
-        <p class="mt-6 max-w-xl text-lg leading-8 text-ink/75">Years may have passed, but the memories we created at
-          <strong>Telangana Government Tribal Welfare Residential Upgraded Junior College (TGTWURJC), Jinnaram</strong> remain close to our
-          hearts.
+      class="relative mx-auto grid max-w-7xl gap-14 overflow-hidden px-5 py-20 lg:grid-cols-2 lg:items-center lg:gap-20 lg:px-8 lg:py-28">
+      <div class="pointer-events-none absolute -left-24 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-sun/25 blur-3xl"></div>
+
+      <div class="relative">
+        <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-coral animate-fade-up">Welcome message</p>
+        <h2 class="mt-3 max-w-xl font-display text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl animate-fade-up"
+          style="animation-delay: 80ms">
+          Welcome Back to<br class="hidden sm:block" /> Our Alma Mater
+        </h2>
+        <p class="mt-6 max-w-xl text-base leading-8 text-muted sm:text-lg animate-fade-up" style="animation-delay: 140ms">
+          Years may have passed, but the memories we created at
+          <span class="relative inline font-semibold text-ink">
+            Telangana Government Tribal Welfare Residential Upgraded Junior College (TGTWURJC), Jinnaram
+            <span class="absolute bottom-0 left-0 h-[2px] w-full bg-coral/35"></span>
+          </span>
+          remain close to our hearts.
         </p>
-        <p class="mt-4 max-w-xl leading-8 text-ink/75">From morning assemblies and classrooms to hostel life, sports,
-          cultural events, examinations, and lifelong friendships, this campus shaped who we are today. The
-          <strong>Grand Reunion 2026</strong> is our opportunity to reconnect with classmates, honor our beloved
-          teachers, revisit cherished memories, and create new ones together.
+        <p class="mt-4 max-w-xl text-base leading-8 text-muted sm:text-lg animate-fade-up" style="animation-delay: 200ms">
+          From morning assemblies and classrooms to hostel life, sports, cultural events, examinations, and lifelong friendships, this campus shaped who we are today. The
+          <span class="rounded-md bg-coral/10 px-1.5 py-0.5 font-semibold text-coral">Grand Reunion 2026</span>
+          is our opportunity to reconnect with classmates, honor our beloved teachers, revisit cherished memories, and create new ones together.
         </p>
-        <p class="mt-5 max-w-xl font-display text-2xl font-bold leading-relaxed text-coral">Once a TGTWURJC student,
-          always a part of the TGTWURJC family.</p>
+        <div class="mt-8 flex gap-4 animate-fade-up" style="animation-delay: 280ms">
+          <div class="w-1 shrink-0 rounded-full bg-coral"></div>
+          <p class="font-display text-2xl font-bold leading-snug text-ink sm:text-3xl">
+            Once a TGTWURJC student,<br />
+            <span class="text-coral">always a part of the TGTWURJC family.</span>
+          </p>
+        </div>
       </div>
-      <div class="relative mx-auto w-full max-w-md">
-        <div class="absolute -left-5 -top-5 h-32 w-32 rounded-full bg-sun"></div><img
-          class="relative aspect-[4/5] w-full rounded-sm object-cover shadow-lift"
-          src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=85"
-          alt="Friends smiling together" />
-        <div class="absolute -bottom-5 -right-3 max-w-[230px] bg-coral p-5 text-white shadow-lift">
-          <p class="font-display text-2xl font-bold">Friendship. Gratitude. Home.</p>
-          <p class="mt-1 text-sm text-white/80">The ties that time cannot change.</p>
+
+      <div class="relative mx-auto w-full max-w-md animate-fade-up" style="animation-delay: 180ms">
+        <div class="absolute -left-6 -top-6 h-28 w-28 rounded-full bg-sun"></div>
+        <div class="absolute -right-4 top-12 h-16 w-16 rounded-full border-2 border-coral/25"></div>
+        <img class="relative aspect-[4/5] w-full rounded-2xl object-cover shadow-lift transition duration-500 hover:scale-[1.02]"
+          src="assets/hero/image_6.jpeg" alt="Friends smiling together" loading="lazy" />
+        <div class="absolute -bottom-6 -right-2 max-w-[240px] rounded-2xl bg-coral p-5 text-white shadow-glow sm:-right-4">
+          <p class="font-display text-xl font-bold leading-tight sm:text-2xl">
+            Friendship.<br />Gratitude.<br />Home.
+          </p>
+          <p class="mt-2 text-sm text-white/80">The ties that time cannot change.</p>
         </div>
       </div>
     </section>
 
-    <section class="bg-[#E5E9DF] py-20 lg:py-28">
-      <div class="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[.8fr_1.2fr] lg:px-8">
+    <!-- About school -->
+    <section class="relative overflow-hidden bg-[#E8EBE4] py-20 lg:py-28">
+      <div class="pointer-events-none absolute -right-20 top-1/3 h-80 w-80 rounded-full bg-sun/20 blur-3xl"></div>
+      <div class="relative mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-start lg:gap-16 lg:px-8">
         <div>
-          <p class="text-sm font-bold uppercase tracking-[.18em] text-coral">About our school</p>
-          <h2 class="mt-4 font-display text-4xl font-bold leading-tight sm:text-5xl">Telangana Tribal Welfare
-            Residential Upgraded Junior College</h2>
-          <p class="mt-5 font-semibold text-ink/70">TGTWURJC, Jinnaram, Sangareddy District</p>
+          <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-coral animate-fade-up">About our school</p>
+          <h2 class="mt-3 font-display text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl animate-fade-up"
+            style="animation-delay: 80ms">
+            Telangana Tribal Welfare Residential Upgraded Junior College
+          </h2>
+          <p class="mt-5 flex items-center gap-2 text-sm font-semibold text-muted animate-fade-up" style="animation-delay: 140ms">
+            <span class="inline-block h-1.5 w-1.5 rounded-full bg-coral"></span>
+            TGTWURJC, Jinnaram, Sangareddy District
+          </p>
         </div>
-        <div class="text-lg leading-8 text-ink/75">
-          <p>Telangana Government Tribal Welfare Residential Upgraded Junior College has played an important role in nurturing generations
-            of students through quality education, discipline, values, and character.</p>
-          <p class="mt-5">The institution has provided opportunities for academic excellence while fostering leadership,
-            teamwork, respect, and lifelong friendships. For every student from the <strong>2007-2012 batches</strong>,
-            this campus represents unforgettable memories that continue to inspire us throughout life.</p>
-          <p class="mt-5 font-display text-2xl font-bold text-ink">Today, we reunite not just as former classmates, but
-            as one family connected forever by our alma mater.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="details" class="bg-ink py-20 text-white lg:py-28">
-      <div class="mx-auto max-w-7xl px-5 lg:px-8">
-        <div class="max-w-xl">
-          <p class="text-sm font-bold uppercase tracking-[.18em] text-sun">Mark the calendar</p>
-          <h2 class="mt-4 font-display text-4xl font-bold sm:text-5xl">One day. All of us.</h2>
-        </div>
-        <div class="mt-12 grid gap-px overflow-hidden rounded-sm bg-white/15 sm:grid-cols-3">
-          <article class="bg-ink p-7">
-            <p class="text-sm font-bold uppercase tracking-wider text-sun">When</p>
-            <p class="mt-4 font-display text-3xl font-bold">Sunday<br />16 August 2026</p>
-            <p class="mt-3 text-white/65">10:00 AM - 8:30 PM</p>
-          </article>
-          <article class="bg-ink p-7">
-            <p class="text-sm font-bold uppercase tracking-wider text-sun">Where</p>
-            <p class="mt-4 font-display text-3xl font-bold">TGTWURJC</p>
-            <p class="mt-3 leading-6 text-white/65">Sangareddy, Jinnaram,<br />Telangana 502319</p>
-          </article>
-          <article class="bg-ink p-7">
-            <p class="text-sm font-bold uppercase tracking-wider text-sun">Dress note</p>
-            <p class="mt-4 font-display text-3xl font-bold">Come as<br />your best self</p>
-            <p class="mt-3 text-white/65">Smart casuals, bright memories.</p>
-          </article>
-        </div>
-        <div class="mt-8 grid gap-6 lg:grid-cols-[1.1fr_.9fr] lg:items-center"><iframe title="TGTWURJC location map"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d562.9625003492702!2d78.31856251419816!3d17.61812581791026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb8b685e16ee83%3A0xb6e2c64d746d75b3!2sT.S.T.W.R.%20E%2FM%20SCHOOL!5e1!3m2!1sen!2sin!4v1785769804944!5m2!1sen!2sin"
-            class="h-[320px] w-full rounded-sm border-0" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
-          <div>
-            <p class="text-sm font-bold uppercase tracking-[.18em] text-sun">Getting there</p>
-            <h3 class="mt-3 font-display text-3xl font-bold">Find your way back.</h3>
-            <p class="mt-4 max-w-md leading-7 text-white/65"><strong class="text-white">TGTWURJC,</strong> Sangareddy,
-              Jinnaram, Telangana 502319</p><a href="https://maps.app.goo.gl/kwgcy6f1jwkvQ2bQA" target="_blank"
-              rel="noopener noreferrer"
-              class="mt-6 inline-flex items-center gap-2 rounded-md bg-sun px-5 py-3 text-sm font-bold text-ink transition hover:bg-white"><i
-                data-lucide="map" class="h-4 w-4"></i> Open in Google Maps</a>
+        <div class="space-y-5 text-base leading-8 text-muted sm:text-lg">
+          <p class="animate-fade-up" style="animation-delay: 160ms">
+            Telangana Government Tribal Welfare Residential Upgraded Junior College has played an important role in nurturing generations of students through
+            <span class="font-semibold text-ink">quality education, discipline, values, and character</span>.
+          </p>
+          <p class="animate-fade-up" style="animation-delay: 220ms">
+            The institution has provided opportunities for academic excellence while fostering leadership, teamwork, respect, and lifelong friendships. For every student from the
+            <span class="rounded-md bg-coral/10 px-1.5 py-0.5 font-semibold text-coral">2007–2012 batches</span>,
+            this campus represents unforgettable memories that continue to inspire us throughout life.
+          </p>
+          <div class="mt-2 flex gap-4 pt-2 animate-fade-up" style="animation-delay: 300ms">
+            <div class="mt-1 w-1 shrink-0 rounded-full bg-coral"></div>
+            <p class="font-display text-2xl font-bold leading-snug text-ink sm:text-3xl">
+              Today, we reunite not just as former classmates, but as
+              <span class="text-coral">one family connected forever</span>
+              by our alma mater.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="schedule" class="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
-      <div class="grid gap-10 lg:grid-cols-[.8fr_1.2fr]">
-        <div>
-          <p class="text-sm font-bold uppercase tracking-[.18em] text-coral">The day ahead</p>
-          <h2 class="mt-4 font-display text-4xl font-bold sm:text-5xl">No rushing. Just reconnecting.</h2>
+    <!-- Details -->
+    <section id="details" class="bg-ink py-20 text-white lg:py-28">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="max-w-xl">
+          <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-sun">Mark the calendar</p>
+          <h2 class="mt-3 font-display text-4xl font-bold tracking-tight sm:text-5xl">One day. All of us.</h2>
         </div>
-        <ol class="divide-y divide-ink/15 border-y border-ink/15">
-          <li class="grid grid-cols-[80px_1fr] gap-5 py-5"><time class="font-bold text-coral">10:00</time>
+        <div class="mt-12 grid gap-px overflow-hidden rounded-2xl bg-white/10 sm:grid-cols-3">
+          <article class="bg-ink p-7 sm:p-8">
+            <p class="text-xs font-bold uppercase tracking-wider text-sun">When</p>
+            <p class="mt-4 font-display text-3xl font-bold">Sunday<br />16 August 2026</p>
+            <p class="mt-3 text-white/60">09:00 AM – 8:30 PM</p>
+          </article>
+          <article class="bg-ink p-7 sm:p-8">
+            <p class="text-xs font-bold uppercase tracking-wider text-sun">Where</p>
+            <p class="mt-4 font-display text-3xl font-bold">TGTWURJC</p>
+            <p class="mt-3 leading-6 text-white/60">Sangareddy, Jinnaram,<br />Telangana 502319</p>
+          </article>
+          <article class="bg-ink p-7 sm:p-8">
+            <p class="text-xs font-bold uppercase tracking-wider text-sun">Dress note</p>
+            <p class="mt-4 font-display text-3xl font-bold">Come as<br />your best self</p>
+            <p class="mt-3 text-white/60">Smart casuals, bright memories.</p>
+          </article>
+        </div>
+        <div class="mt-10 grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <iframe title="TGTWURJC location map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d562.9625003492702!2d78.31856251419816!3d17.61812581791026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb8b685e16ee83%3A0xb6e2c64d746d75b3!2sT.S.T.W.R.%20E%2FM%20SCHOOL!5e1!3m2!1sen!2sin!4v1785769804944!5m2!1sen!2sin"
+            class="h-[320px] w-full rounded-2xl border-0" loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <div>
+            <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-sun">Getting there</p>
+            <h3 class="mt-3 font-display text-3xl font-bold tracking-tight">Find your way back.</h3>
+            <p class="mt-4 max-w-md leading-7 text-white/60">
+              <strong class="text-white">TGTWURJC,</strong> Sangareddy, Jinnaram, Telangana 502319
+            </p>
+            <a href="https://maps.app.goo.gl/kwgcy6f1jwkvQ2bQA" target="_blank" rel="noopener noreferrer"
+              class="mt-6 inline-flex items-center gap-2 rounded-full bg-sun px-5 py-3 text-sm font-bold text-ink transition hover:bg-white">
+              <i data-lucide="map" class="h-4 w-4"></i> Open in Google Maps
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Schedule (unchanged structure, refined colors) -->
+    <section id="schedule" class="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
+      <div class="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+        <div class="lg:sticky lg:top-28 lg:self-start">
+          <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-coral">The day ahead</p>
+          <h2 class="mt-3 font-display text-4xl font-bold tracking-tight sm:text-5xl">
+            Once Back,<br class="hidden sm:block" /> Always Back
+          </h2>
+          <p class="mt-5 max-w-md text-base leading-7 text-muted">
+            Theme: <span class="font-semibold text-ink">“Giving Back to Our School”</span>
+          </p>
+          <p class="mt-4 max-w-md text-sm leading-6 text-muted/80">
+            Today we meet as seniors and juniors, but we leave as one family.
+            With the blessings of our teachers, we have grown. Now let’s come
+            together and give back for the better growth of future generations.
+          </p>
+          <div class="mt-8 space-y-3">
+            <div class="rounded-2xl border border-ink/8 bg-white p-4 shadow-soft">
+              <p class="text-xs font-bold uppercase tracking-wider text-coral">Add-on 01</p>
+              <p class="mt-1 font-display text-lg font-bold">Alumni Gallery Wall</p>
+              <p class="mt-1 text-sm text-muted">Contributor names displayed permanently in school.</p>
+            </div>
+            <div class="rounded-2xl border border-ink/8 bg-white p-4 shadow-soft">
+              <p class="text-xs font-bold uppercase tracking-wider text-coral">Add-on 02</p>
+              <p class="mt-1 font-display text-lg font-bold">Letter to Future Students</p>
+              <p class="mt-1 text-sm text-muted">One line of advice from each of us — sealed for 5 years.</p>
+            </div>
+          </div>
+        </div>
+
+        <ol class="relative space-y-0 border-l-2 border-ink/10 pl-0 sm:pl-2">
+          <!-- keep all schedule items exactly as before; only color tokens updated -->
+          <li class="relative grid grid-cols-[72px_1fr] gap-4 py-6 sm:grid-cols-[88px_1fr] sm:gap-6">
+            <div class="relative flex flex-col items-end pr-4 text-right sm:pr-6">
+              <span class="absolute -right-[9px] top-1.5 h-4 w-4 rounded-full border-2 border-coral bg-mist sm:-right-[13px]"></span>
+              <time class="text-sm font-bold text-coral">09:00</time>
+              <span class="text-xs text-ink/35">– 10:00</span>
+            </div>
             <div>
-              <h3 class="font-display text-2xl font-bold">Welcome back</h3>
-              <p class="mt-1 text-ink/65">Registration, chai, hugs.</p>
+              <h3 class="font-display text-xl font-bold sm:text-2xl">Registration & Welcome</h3>
+              <ul class="mt-2 space-y-1 text-sm leading-6 text-muted">
+                <li>Registration + Name Tags with Batch Year</li>
+                <li>Photo Booth + School Memory Wall</li>
+                <li>Breakfast + Tea</li>
+                <li>Live Photo Upload on Website starts</li>
+              </ul>
             </div>
           </li>
-          <li class="grid grid-cols-[80px_1fr] gap-5 py-5"><time class="font-bold text-coral">11:30</time>
+          <li class="relative grid grid-cols-[72px_1fr] gap-4 py-6 sm:grid-cols-[88px_1fr] sm:gap-6">
+            <div class="relative flex flex-col items-end pr-4 text-right sm:pr-6">
+              <span class="absolute -right-[9px] top-1.5 h-4 w-4 rounded-full border-2 border-coral bg-mist sm:-right-[13px]"></span>
+              <time class="text-sm font-bold text-coral">10:00</time>
+              <span class="text-xs text-ink/35">– 10:20</span>
+            </div>
             <div>
-              <h3 class="font-display text-2xl font-bold">The memory lane</h3>
-              <p class="mt-1 text-ink/65">Old photographs, stories, and a few friendly revelations.</p>
+              <h3 class="font-display text-xl font-bold sm:text-2xl">Inauguration & Prayer</h3>
+              <ul class="mt-2 space-y-1 text-sm leading-6 text-muted">
+                <li>Lighting of Lamp by Senior Teacher + Senior Alumni</li>
+                <li>School Prayer / National Anthem</li>
+              </ul>
             </div>
           </li>
-          <li class="grid grid-cols-[80px_1fr] gap-5 py-5"><time class="font-bold text-coral">13:00</time>
+          <li class="relative grid grid-cols-[72px_1fr] gap-4 py-6 sm:grid-cols-[88px_1fr] sm:gap-6">
+            <div class="relative flex flex-col items-end pr-4 text-right sm:pr-6">
+              <span class="absolute -right-[9px] top-1.5 h-4 w-4 rounded-full border-2 border-coral bg-mist sm:-right-[13px]"></span>
+              <time class="text-sm font-bold text-coral">10:20</time>
+              <span class="text-xs text-ink/35">– 10:30</span>
+            </div>
             <div>
-              <h3 class="font-display text-2xl font-bold">Lunch & catch-up</h3>
-              <p class="mt-1 text-ink/65">A long table, good food, no agenda.</p>
+              <h3 class="font-display text-xl font-bold sm:text-2xl">Welcome Address</h3>
             </div>
           </li>
-          <li class="grid grid-cols-[80px_1fr] gap-5 py-5"><time class="font-bold text-coral">16:00</time>
+          <li class="relative grid grid-cols-[72px_1fr] gap-4 py-6 sm:grid-cols-[88px_1fr] sm:gap-6">
+            <div class="relative flex flex-col items-end pr-4 text-right sm:pr-6">
+              <span class="absolute -right-[9px] top-1.5 h-4 w-4 rounded-full border-2 border-coral bg-mist sm:-right-[13px]"></span>
+              <time class="text-sm font-bold text-coral">10:30</time>
+              <span class="text-xs text-ink/35">– 10:50</span>
+            </div>
             <div>
-              <h3 class="font-display text-2xl font-bold">Games, music & group photo</h3>
-              <p class="mt-1 text-ink/65">Because some traditions deserve a sequel.</p>
+              <h3 class="font-display text-xl font-bold sm:text-2xl">Principal & Staff Address</h3>
+              <p class="mt-1.5 text-sm leading-6 text-muted">Blessings and words from our teachers.</p>
             </div>
           </li>
-          <li class="grid grid-cols-[80px_1fr] gap-5 py-5"><time class="font-bold text-coral">18:30</time>
+          <li class="relative grid grid-cols-[72px_1fr] gap-4 py-6 sm:grid-cols-[88px_1fr] sm:gap-6">
+            <div class="relative flex flex-col items-end pr-4 text-right sm:pr-6">
+              <span class="absolute -right-[9px] top-1.5 h-4 w-4 rounded-full border-2 border-coral bg-mist sm:-right-[13px]"></span>
+              <time class="text-sm font-bold text-coral">10:50</time>
+              <span class="text-xs text-ink/35">– 11:40</span>
+            </div>
             <div>
-              <h3 class="font-display text-2xl font-bold">Sunset dinner</h3>
-              <p class="mt-1 text-ink/65">One final toast to a very good beginning.</p>
+              <h3 class="font-display text-xl font-bold sm:text-2xl">Alumni Speeches — “Our Journey”</h3>
+              <ul class="mt-2 space-y-1 text-sm leading-6 text-muted">
+                <li>1 speaker from each batch 2007–2013</li>
+                <li>Topic: “From Jinnaram to Today – Our Growth”</li>
+              </ul>
+            </div>
+          </li>
+          <li class="relative grid grid-cols-[72px_1fr] gap-4 py-6 sm:grid-cols-[88px_1fr] sm:gap-6">
+            <div class="relative flex flex-col items-end pr-4 text-right sm:pr-6">
+              <span class="absolute -right-[9px] top-1.5 h-4 w-4 rounded-full border-2 border-sun bg-sun sm:-right-[13px]"></span>
+              <time class="text-sm font-bold text-coral">11:40</time>
+              <span class="text-xs text-ink/35">– 12:10</span>
+            </div>
+            <div class="rounded-2xl border border-sun/40 bg-[#FFF9EB] p-4 sm:p-5">
+              <div class="flex flex-wrap items-center gap-2">
+                <h3 class="font-display text-xl font-bold sm:text-2xl">“Pay Back to School” Session</h3>
+                <span class="rounded-full bg-sun px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-ink">Key</span>
+              </div>
+              <ul class="mt-2 space-y-1 text-sm leading-6 text-ink/70">
+                <li>Announcement of Alumni Contribution</li>
+                <li>Formation of Official Alumni Team with Batch Coordinators</li>
+                <li>Future Vision: Scholarships, Career Guidance, Infrastructure Support</li>
+                <li>Felicitation to Teachers & Staff</li>
+              </ul>
+            </div>
+          </li>
+          <li class="relative grid grid-cols-[72px_1fr] gap-4 py-6 sm:grid-cols-[88px_1fr] sm:gap-6">
+            <div class="relative flex flex-col items-end pr-4 text-right sm:pr-6">
+              <span class="absolute -right-[9px] top-1.5 h-4 w-4 rounded-full border-2 border-coral bg-mist sm:-right-[13px]"></span>
+              <time class="text-sm font-bold text-coral">12:10</time>
+              <span class="text-xs text-ink/35">– 12:40</span>
+            </div>
+            <div>
+              <h3 class="font-display text-xl font-bold sm:text-2xl">Memory Lane & Interaction</h3>
+              <p class="mt-1.5 text-sm leading-6 text-muted">Open Mic: Senior–Junior sharing thoughts, ideas & memories.</p>
+            </div>
+          </li>
+          <li class="relative grid grid-cols-[72px_1fr] gap-4 py-6 sm:grid-cols-[88px_1fr] sm:gap-6">
+            <div class="relative flex flex-col items-end pr-4 text-right sm:pr-6">
+              <span class="absolute -right-[9px] top-1.5 h-4 w-4 rounded-full border-2 border-coral bg-mist sm:-right-[13px]"></span>
+              <time class="text-sm font-bold text-coral">12:40</time>
+              <span class="text-xs text-ink/35">– 13:20</span>
+            </div>
+            <div>
+              <h3 class="font-display text-xl font-bold sm:text-2xl">Batch Parade & Cultural</h3>
+              <ul class="mt-2 space-y-1 text-sm leading-6 text-muted">
+                <li>Batch Flag Walk — each batch 2007–2013 enters with placard</li>
+                <li>Fun Games: Teacher vs Student, Batch vs Batch</li>
+                <li>Awards: Farthest Travelled, Most Enthusiastic Batch</li>
+              </ul>
+            </div>
+          </li>
+          <li class="relative grid grid-cols-[72px_1fr] gap-4 py-6 sm:grid-cols-[88px_1fr] sm:gap-6">
+            <div class="relative flex flex-col items-end pr-4 text-right sm:pr-6">
+              <span class="absolute -right-[9px] top-1.5 h-4 w-4 rounded-full border-2 border-coral bg-mist sm:-right-[13px]"></span>
+              <time class="text-sm font-bold text-coral">13:20</time>
+              <span class="text-xs text-ink/35">– 14:20</span>
+            </div>
+            <div>
+              <h3 class="font-display text-xl font-bold sm:text-2xl">Group Photo & Lunch</h3>
+            </div>
+          </li>
+          <li class="relative grid grid-cols-[72px_1fr] gap-4 py-6 sm:grid-cols-[88px_1fr] sm:gap-6">
+            <div class="relative flex flex-col items-end pr-4 text-right sm:pr-6">
+              <span class="absolute -right-[9px] top-1.5 h-4 w-4 rounded-full border-2 border-coral bg-mist sm:-right-[13px]"></span>
+              <time class="text-sm font-bold text-coral">14:20</time>
+              <span class="text-xs text-ink/35">– 14:30</span>
+            </div>
+            <div>
+              <h3 class="font-display text-xl font-bold sm:text-2xl">Vote of Thanks & Closing</h3>
+              <ul class="mt-2 space-y-1 text-sm leading-6 text-muted">
+                <li>Thank you to Teachers, Staff, Coordinators & Contributors</li>
+                <li>Announcement: Alumni Gallery with Contributor Names</li>
+                <li>Closing with School Song</li>
+              </ul>
             </div>
           </li>
         </ol>
       </div>
     </section>
 
-    <section id="gallery" class="bg-[#E5E9DF] py-20 lg:py-28">
+    <!-- Gallery -->
+    <section id="gallery" class="bg-[#E8EBE4] py-20 lg:py-28">
       <div class="mx-auto max-w-7xl px-5 lg:px-8">
         <div class="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
           <div>
-            <p class="text-sm font-bold uppercase tracking-[.18em] text-coral">Our shared album</p>
-            <h2 class="mt-4 font-display text-4xl font-bold sm:text-5xl">The wall of moments.</h2>
-          </div><a href="upload/"
-            class="font-bold text-ink underline decoration-coral decoration-2 underline-offset-4">Add your moment</a>
+            <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-coral">Our shared album</p>
+            <h2 class="mt-3 font-display text-4xl font-bold tracking-tight sm:text-5xl">The wall of moments.</h2>
+          </div>
+          <a href="upload/"
+            class="font-bold text-ink underline decoration-coral decoration-2 underline-offset-4 transition hover:text-coral">
+            Add your moment
+          </a>
         </div>
         <div id="galleryGrid" class="mt-10 columns-2 gap-3 sm:columns-3 lg:columns-4"></div>
-        <p id="galleryState" class="hidden mx-auto mt-10 max-w-md text-center text-lg leading-8 text-ink/70"></p>
+        <p id="galleryState" class="mx-auto mt-10 hidden max-w-md text-center text-lg leading-8 text-muted"></p>
         <button id="loadMore"
-          class="mx-auto mt-10 hidden rounded-md bg-ink px-5 py-3 text-sm font-bold text-white transition hover:bg-[#245553]">Load
-          more memories</button>
+          class="mx-auto mt-10 hidden rounded-full bg-ink px-6 py-3 text-sm font-bold text-white transition hover:bg-[#1a4543]">
+          Load more memories
+        </button>
       </div>
     </section>
 
+    <!-- Upload CTA -->
     <section class="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
-      <div
-        class="flex flex-col items-start justify-between gap-8 border-y border-ink/15 py-12 lg:flex-row lg:items-center">
+      <div class="flex flex-col items-start justify-between gap-8 border-y border-ink/10 py-12 lg:flex-row lg:items-center">
         <div>
-          <p class="text-sm font-bold uppercase tracking-[.18em] text-coral">Live photo upload</p>
-          <h2 class="mt-3 font-display text-4xl font-bold">Your lens. Our memory.</h2>
-          <p class="mt-3 max-w-xl text-ink/70">Share your moments from the reunion directly from your phone. Compressed
-            photos will appear in the gallery shortly after upload.</p>
-        </div><a href="upload/"
-          class="rounded-md bg-coral px-7 py-4 font-bold text-white transition hover:bg-[#dc4f41]">Upload reunion
-          photos</a>
+          <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-coral">Live photo upload</p>
+          <h2 class="mt-3 font-display text-4xl font-bold tracking-tight">Your lens. Our memory.</h2>
+          <p class="mt-3 max-w-xl text-muted">
+            Share your moments from the reunion directly from your phone. Compressed photos will appear in the gallery shortly after upload.
+          </p>
+        </div>
+        <a href="upload/"
+          class="rounded-full bg-coral px-7 py-4 font-bold text-white shadow-glow transition hover:bg-[#d44e3f]">
+          Upload reunion photos
+        </a>
       </div>
     </section>
 
+    <!-- Guidelines -->
     <section id="guidelines" class="bg-sun py-20 lg:py-28">
       <div class="mx-auto max-w-7xl px-5 lg:px-8">
         <div class="max-w-2xl">
-          <p class="text-sm font-bold uppercase tracking-[.18em] text-coral">For a thoughtful gathering</p>
-          <h2 class="mt-4 font-display text-4xl font-bold leading-tight sm:text-5xl">School Administration Guidelines
+          <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-coral">For a thoughtful gathering</p>
+          <h2 class="mt-3 font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
+            School Administration Guidelines
           </h2>
-          <p class="mt-5 text-lg leading-8 text-ink/75">A few shared commitments will help us celebrate our reunion with
-            respect for the school, its students, and every guest.</p>
+          <p class="mt-5 text-base leading-7 text-ink/70 sm:text-lg sm:leading-8">
+            A few shared commitments will help us celebrate our reunion with respect for the school, its students, and every guest.
+          </p>
         </div>
+
         <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <article class="border rounded-xl border-ink/15 bg-mist p-6"><i data-lucide="map-pin"
-              class="h-6 w-6 text-coral"></i>
-            <h3 class="mt-5 font-display text-2xl font-bold">Restricted Access</h3>
-            <p class="mt-3 leading-7 text-ink/70">Alumni should remain within designated event areas unless accompanied
-              by school representatives.</p>
+          <!-- same 11 articles; only class tokens updated for modern look -->
+          <article class="group rounded-2xl border border-ink/8 bg-mist p-6 shadow-soft transition hover:border-ink/15 hover:shadow-md">
+            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-coral/10 text-coral transition group-hover:bg-coral group-hover:text-white">
+              <i data-lucide="map-pin" class="h-5 w-5"></i>
+            </div>
+            <h3 class="mt-5 font-display text-xl font-bold tracking-tight">Restricted Access</h3>
+            <p class="mt-2.5 text-sm leading-6 text-muted">Alumni should remain within designated event areas unless accompanied by school representatives.</p>
           </article>
-          <article class="border rounded-xl border-ink/15 bg-mist p-6"><i data-lucide="school"
-              class="h-6 w-6 text-coral"></i>
-            <h3 class="mt-5 font-display text-2xl font-bold">Respect School Property</h3>
-            <p class="mt-3 leading-7 text-ink/70">Classrooms, laboratories, library, sports facilities, and
-              infrastructure should not be used without prior permission.</p>
+          <article class="group rounded-2xl border border-ink/8 bg-mist p-6 shadow-soft transition hover:border-ink/15 hover:shadow-md">
+            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-coral/10 text-coral transition group-hover:bg-coral group-hover:text-white">
+              <i data-lucide="school" class="h-5 w-5"></i>
+            </div>
+            <h3 class="mt-5 font-display text-xl font-bold tracking-tight">Respect School Property</h3>
+            <p class="mt-2.5 text-sm leading-6 text-muted">Classrooms, laboratories, library, sports facilities, and infrastructure should not be used without prior permission.</p>
           </article>
-          <article class="border rounded-xl border-ink/15 bg-mist p-6"><i data-lucide="camera"
-              class="h-6 w-6 text-coral"></i>
-            <h3 class="mt-5 font-display text-2xl font-bold">Photography & Videography</h3>
-            <p class="mt-3 leading-7 text-ink/70">Capture memories responsibly and follow the school’s privacy policies
-              and committee instructions.</p>
+          <article class="group rounded-2xl border border-ink/8 bg-mist p-6 shadow-soft transition hover:border-ink/15 hover:shadow-md">
+            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-coral/10 text-coral transition group-hover:bg-coral group-hover:text-white">
+              <i data-lucide="camera" class="h-5 w-5"></i>
+            </div>
+            <h3 class="mt-5 font-display text-xl font-bold tracking-tight">Photography & Videography</h3>
+            <p class="mt-2.5 text-sm leading-6 text-muted">Capture memories responsibly and follow the school’s privacy policies and committee instructions.</p>
           </article>
-          <article class="border rounded-xl border-ink/15 bg-mist p-6"><i data-lucide="heart-handshake"
-              class="h-6 w-6 text-coral"></i>
-            <h3 class="mt-5 font-display text-2xl font-bold">Appropriate Conduct</h3>
-            <p class="mt-3 leading-7 text-ink/70">Maintain discipline, respectful language, and the dignity and values
-              of the institution throughout the event.</p>
+          <article class="group rounded-2xl border border-ink/8 bg-mist p-6 shadow-soft transition hover:border-ink/15 hover:shadow-md">
+            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-coral/10 text-coral transition group-hover:bg-coral group-hover:text-white">
+              <i data-lucide="heart-handshake" class="h-5 w-5"></i>
+            </div>
+            <h3 class="mt-5 font-display text-xl font-bold tracking-tight">Appropriate Conduct</h3>
+            <p class="mt-2.5 text-sm leading-6 text-muted">Maintain discipline, respectful language, and the dignity and values of the institution throughout the event.</p>
           </article>
-          <article class="border rounded-xl border-ink/15 bg-mist p-6"><i data-lucide="ban"
-              class="h-6 w-6 text-coral"></i>
-            <h3 class="mt-5 font-display text-2xl font-bold">No Political or Commercial Activities</h3>
-            <p class="mt-3 leading-7 text-ink/70">This is a non-political, non-religious, and non-commercial event.
-              Promotions, advertising, and marketing are prohibited.</p>
+          <article class="group rounded-2xl border border-ink/8 bg-mist p-6 shadow-soft transition hover:border-ink/15 hover:shadow-md">
+            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-coral/10 text-coral transition group-hover:bg-coral group-hover:text-white">
+              <i data-lucide="ban" class="h-5 w-5"></i>
+            </div>
+            <h3 class="mt-5 font-display text-xl font-bold tracking-tight">No Political or Commercial Activities</h3>
+            <p class="mt-2.5 text-sm leading-6 text-muted">This is a non-political, non-religious, and non-commercial event. Promotions, advertising, and marketing are prohibited.</p>
           </article>
-          <article class="border rounded-xl border-ink/15 bg-mist p-6"><i data-lucide="message-square-heart"
-              class="h-6 w-6 text-coral"></i>
-            <h3 class="mt-5 font-display text-2xl font-bold">No Public Criticism</h3>
-            <p class="mt-3 leading-7 text-ink/70">Please do not publicly criticize school facilities or administration.
-              Share constructive suggestions privately after the event.</p>
+          <article class="group rounded-2xl border border-ink/8 bg-mist p-6 shadow-soft transition hover:border-ink/15 hover:shadow-md">
+            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-coral/10 text-coral transition group-hover:bg-coral group-hover:text-white">
+              <i data-lucide="message-square-heart" class="h-5 w-5"></i>
+            </div>
+            <h3 class="mt-5 font-display text-xl font-bold tracking-tight">No Public Criticism</h3>
+            <p class="mt-2.5 text-sm leading-6 text-muted">Please do not publicly criticize school facilities or administration. Share constructive suggestions privately after the event.</p>
           </article>
-          <article class="border rounded-xl border-ink/15 bg-mist p-6"><i data-lucide="wine-off"
-              class="h-6 w-6 text-coral"></i>
-            <h3 class="mt-5 font-display text-2xl font-bold">Alcohol-Free Event</h3>
-            <p class="mt-3 leading-7 text-ink/70">Participants under the influence of alcohol or carrying alcoholic
-              beverages will not be permitted to attend.</p>
+          <article class="group rounded-2xl border border-ink/8 bg-mist p-6 shadow-soft transition hover:border-ink/15 hover:shadow-md">
+            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-coral/10 text-coral transition group-hover:bg-coral group-hover:text-white">
+              <i data-lucide="wine-off" class="h-5 w-5"></i>
+            </div>
+            <h3 class="mt-5 font-display text-xl font-bold tracking-tight">Alcohol-Free Event</h3>
+            <p class="mt-2.5 text-sm leading-6 text-muted">Participants under the influence of alcohol or carrying alcoholic beverages will not be permitted to attend.</p>
           </article>
-          <article class="border rounded-xl border-ink/15 bg-mist p-6"><i data-lucide="shield-check"
-              class="h-6 w-6 text-coral"></i>
-            <h3 class="mt-5 font-display text-2xl font-bold">Follow Safety Instructions</h3>
-            <p class="mt-3 leading-7 text-ink/70">Follow all instructions issued by school authorities and volunteers,
-              including emergency procedures and crowd management.</p>
+          <article class="group rounded-2xl border border-ink/8 bg-mist p-6 shadow-soft transition hover:border-ink/15 hover:shadow-md">
+            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-coral/10 text-coral transition group-hover:bg-coral group-hover:text-white">
+              <i data-lucide="shield-check" class="h-5 w-5"></i>
+            </div>
+            <h3 class="mt-5 font-display text-xl font-bold tracking-tight">Follow Safety Instructions</h3>
+            <p class="mt-2.5 text-sm leading-6 text-muted">Follow all instructions issued by school authorities and volunteers, including emergency procedures and crowd management.</p>
           </article>
-          <article class="border rounded-xl border-ink/15 bg-mist p-6"><i data-lucide="trash-2"
-              class="h-6 w-6 text-coral"></i>
-            <h3 class="mt-5 font-display text-2xl font-bold">Keep the Campus Clean</h3>
-            <p class="mt-3 leading-7 text-ink/70">Help maintain cleanliness throughout the event. Use dustbins and
-              dispose of waste responsibly.</p>
+          <article class="group rounded-2xl border border-ink/8 bg-mist p-6 shadow-soft transition hover:border-ink/15 hover:shadow-md">
+            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-coral/10 text-coral transition group-hover:bg-coral group-hover:text-white">
+              <i data-lucide="trash-2" class="h-5 w-5"></i>
+            </div>
+            <h3 class="mt-5 font-display text-xl font-bold tracking-tight">Keep the Campus Clean</h3>
+            <p class="mt-2.5 text-sm leading-6 text-muted">Help maintain cleanliness throughout the event. Use dustbins and dispose of waste responsibly.</p>
           </article>
-          <article class="border rounded-xl border-ink/15 bg-mist p-6"><i data-lucide="car-front"
-              class="h-6 w-6 text-coral"></i>
-            <h3 class="mt-5 font-display text-2xl font-bold">Parking & Traffic</h3>
-            <p class="mt-3 leading-7 text-ink/70">Park vehicles only in designated parking areas and follow directions
-              from volunteers and school authorities.</p>
+          <article class="group rounded-2xl border border-ink/8 bg-mist p-6 shadow-soft transition hover:border-ink/15 hover:shadow-md">
+            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-coral/10 text-coral transition group-hover:bg-coral group-hover:text-white">
+              <i data-lucide="car-front" class="h-5 w-5"></i>
+            </div>
+            <h3 class="mt-5 font-display text-xl font-bold tracking-tight">Parking & Traffic</h3>
+            <p class="mt-2.5 text-sm leading-6 text-muted">Park vehicles only in designated parking areas and follow directions from volunteers and school authorities.</p>
           </article>
-          <article class="border rounded-xl border-ink/15 bg-mist p-6 sm:col-span-2 lg:col-span-1"><i
-              data-lucide="utensils" class="h-6 w-6 text-coral"></i>
-            <h3 class="mt-5 font-display text-2xl font-bold">Food & Refreshments</h3>
-            <p class="mt-3 leading-7 text-ink/70">Consume food only in designated areas while helping maintain
-              cleanliness.</p>
+          <article class="group rounded-2xl border border-ink/8 bg-mist p-6 shadow-soft transition hover:border-ink/15 hover:shadow-md sm:col-span-2 lg:col-span-1">
+            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-coral/10 text-coral transition group-hover:bg-coral group-hover:text-white">
+              <i data-lucide="utensils" class="h-5 w-5"></i>
+            </div>
+            <h3 class="mt-5 font-display text-xl font-bold tracking-tight">Food & Refreshments</h3>
+            <p class="mt-2.5 text-sm leading-6 text-muted">Consume food only in designated areas while helping maintain cleanliness.</p>
           </article>
         </div>
-        <p class="mx-auto mt-14 max-w-3xl text-center font-display text-3xl font-bold leading-snug text-ink">Let’s make
-          the TGTWURJC Grand Reunion 2026 memorable, respectful, and meaningful for our beloved alma mater.</p>
+
+        <div class="mx-auto mt-16 max-w-3xl text-center">
+          <div class="mx-auto mb-5 h-px w-16 bg-ink/20"></div>
+          <p class="font-display text-2xl font-bold leading-snug text-ink sm:text-3xl">
+            Let’s make the TGTWURJC Grand Reunion 2026 memorable, respectful, and meaningful for our beloved alma mater.
+          </p>
+        </div>
       </div>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer id="contact" class="bg-ink text-white">
     <div class="mx-auto flex max-w-7xl flex-col justify-between gap-8 px-5 py-12 sm:flex-row lg:px-8">
       <div>
-        <p class="font-display text-3xl font-bold">Government Tribal Welfare<br />Residential Junior College</p>
-        <p class="mt-3 text-sm font-bold uppercase tracking-[.18em] text-sun">TGTWURJC</p>
-        <p class="mt-2 text-sm text-white/65">Sangareddy, Jinnaram, Telangana 502319</p>
+        <p class="font-display text-3xl font-bold tracking-tight">Government Tribal Welfare<br />Residential Junior College</p>
+        <p class="mt-3 text-xs font-bold uppercase tracking-[0.18em] text-sun">TGTWURJC</p>
+        <p class="mt-2 text-sm text-white/60">Sangareddy, Jinnaram, Telangana 502319</p>
       </div>
       <div class="text-sm sm:text-right">
         <p class="font-display text-2xl font-bold">Grand Reunion 2026</p>
-        <p class="mt-2 text-white/65">2007-2012 Batches</p><button id="contactButton"
-          class="mt-5 rounded-md border border-white/25 px-4 py-2 font-bold text-white transition hover:border-sun hover:text-sun">View
-          committee contacts</button>
+        <p class="mt-2 text-white/60">2007–2012 Batches</p>
+        <button id="contactButton"
+          class="mt-5 rounded-full border border-white/20 px-5 py-2.5 font-bold text-white transition hover:border-sun hover:text-sun">
+          View committee contacts
+        </button>
       </div>
     </div>
-    <div class="border-t border-white/15 px-5 py-5 text-center text-sm text-white/70">
+    <div class="border-t border-white/10 px-5 py-5 text-center text-sm text-white/55">
       Built with <span class="text-coral">♥</span> by
       <span class="font-semibold text-white">Venkatesh Kethavath</span>
-      <span class="text-white/50">(2012 Batch)</span>
-      <br>
+      <span class="text-white/40">(2012 Batch)</span>
+      <br />
       Celebrating memories, friendships, and the lifelong spirit of
       <span class="font-medium text-white">TGTWURJC Grand Reunion 2026</span>.
     </div>
   </footer>
 
- 
-
+  <!-- Contact Modal (theme-aligned) -->
   <div id="contactModal"
-  class="fixed inset-0 z-50 hidden items-end justify-center bg-black/60 backdrop-blur-sm p-0 sm:items-center sm:p-6"
-  role="dialog" aria-modal="true" aria-labelledby="contactTitle">
-  <div
-    class="max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-t-2xl bg-white shadow-2xl ring-1 ring-black/5 sm:rounded-2xl">
-    <!-- Header -->
-    <div
-      class="sticky top-0 z-10 flex items-start justify-between border-b border-slate-100 bg-white/95 px-6 py-5 backdrop-blur-md sm:px-8">
-      <div>
-        <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-rose-500">2007 – 2012 Batch</p>
-        <h2 id="contactTitle" class="mt-1.5 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-          Contact information
-        </h2>
-      </div>
-      <button id="closeContact"
-        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500 transition hover:bg-slate-200 hover:text-slate-800 focus:outline-none focus:ring-2 focus:ring-rose-400/50"
-        aria-label="Close contacts">
-        <span class="text-xl leading-none">&times;</span>
-      </button>
-    </div>
-
-    <div class="p-6 sm:p-8">
-      <!-- Organizer card -->
-      <section
-        class="relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-6 text-white shadow-lg">
-        <div class="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-rose-500/20 blur-2xl"></div>
-        <div class="absolute -bottom-10 -left-6 h-28 w-28 rounded-full bg-amber-400/10 blur-2xl"></div>
-
-        <p class="relative text-[11px] font-semibold uppercase tracking-[0.2em] text-amber-300">
-          Organizer &amp; convener
-        </p>
-        <div class="relative mt-4 flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <h3 class="text-2xl font-bold tracking-tight sm:text-3xl">Vamshi</h3>
-            <p class="mt-1 text-sm text-slate-300">2009 Batch</p>
-          </div>
-          <a href="tel:+919553548429"
-            class="inline-flex items-center gap-2 rounded-lg bg-amber-400 px-5 py-3 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-300/60">
-            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-            </svg>
-            Call +91 95535 48429
-          </a>
+    class="fixed inset-0 z-50 hidden items-end justify-center bg-ink/60 p-0 backdrop-blur-sm sm:items-center sm:p-6"
+    role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+    <div class="max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-t-2xl bg-white shadow-lift ring-1 ring-ink/5 sm:rounded-2xl">
+      <div class="sticky top-0 z-10 flex items-start justify-between border-b border-ink/8 bg-white/95 px-6 py-5 backdrop-blur-md sm:px-8">
+        <div>
+          <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-coral">2007 – 2012 Batch</p>
+          <h2 id="contactTitle" class="mt-1.5 font-display text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+            Contact information
+          </h2>
         </div>
-      </section>
+        <button id="closeContact"
+          class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-mist text-ink/50 transition hover:bg-ink/10 hover:text-ink focus:outline-none focus:ring-2 focus:ring-coral/40"
+          aria-label="Close contacts">
+          <span class="text-xl leading-none">&times;</span>
+        </button>
+      </div>
 
-      <!-- Core committee -->
-      <p class="mt-8 text-xs font-semibold uppercase tracking-wider text-slate-400">
-        Core Committee Contacts
-      </p>
-
-      <div class="mt-3 divide-y divide-slate-100 rounded-xl border border-slate-100 bg-slate-50/50">
-        <!-- 2007 -->
-        <details class="group">
-          <summary
-            class="flex cursor-pointer list-none items-center justify-between px-4 py-4 text-base font-semibold text-slate-800 transition hover:bg-white sm:px-5 sm:text-lg">
-            2007 Batch Committee
-            <span
-              class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200/80 text-slate-500 transition group-open:rotate-180 group-open:bg-rose-100 group-open:text-rose-500">
-              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+      <div class="p-6 sm:p-8">
+        <section class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-ink via-[#1a4543] to-ink p-6 text-white shadow-lift">
+          <div class="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-coral/20 blur-2xl"></div>
+          <div class="absolute -bottom-10 -left-6 h-28 w-28 rounded-full bg-sun/10 blur-2xl"></div>
+          <p class="relative text-[11px] font-semibold uppercase tracking-[0.2em] text-sun">Organizer &amp; convener</p>
+          <div class="relative mt-4 flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <h3 class="font-display text-2xl font-bold tracking-tight sm:text-3xl">Vamshi</h3>
+              <p class="mt-1 text-sm text-white/60">2009 Batch</p>
+            </div>
+            <a href="tel:+919553548429"
+              class="inline-flex items-center gap-2 rounded-full bg-sun px-5 py-3 text-sm font-semibold text-ink shadow-sm transition hover:bg-white">
+              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
-            </span>
-          </summary>
-          <div class="grid gap-2 px-4 pb-4 sm:grid-cols-2 sm:px-5">
-            <a href="tel:+919440106080"
-              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
-              Pruthvi Raj <span class="font-normal text-slate-400">94401 06080</span>
-            </a>
-            <a href="tel:+919704238720"
-              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
-              Manohar <span class="font-normal text-slate-400">97042 38720</span>
-            </a>
-            <a href="tel:+919674818882"
-              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
-              Mahesh <span class="font-normal text-slate-400">96748 18882</span>
-            </a>
-            <a href="tel:+917336764737"
-              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
-              Vinod <span class="font-normal text-slate-400">73367 64737</span>
-            </a>
-            <a href="tel:+919494494860"
-              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
-              Boddupally Kiran <span class="font-normal text-slate-400">94944 94860</span>
+              Call +91 95535 48429
             </a>
           </div>
-        </details>
+        </section>
 
-        <!-- 2008 -->
-        <details class="group">
-          <summary
-            class="flex cursor-pointer list-none items-center justify-between px-4 py-4 text-base font-semibold text-slate-800 transition hover:bg-white sm:px-5 sm:text-lg">
-            2008 Batch Committee
-            <span
-              class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200/80 text-slate-500 transition group-open:rotate-180 group-open:bg-rose-100 group-open:text-rose-500">
-              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
-            </span>
-          </summary>
-          <div class="grid gap-2 px-4 pb-4 sm:grid-cols-2 sm:px-5">
-            <a href="tel:+918500836580"
-              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
-              Lal Singh <span class="font-normal text-slate-400">85008 36580</span>
-            </a>
-            <a href="tel:+918340934212"
-              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
-              Nagaraj <span class="font-normal text-slate-400">83409 34212</span>
-            </a>
-            <a href="tel:+919494523600"
-              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
-              Kailash <span class="font-normal text-slate-400">94945 23600</span>
-            </a>
-            <a href="tel:+919642898672"
-              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
-              Kasna <span class="font-normal text-slate-400">96428 98672</span>
-            </a>
-            <a href="tel:+919490018971"
-              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
-              Kishore <span class="font-normal text-slate-400">94900 18971</span>
-            </a>
-            <a href="tel:+919906886840"
-              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
-              Ganesh <span class="font-normal text-slate-400">99068 86840</span>
-            </a>
-          </div>
-        </details>
+        <p class="mt-8 text-xs font-semibold uppercase tracking-wider text-muted">Core Committee Contacts</p>
+        <div class="mt-3 divide-y divide-ink/8 rounded-2xl border border-ink/8 bg-mist/50">
+        
+           <!-- 2007 -->
+           <details class="group">
+            <summary
+              class="flex cursor-pointer list-none items-center justify-between px-4 py-4 text-base font-semibold text-slate-800 transition hover:bg-white sm:px-5 sm:text-lg">
+              2007 Batch Committee
+              <span
+                class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200/80 text-slate-500 transition group-open:rotate-180 group-open:bg-rose-100 group-open:text-rose-500">
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </span>
+            </summary>
+            <div class="grid gap-2 px-4 pb-4 sm:grid-cols-2 sm:px-5">
+              <a href="tel:+919440106080"
+                class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+                Pruthvi Raj <span class="font-normal text-slate-400">94401 06080</span>
+              </a>
+              <a href="tel:+919704238720"
+                class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+                Manohar <span class="font-normal text-slate-400">97042 38720</span>
+              </a>
+              <a href="tel:+919674818882"
+                class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+                Mahesh <span class="font-normal text-slate-400">96748 18882</span>
+              </a>
+              <a href="tel:+917336764737"
+                class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+                Vinod <span class="font-normal text-slate-400">73367 64737</span>
+              </a>
+              <a href="tel:+919494494860"
+                class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+                Boddupally Kiran <span class="font-normal text-slate-400">94944 94860</span>
+              </a>
+            </div>
+          </details>
 
-        <!-- 2009 -->
-        <details class="group">
-          <summary
-            class="flex cursor-pointer list-none items-center justify-between px-4 py-4 text-base font-semibold text-slate-800 transition hover:bg-white sm:px-5 sm:text-lg">
-            2009 Batch Committee
-            <span
-              class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200/80 text-slate-500 transition group-open:rotate-180 group-open:bg-rose-100 group-open:text-rose-500">
-              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
-            </span>
-          </summary>
-          <div class="grid gap-2 px-4 pb-4 sm:grid-cols-2 sm:px-5">
-            <a href="tel:+919010806571"
-              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
-              Ramdas <span class="font-normal text-slate-400">90108 06571</span>
-            </a>
-            <a href="tel:+919603385606"
-              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
-              Soma <span class="font-normal text-slate-400">96033 85606</span>
-            </a>
-            <a href="tel:+919492581632"
-              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
-              Pruthvi Raj <span class="font-normal text-slate-400">94925 81632</span>
-            </a>
-            <a href="tel:+919502208595"
-              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
-              Karthik <span class="font-normal text-slate-400">95022 08595</span>
-            </a>
-            <a href="tel:+916305857946"
-              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
-              Naresh <span class="font-normal text-slate-400">63058 57946</span>
-            </a>
-            <a href="tel:+919390000284"
-              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
-              Gopal <span class="font-normal text-slate-400">93900 00284</span>
-            </a>
-          </div>
-        </details>
+          <!-- 2008 -->
+          <details class="group">
+            <summary
+              class="flex cursor-pointer list-none items-center justify-between px-4 py-4 text-base font-semibold text-slate-800 transition hover:bg-white sm:px-5 sm:text-lg">
+              2008 Batch Committee
+              <span
+                class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200/80 text-slate-500 transition group-open:rotate-180 group-open:bg-rose-100 group-open:text-rose-500">
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </span>
+            </summary>
+            <div class="grid gap-2 px-4 pb-4 sm:grid-cols-2 sm:px-5">
+              <a href="tel:+918500836580"
+                class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+                Lal Singh <span class="font-normal text-slate-400">85008 36580</span>
+              </a>
+              <a href="tel:+918340934212"
+                class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+                Nagaraj <span class="font-normal text-slate-400">83409 34212</span>
+              </a>
+              <a href="tel:+919494523600"
+                class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+                Kailash <span class="font-normal text-slate-400">94945 23600</span>
+              </a>
+              <a href="tel:+919642898672"
+                class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+                Kasna <span class="font-normal text-slate-400">96428 98672</span>
+              </a>
+              <a href="tel:+919490018971"
+                class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+                Kishore <span class="font-normal text-slate-400">94900 18971</span>
+              </a>
+              <a href="tel:+919906886840"
+                class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+                Ganesh <span class="font-normal text-slate-400">99068 86840</span>
+              </a>
+            </div>
+          </details>
 
-        <!-- 2010 -->
-        <details class="group">
-          <summary
-            class="flex cursor-pointer list-none items-center justify-between px-4 py-4 text-base font-semibold text-slate-800 transition hover:bg-white sm:px-5 sm:text-lg">
-            2010 Batch Committee
-            <span
-              class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200/80 text-slate-500 transition group-open:rotate-180 group-open:bg-rose-100 group-open:text-rose-500">
-              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
-            </span>
-          </summary>
-          <div class="grid gap-2 px-4 pb-4 sm:grid-cols-2 sm:px-5">
-            <a href="tel:+919666386708"
-              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
-              Hari Prasad <span class="font-normal text-slate-400">96663 86708</span>
-            </a>
-            <a href="tel:+919398058292"
-              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
-              Vijay <span class="font-normal text-slate-400">93980 58292</span>
-            </a>
-            <a href="tel:+918331996536"
-              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
-              Srinivas <span class="font-normal text-slate-400">83319 96536</span>
-            </a>
-          </div>
-        </details>
+          <!-- 2009 -->
+          <details class="group">
+            <summary
+              class="flex cursor-pointer list-none items-center justify-between px-4 py-4 text-base font-semibold text-slate-800 transition hover:bg-white sm:px-5 sm:text-lg">
+              2009 Batch Committee
+              <span
+                class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200/80 text-slate-500 transition group-open:rotate-180 group-open:bg-rose-100 group-open:text-rose-500">
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </span>
+            </summary>
+            <div class="grid gap-2 px-4 pb-4 sm:grid-cols-2 sm:px-5">
+              <a href="tel:+919010806571"
+                class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+                Ramdas <span class="font-normal text-slate-400">90108 06571</span>
+              </a>
+              <a href="tel:+919603385606"
+                class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+                Soma <span class="font-normal text-slate-400">96033 85606</span>
+              </a>
+              <a href="tel:+919492581632"
+                class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+                Pruthvi Raj <span class="font-normal text-slate-400">94925 81632</span>
+              </a>
+              <a href="tel:+919502208595"
+                class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+                Karthik <span class="font-normal text-slate-400">95022 08595</span>
+              </a>
+              <a href="tel:+916305857946"
+                class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+                Naresh <span class="font-normal text-slate-400">63058 57946</span>
+              </a>
+              <a href="tel:+919390000284"
+                class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+                Gopal <span class="font-normal text-slate-400">93900 00284</span>
+              </a>
+            </div>
+          </details>
 
-        <!-- 2011 -->
-        <details class="group">
-          <summary
-            class="flex cursor-pointer list-none items-center justify-between px-4 py-4 text-base font-semibold text-slate-800 transition hover:bg-white sm:px-5 sm:text-lg">
-            2011 Batch Committee
-            <span
-              class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200/80 text-slate-500 transition group-open:rotate-180 group-open:bg-rose-100 group-open:text-rose-500">
-              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
-            </span>
-          </summary>
-          <div class="grid gap-2 px-4 pb-4 sm:grid-cols-2 sm:px-5">
-            <a href="tel:+918106373109"
-              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
-              Kiran <span class="font-normal text-slate-400">81063 73109</span>
-            </a>
-            <a href="tel:+919573730448"
-              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
-              Ganesh <span class="font-normal text-slate-400">95737 30448</span>
-            </a>
-          </div>
-        </details>
+          <!-- 2010 -->
+          <details class="group">
+            <summary
+              class="flex cursor-pointer list-none items-center justify-between px-4 py-4 text-base font-semibold text-slate-800 transition hover:bg-white sm:px-5 sm:text-lg">
+              2010 Batch Committee
+              <span
+                class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200/80 text-slate-500 transition group-open:rotate-180 group-open:bg-rose-100 group-open:text-rose-500">
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </span>
+            </summary>
+            <div class="grid gap-2 px-4 pb-4 sm:grid-cols-2 sm:px-5">
+              <a href="tel:+919666386708"
+                class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+                Hari Prasad <span class="font-normal text-slate-400">96663 86708</span>
+              </a>
+              <a href="tel:+919398058292"
+                class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+                Vijay <span class="font-normal text-slate-400">93980 58292</span>
+              </a>
+              <a href="tel:+918331996536"
+                class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+                Srinivas <span class="font-normal text-slate-400">83319 96536</span>
+              </a>
+            </div>
+          </details>
 
-        <!-- 2012 -->
-        <details class="group">
-          <summary
-            class="flex cursor-pointer list-none items-center justify-between px-4 py-4 text-base font-semibold text-slate-800 transition hover:bg-white sm:px-5 sm:text-lg">
-            2012 Batch Committee
-            <span
-              class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200/80 text-slate-500 transition group-open:rotate-180 group-open:bg-rose-100 group-open:text-rose-500">
-              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
-            </span>
-          </summary>
-          <div class="grid gap-2 px-4 pb-4 sm:grid-cols-2 sm:px-5">
-            <a href="tel:+919989629741"
-              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
-              Devuja <span class="font-normal text-slate-400">99896 29741</span>
-            </a>
-            <a href="tel:+919912238755"
-              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
-              Rajesh <span class="font-normal text-slate-400">99122 38755</span>
-            </a>
-            <a href="tel:+917659996124"
-              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
-              Vinay <span class="font-normal text-slate-400">76599 96124</span>
-            </a>
-          </div>
-        </details>
+          <!-- 2011 -->
+          <details class="group">
+            <summary
+              class="flex cursor-pointer list-none items-center justify-between px-4 py-4 text-base font-semibold text-slate-800 transition hover:bg-white sm:px-5 sm:text-lg">
+              2011 Batch Committee
+              <span
+                class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200/80 text-slate-500 transition group-open:rotate-180 group-open:bg-rose-100 group-open:text-rose-500">
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </span>
+            </summary>
+            <div class="grid gap-2 px-4 pb-4 sm:grid-cols-2 sm:px-5">
+              <a href="tel:+918106373109"
+                class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+                Kiran <span class="font-normal text-slate-400">81063 73109</span>
+              </a>
+              <a href="tel:+919573730448"
+                class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+                Ganesh <span class="font-normal text-slate-400">95737 30448</span>
+              </a>
+            </div>
+          </details>
+
+          <!-- 2012 -->
+          <details class="group">
+            <summary
+              class="flex cursor-pointer list-none items-center justify-between px-4 py-4 text-base font-semibold text-slate-800 transition hover:bg-white sm:px-5 sm:text-lg">
+              2012 Batch Committee
+              <span
+                class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200/80 text-slate-500 transition group-open:rotate-180 group-open:bg-rose-100 group-open:text-rose-500">
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </span>
+            </summary>
+            <div class="grid gap-2 px-4 pb-4 sm:grid-cols-2 sm:px-5">
+              <a href="tel:+919989629741"
+                class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+                Devuja <span class="font-normal text-slate-400">99896 29741</span>
+              </a>
+              <a href="tel:+919912238755"
+                class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+                Rajesh <span class="font-normal text-slate-400">99122 38755</span>
+              </a>
+              <a href="tel:+917659996124"
+                class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+                Vinay <span class="font-normal text-slate-400">76599 96124</span>
+              </a>
+            </div>
+          </details>
+          
+        </div>
       </div>
     </div>
   </div>
-</div>
 
+  <!-- Scripts unchanged -->
   <script>
     const target = new Date('2026-08-16T10:00:00+05:30').getTime();
     const countdown = document.getElementById('countdown');
     function updateCountdown() {
       let difference = Math.max(0, target - Date.now());
-      const values = [['Days', Math.floor(difference / 86400000)], ['Hours', Math.floor(difference / 3600000) % 24], ['Mins', Math.floor(difference / 60000) % 60], ['Secs', Math.floor(difference / 1000) % 60]];
-      countdown.innerHTML = values.map(([label, value]) => `<div><strong class="block font-display text-3xl leading-none sm:text-4xl">${String(value).padStart(2, '0')}</strong><span class="mt-1 block text-[10px] font-bold uppercase tracking-wider">${label}</span></div>`).join('');
+      const values = [
+        ['Days', Math.floor(difference / 86400000)],
+        ['Hours', Math.floor(difference / 3600000) % 24],
+        ['Mins', Math.floor(difference / 60000) % 60],
+        ['Secs', Math.floor(difference / 1000) % 60],
+      ];
+      countdown.innerHTML = values
+        .map(
+          ([label, value]) =>
+            `<div><strong class="block font-display text-3xl leading-none sm:text-4xl">${String(value).padStart(2, '0')}</strong><span class="mt-1 block text-[10px] font-bold uppercase tracking-wider">${label}</span></div>`
+        )
+        .join('');
     }
-    updateCountdown(); setInterval(updateCountdown, 1000);
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
 
-    const contactModal = document.getElementById('contactModal'); const contactButton = document.getElementById('contactButton'); const closeContact = document.getElementById('closeContact');
-    function setContacts(open) { contactModal.classList.toggle('hidden', !open); contactModal.classList.toggle('flex', open); document.body.classList.toggle('overflow-hidden', open); if (open) closeContact.focus(); }
-    contactButton.addEventListener('click', () => setContacts(true)); closeContact.addEventListener('click', () => setContacts(false));
-    contactModal.addEventListener('click', event => { if (event.target === contactModal) setContacts(false); });
-    document.addEventListener('keydown', event => { if (event.key === 'Escape' && !contactModal.classList.contains('hidden')) setContacts(false); });
+    const contactModal = document.getElementById('contactModal');
+    const contactButton = document.getElementById('contactButton');
+    const closeContact = document.getElementById('closeContact');
+    function setContacts(open) {
+      contactModal.classList.toggle('hidden', !open);
+      contactModal.classList.toggle('flex', open);
+      document.body.classList.toggle('overflow-hidden', open);
+      if (open) closeContact.focus();
+    }
+    contactButton.addEventListener('click', () => setContacts(true));
+    closeContact.addEventListener('click', () => setContacts(false));
+    contactModal.addEventListener('click', (event) => {
+      if (event.target === contactModal) setContacts(false);
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !contactModal.classList.contains('hidden')) setContacts(false);
+    });
     lucide.createIcons();
   </script>
-  <script type="module">import { initGallery } from './js/gallery.js'; initGallery({ preview: true });</script>
+
+  <script>
+    (function () {
+      const TOTAL_IMAGES = 5;
+      const INTERVAL_MS = 5500;
+      const BASE_PATH = 'assets/hero/';
+      const slidesEl = document.getElementById('heroSlides');
+      const dotsEl = document.getElementById('heroDots');
+      if (!slidesEl) return;
+      let current = 0;
+      const slides = [];
+      for (let i = 1; i <= TOTAL_IMAGES; i++) {
+        const slide = document.createElement('div');
+        slide.className = 'hero-slide' + (i === 1 ? ' is-active' : '');
+        slide.innerHTML = `<img src="${BASE_PATH}image_${i}.jpeg" alt="Reunion memory ${i}" loading="${i === 1 ? 'eager' : 'lazy'}" />`;
+        slidesEl.appendChild(slide);
+        slides.push(slide);
+        if (dotsEl) {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.setAttribute('aria-label', `Go to slide ${i}`);
+          if (i === 1) dot.classList.add('is-active');
+          dot.addEventListener('click', () => goTo(i - 1));
+          dotsEl.appendChild(dot);
+        }
+      }
+      function goTo(index) {
+        slides[current].classList.remove('is-active');
+        if (dotsEl) dotsEl.children[current].classList.remove('is-active');
+        current = index;
+        slides[current].classList.add('is-active');
+        if (dotsEl) dotsEl.children[current].classList.add('is-active');
+      }
+      function next() {
+        goTo((current + 1) % TOTAL_IMAGES);
+      }
+      let timer = setInterval(next, INTERVAL_MS);
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) clearInterval(timer);
+        else timer = setInterval(next, INTERVAL_MS);
+      });
+    })();
+  </script>
+  <script type="module">
+    import { initGallery } from './js/gallery.js';
+    initGallery({ preview: true });
+  </script>
 </body>
 
 </html>
