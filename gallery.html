@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Photo gallery for the TGTWURJC Grand Reunion 2026"
+    />
+    <title>Gallery | TGTWURJC Grand Reunion 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ink: "#153B3A",
+              coral: "#F46352",
+              sun: "#FFD166",
+              mist: "#F7F4EC",
+            },
+            fontFamily: { display: ["Georgia", "serif"] },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="min-h-screen bg-mist text-ink antialiased">
+    <header class="bg-ink text-white">
+      <nav
+        class="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 lg:px-8"
+      >
+        <a href="../" class="font-display text-xl font-bold"
+          >Reunion <span class="text-sun">'26</span></a
+        >
+        <div class="flex items-center gap-5">
+          <a
+            href="../upload/"
+            class="hidden text-sm font-bold text-white/80 hover:text-sun sm:block"
+            >Share a photo</a
+          ><a
+            href="../"
+            class="rounded-md bg-sun px-4 py-2 text-sm font-bold text-ink transition hover:bg-white"
+            >Back home</a
+          >
+        </div>
+      </nav>
+    </header>
+    <main class="mx-auto max-w-7xl px-5 py-14 lg:px-8 lg:py-20">
+      <p class="text-sm font-bold uppercase tracking-[.18em] text-coral">
+        TGTWURJC Grand Reunion 2026
+      </p>
+      <div
+        class="mt-4 flex flex-col justify-between gap-5 sm:flex-row sm:items-end"
+      >
+        <div>
+          <h1 class="font-display text-4xl font-bold sm:text-5xl">
+            Every shared moment.
+          </h1>
+          <p class="mt-3 max-w-xl text-lg leading-8 text-ink/70">
+            A living album made by the TGTWURJC alumni community.
+          </p>
+        </div>
+        <a
+          href="../upload/"
+          class="w-fit rounded-md bg-coral px-5 py-3 text-sm font-bold text-white transition hover:bg-[#dc4f41]"
+          >Upload photos</a
+        >
+      </div>
+      <div
+        id="galleryGrid"
+        class="mt-10 columns-2 gap-3 sm:columns-3 lg:columns-4"
+      ></div>
+      <p
+        id="galleryState"
+        class="hidden mx-auto mt-10 max-w-md text-center text-lg leading-8 text-ink/70"
+      ></p>
+      <button
+        id="loadMore"
+        class="mx-auto mt-10 hidden rounded-md bg-ink px-5 py-3 text-sm font-bold text-white transition hover:bg-[#245553]"
+      >
+        Load more memories
+      </button>
+    </main>
+    <script type="module">
+      import { initGallery } from "../js/gallery.js";
+      initGallery();
+    </script>
+  </body>
+</html>

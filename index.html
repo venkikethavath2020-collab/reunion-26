@@ -1,485 +1,1830 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="2007-2012 Batch Grand Reunion - 16 August 2026" />
-  <title>Reunion '26 | 2007-2012 Batch</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: { ink: '#153B3A', coral: '#F46352', sun: '#FFD166', mist: '#F7F4EC', leaf: '#49886B' },
-          fontFamily: { display: ['Georgia', 'serif'] },
-          boxShadow: { lift: '0 18px 45px rgba(21,59,58,.13)' }
-        }
-      }
-    }
-  </script>
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
+    <title>TGTWURJC Grand Reunion 2026</title>
 
-    body {
-      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-    }
+    <meta
+      name="description"
+      content="Official website of the Telangana Government Tribal Welfare Residential Upgraded Junior College Grand Reunion 2026."
+    />
 
-    .grain {
-      background-image: radial-gradient(rgba(255, 255, 255, .25) 1px, transparent 1px);
-      background-size: 14px 14px;
-    }
+    <!-- Fonts -->
 
-    .photo-tile:nth-child(3n) {
-      transform: translateY(22px);
-    }
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
 
-    #contactModal details a {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      border-radius: 4px;
-      background: white;
-      padding: 10px 12px;
-      font-size: 14px;
-      font-weight: 700;
-      transition: background-color .2s ease;
-    }
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    #contactModal details a:hover {
-      background: #FFD166;
-    }
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
-    #contactModal details a span {
-      color: #F46352;
-      white-space: nowrap;
-    }
+    <!-- Tailwind -->
 
-    @media (max-width: 640px) {
-      .photo-tile:nth-child(3n) {
-        transform: none;
-      }
-    }
-  </style>
-</head>
+    <script src="https://cdn.tailwindcss.com"></script>
 
-<body class="bg-mist text-ink antialiased">
-  <header class="absolute inset-x-0 top-0 z-20">
-    <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 lg:px-8" aria-label="Main navigation">
-      <a href="#top" class="font-display text-xl font-bold tracking-wide text-white">Reunion <span
-          class="text-sun">'26</span></a>
-      <div class="hidden items-center gap-7 text-sm font-semibold text-white/90 md:flex">
-        <a class="hover:text-sun" href="#about">Our school</a><a class="hover:text-sun" href="#schedule">Schedule</a><a
-          class="rounded-md border border-sun/70 px-3 py-2 text-sun transition hover:bg-sun hover:text-ink"
-          href="#guidelines">Guidelines</a><a class="hover:text-sun" href="#gallery">Gallery</a><a
-          class="hover:text-sun" href="#contact">Contact</a>
-      </div>
-      <a href="upload/" class="rounded-md bg-sun px-4 py-2 text-sm font-bold text-ink transition hover:bg-white">Share a
-        photo</a>
-    </nav>
-  </header>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
 
-  <main id="top">
-    <section class="relative min-h-[760px] overflow-hidden bg-ink text-white sm:min-h-[720px]">
-      <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=1800&q=85"
-        alt="Friends celebrating together outdoors" class="absolute inset-0 h-full w-full object-cover opacity-35" />
-      <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/35"></div>
-      <div class="grain absolute inset-0 opacity-30"></div>
+              display: ["Plus Jakarta Sans", "sans-serif"],
+            },
+
+            colors: {
+              primary: "#F97316",
+
+              secondary: "#FB923C",
+
+              dark: "#0F172A",
+
+              light: "#F8FAFC",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="bg-white font-sans text-slate-800">
+    <!-- ========================= -->
+    <!-- Navigation -->
+    <!-- ========================= -->
+
+    <header id="navbar">
+      <header
+        class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-white/80 backdrop-blur-xl shadow-sm"
+      >
+        <div
+          class="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8"
+        >
+          <!-- Logo -->
+
+          <a href="#hero" class="flex items-center gap-4">
+            <div
+              class="flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-500 text-xl font-bold text-white shadow-lg"
+            >
+              🎓
+            </div>
+
+            <div>
+              <h1 class="font-display text-lg font-bold text-slate-900">
+                TGTWURJC
+              </h1>
+
+              <p class="text-xs tracking-wide text-slate-500">
+                Grand Reunion 2026
+              </p>
+            </div>
+          </a>
+
+          <!-- Desktop Menu -->
+
+          <nav class="hidden items-center gap-8 lg:flex">
+            <a
+              href="#hero"
+              class="font-medium text-slate-700 transition hover:text-orange-500"
+            >
+              Home
+            </a>
+
+            <a
+              href="#welcome"
+              class="font-medium text-slate-700 transition hover:text-orange-500"
+            >
+              Welcome
+            </a>
+
+            <a
+              href="#school"
+              class="font-medium text-slate-700 transition hover:text-orange-500"
+            >
+              School
+            </a>
+
+            <a
+              href="#details"
+              class="font-medium text-slate-700 transition hover:text-orange-500"
+            >
+              Event
+            </a>
+
+            <a
+              href="#schedule"
+              class="font-medium text-slate-700 transition hover:text-orange-500"
+            >
+              Schedule
+            </a>
+
+            <a
+              href="#guidelines"
+              class="font-medium text-slate-700 transition hover:text-orange-500"
+            >
+              Guidelines
+            </a>
+
+            <a
+              href="#gallery"
+              class="font-medium text-slate-700 transition hover:text-orange-500"
+            >
+              Gallery
+            </a>
+
+            <a
+              href="#contact"
+              class="font-medium text-slate-700 transition hover:text-orange-500"
+            >
+              Contact
+            </a>
+          </nav>
+
+          <!-- Right Buttons -->
+
+          <div class="hidden items-center gap-4 lg:flex">
+            <a
+              href="upload.html"
+              class="rounded-xl bg-orange-500 px-5 py-3 font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-orange-600"
+            >
+              Upload Photos
+            </a>
+          </div>
+
+          <!-- Mobile Menu Button -->
+
+          <button
+            id="menuBtn"
+            class="rounded-xl p-2 transition hover:bg-slate-100 lg:hidden"
+          >
+            <i data-lucide="menu" class="h-7 w-7"></i>
+          </button>
+        </div>
+
+        <!-- Mobile Menu -->
+
+        <div
+          id="mobileMenu"
+          class="hidden border-t border-slate-200 bg-white lg:hidden"
+        >
+          <nav class="flex flex-col p-6">
+            <a href="#hero" class="rounded-xl px-4 py-3 hover:bg-orange-50"
+              >Home</a
+            >
+
+            <a href="#welcome" class="rounded-xl px-4 py-3 hover:bg-orange-50"
+              >Welcome</a
+            >
+
+            <a href="#school" class="rounded-xl px-4 py-3 hover:bg-orange-50"
+              >School</a
+            >
+
+            <a href="#details" class="rounded-xl px-4 py-3 hover:bg-orange-50"
+              >Event</a
+            >
+
+            <a href="#schedule" class="rounded-xl px-4 py-3 hover:bg-orange-50"
+              >Schedule</a
+            >
+
+            <a
+              href="#guidelines"
+              class="rounded-xl px-4 py-3 hover:bg-orange-50"
+              >Guidelines</a
+            >
+
+            <a href="#gallery" class="rounded-xl px-4 py-3 hover:bg-orange-50"
+              >Gallery</a
+            >
+
+            <a href="#contact" class="rounded-xl px-4 py-3 hover:bg-orange-50"
+              >Contact</a
+            >
+
+            <a
+              href="upload.html"
+              class="mt-4 rounded-xl bg-orange-500 px-5 py-3 text-center font-semibold text-white"
+            >
+              Upload Photos
+            </a>
+          </nav>
+        </div>
+      </header>
+    </header>
+
+    <!-- ========================= -->
+    <!-- Hero -->
+    <!-- ========================= -->
+
+    <section
+      id="hero"
+      class="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 pt-28"
+    >
+      <!-- Background Blobs -->
       <div
-        class="relative mx-auto flex min-h-[760px] max-w-7xl flex-col justify-end px-5 pb-16 pt-32 sm:min-h-[720px] sm:pb-20 lg:px-8">
-        <p class="mb-5 flex items-center gap-3 text-sm font-bold uppercase tracking-[.2em] text-sun"><span
-            class="h-px w-10 bg-sun"></span> 2007 - 2012 Batch</p>
-        <h1 class="max-w-4xl font-display text-5xl font-bold leading-[.95] sm:text-7xl lg:text-8xl">Some
-          bonds<br />never graduate.</h1>
-        <p class="mt-7 max-w-xl text-lg leading-8 text-white/80">One classroom. A thousand stories. Let’s come home for
-          a day that brings every memory back to life.</p>
-        <div class="mt-9 flex flex-wrap gap-3"><a href="#guidelines"
-            class="rounded-md bg-coral px-6 py-3 font-bold text-white transition hover:bg-[#dc4f41]">School
-            guidelines</a><a href="#details"
-            class="rounded-md border border-white/35 px-6 py-3 font-bold text-white transition hover:bg-white/10">See
-            the plan</a></div>
-        <div class="mt-14 flex flex-wrap items-center gap-x-9 gap-y-3 border-t border-white/20 pt-5 text-sm">
-          <span><strong class="mr-2 text-sun">16 AUG</strong> Sunday, 2026</span><span><strong
-              class="mr-2 text-sun">10:00 AM</strong> onwards</span><span><strong
-              class="mr-2 text-sun">TGTWURJC</strong> Jinnaram, Telangana</span>
-        </div>
-      </div>
-    </section>
+        class="absolute -top-32 -left-32 h-96 w-96 rounded-full bg-orange-500/20 blur-3xl"
+      ></div>
+      <div
+        class="absolute -bottom-32 -right-32 h-[450px] w-[450px] rounded-full bg-amber-400/10 blur-3xl"
+      ></div>
 
-    <section class="border-b border-ink/10 bg-sun py-7" aria-label="Event countdown">
-      <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-5 sm:flex-row lg:px-8">
-        <p class="font-display text-2xl font-bold">The countdown to our next chapter</p>
-        <div id="countdown" class="flex gap-5 text-center sm:gap-8" aria-live="polite"></div>
-      </div>
-    </section>
+      <div
+        class="relative mx-auto grid min-h-[85vh] max-w-7xl items-center gap-16 px-6 py-20 lg:grid-cols-2 lg:px-8"
+      >
+        <!-- Left -->
 
-    <section id="about"
-      class="mx-auto grid max-w-7xl gap-12 px-5 py-20 lg:grid-cols-2 lg:items-center lg:px-8 lg:py-28">
-      <div>
-        <p class="text-sm font-bold uppercase tracking-[.18em] text-coral">Welcome message</p>
-        <h2 class="mt-4 max-w-xl font-display text-4xl font-bold leading-tight sm:text-5xl">Welcome Back to Our Alma
-          Mater</h2>
-        <p class="mt-6 max-w-xl text-lg leading-8 text-ink/75">Years may have passed, but the memories we created at
-          <strong>Telangana Government Tribal Welfare Residential Upgraded Junior College (TGTWURJC), Jinnaram</strong> remain close to our
-          hearts.
-        </p>
-        <p class="mt-4 max-w-xl leading-8 text-ink/75">From morning assemblies and classrooms to hostel life, sports,
-          cultural events, examinations, and lifelong friendships, this campus shaped who we are today. The
-          <strong>Grand Reunion 2026</strong> is our opportunity to reconnect with classmates, honor our beloved
-          teachers, revisit cherished memories, and create new ones together.
-        </p>
-        <p class="mt-5 max-w-xl font-display text-2xl font-bold leading-relaxed text-coral">Once a TGTWURJC student,
-          always a part of the TGTWURJC family.</p>
-      </div>
-      <div class="relative mx-auto w-full max-w-md">
-        <div class="absolute -left-5 -top-5 h-32 w-32 rounded-full bg-sun"></div><img
-          class="relative aspect-[4/5] w-full rounded-sm object-cover shadow-lift"
-          src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=85"
-          alt="Friends smiling together" />
-        <div class="absolute -bottom-5 -right-3 max-w-[230px] bg-coral p-5 text-white shadow-lift">
-          <p class="font-display text-2xl font-bold">Friendship. Gratitude. Home.</p>
-          <p class="mt-1 text-sm text-white/80">The ties that time cannot change.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="bg-[#E5E9DF] py-20 lg:py-28">
-      <div class="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[.8fr_1.2fr] lg:px-8">
         <div>
-          <p class="text-sm font-bold uppercase tracking-[.18em] text-coral">About our school</p>
-          <h2 class="mt-4 font-display text-4xl font-bold leading-tight sm:text-5xl">Telangana Tribal Welfare
-            Residential Upgraded Junior College</h2>
-          <p class="mt-5 font-semibold text-ink/70">TGTWURJC, Jinnaram, Sangareddy District</p>
-        </div>
-        <div class="text-lg leading-8 text-ink/75">
-          <p>Telangana Government Tribal Welfare Residential Upgraded Junior College has played an important role in nurturing generations
-            of students through quality education, discipline, values, and character.</p>
-          <p class="mt-5">The institution has provided opportunities for academic excellence while fostering leadership,
-            teamwork, respect, and lifelong friendships. For every student from the <strong>2007-2012 batches</strong>,
-            this campus represents unforgettable memories that continue to inspire us throughout life.</p>
-          <p class="mt-5 font-display text-2xl font-bold text-ink">Today, we reunite not just as former classmates, but
-            as one family connected forever by our alma mater.</p>
-        </div>
-      </div>
-    </section>
+          <span
+            class="inline-flex items-center rounded-full border border-orange-300/20 bg-orange-500/10 px-4 py-2 text-sm font-semibold text-orange-300"
+          >
+            🎉 Grand Reunion 2026
+          </span>
 
-    <section id="details" class="bg-ink py-20 text-white lg:py-28">
-      <div class="mx-auto max-w-7xl px-5 lg:px-8">
-        <div class="max-w-xl">
-          <p class="text-sm font-bold uppercase tracking-[.18em] text-sun">Mark the calendar</p>
-          <h2 class="mt-4 font-display text-4xl font-bold sm:text-5xl">One day. All of us.</h2>
+          <h1
+            class="mt-8 font-display text-5xl font-extrabold leading-tight text-white md:text-6xl"
+          >
+            Back To Where
+
+            <span class="text-orange-400"> Our Journey </span>
+
+            Began
+          </h1>
+
+          <p class="mt-8 max-w-xl text-xl leading-9 text-slate-300">
+            A heartfelt reunion of the
+            <strong class="text-white"> 2007–2012 Batches </strong>
+            at
+            <strong class="text-orange-300">
+              Telangana Government Tribal Welfare Residential Upgraded Junior
+              College, Jinnaram.
+            </strong>
+
+            Let's relive memories, reconnect with classmates and honour our
+            beloved teachers.
+          </p>
+
+          <div class="mt-10 flex flex-wrap gap-4">
+            <a
+              href="#details"
+              class="rounded-xl bg-orange-500 px-7 py-4 font-semibold text-white shadow-xl transition hover:-translate-y-1 hover:bg-orange-600"
+            >
+              Event Details
+            </a>
+
+            <a
+              href="#gallery"
+              class="rounded-xl border border-white/20 px-7 py-4 font-semibold text-white transition hover:bg-white/10"
+            >
+              View Gallery
+            </a>
+          </div>
+
+          <!-- Quick Info -->
+
+          <div class="mt-12 grid gap-6 sm:grid-cols-3">
+            <div>
+              <p class="text-sm uppercase tracking-widest text-slate-400">
+                Date
+              </p>
+
+              <p class="mt-2 text-xl font-bold text-white">16 Aug 2026</p>
+            </div>
+
+            <div>
+              <p class="text-sm uppercase tracking-widest text-slate-400">
+                Time
+              </p>
+
+              <p class="mt-2 text-xl font-bold text-white">10:00 AM</p>
+            </div>
+
+            <div>
+              <p class="text-sm uppercase tracking-widest text-slate-400">
+                Venue
+              </p>
+
+              <p class="mt-2 text-xl font-bold text-white">TGTWURJC</p>
+            </div>
+          </div>
         </div>
-        <div class="mt-12 grid gap-px overflow-hidden rounded-sm bg-white/15 sm:grid-cols-3">
-          <article class="bg-ink p-7">
-            <p class="text-sm font-bold uppercase tracking-wider text-sun">When</p>
-            <p class="mt-4 font-display text-3xl font-bold">Sunday<br />16 August 2026</p>
-            <p class="mt-3 text-white/65">10:00 AM - 8:30 PM</p>
-          </article>
-          <article class="bg-ink p-7">
-            <p class="text-sm font-bold uppercase tracking-wider text-sun">Where</p>
-            <p class="mt-4 font-display text-3xl font-bold">TGTWURJC</p>
-            <p class="mt-3 leading-6 text-white/65">Sangareddy, Jinnaram,<br />Telangana 502319</p>
-          </article>
-          <article class="bg-ink p-7">
-            <p class="text-sm font-bold uppercase tracking-wider text-sun">Dress note</p>
-            <p class="mt-4 font-display text-3xl font-bold">Come as<br />your best self</p>
-            <p class="mt-3 text-white/65">Smart casuals, bright memories.</p>
-          </article>
-        </div>
-        <div class="mt-8 grid gap-6 lg:grid-cols-[1.1fr_.9fr] lg:items-center"><iframe title="TGTWURJC location map"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d562.9625003492702!2d78.31856251419816!3d17.61812581791026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb8b685e16ee83%3A0xb6e2c64d746d75b3!2sT.S.T.W.R.%20E%2FM%20SCHOOL!5e1!3m2!1sen!2sin!4v1785769804944!5m2!1sen!2sin"
-            class="h-[320px] w-full rounded-sm border-0" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
-          <div>
-            <p class="text-sm font-bold uppercase tracking-[.18em] text-sun">Getting there</p>
-            <h3 class="mt-3 font-display text-3xl font-bold">Find your way back.</h3>
-            <p class="mt-4 max-w-md leading-7 text-white/65"><strong class="text-white">TGTWURJC,</strong> Sangareddy,
-              Jinnaram, Telangana 502319</p><a href="https://maps.app.goo.gl/kwgcy6f1jwkvQ2bQA" target="_blank"
-              rel="noopener noreferrer"
-              class="mt-6 inline-flex items-center gap-2 rounded-md bg-sun px-5 py-3 text-sm font-bold text-ink transition hover:bg-white"><i
-                data-lucide="map" class="h-4 w-4"></i> Open in Google Maps</a>
+
+        <!-- Right -->
+
+        <div class="relative">
+          <div
+            class="overflow-hidden rounded-[32px] border border-white/10 bg-white/5 shadow-2xl backdrop-blur"
+          >
+            <img
+              src="assets/images/hero.jpg"
+              alt="TGTWURJC Grand Reunion"
+              class="h-full w-full object-cover transition duration-700 hover:scale-105"
+            />
+          </div>
+
+          <!-- Floating Card -->
+
+          <div
+            class="absolute -bottom-8 left-8 rounded-3xl bg-white p-6 shadow-2xl"
+          >
+            <div class="flex items-center gap-4">
+              <div
+                class="flex h-14 w-14 items-center justify-center rounded-full bg-orange-100"
+              >
+                <i
+                  data-lucide="graduation-cap"
+                  class="h-7 w-7 text-orange-600"
+                ></i>
+              </div>
+
+              <div>
+                <p class="text-sm text-slate-500">Celebrating</p>
+
+                <h3 class="text-xl font-bold">Grand Reunion 2026</h3>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </section>
 
-    <section id="schedule" class="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
-      <div class="grid gap-10 lg:grid-cols-[.8fr_1.2fr]">
-        <div>
-          <p class="text-sm font-bold uppercase tracking-[.18em] text-coral">The day ahead</p>
-          <h2 class="mt-4 font-display text-4xl font-bold sm:text-5xl">No rushing. Just reconnecting.</h2>
-        </div>
-        <ol class="divide-y divide-ink/15 border-y border-ink/15">
-          <li class="grid grid-cols-[80px_1fr] gap-5 py-5"><time class="font-bold text-coral">10:00</time>
-            <div>
-              <h3 class="font-display text-2xl font-bold">Welcome back</h3>
-              <p class="mt-1 text-ink/65">Registration, chai, hugs.</p>
-            </div>
-          </li>
-          <li class="grid grid-cols-[80px_1fr] gap-5 py-5"><time class="font-bold text-coral">11:30</time>
-            <div>
-              <h3 class="font-display text-2xl font-bold">The memory lane</h3>
-              <p class="mt-1 text-ink/65">Old photographs, stories, and a few friendly revelations.</p>
-            </div>
-          </li>
-          <li class="grid grid-cols-[80px_1fr] gap-5 py-5"><time class="font-bold text-coral">13:00</time>
-            <div>
-              <h3 class="font-display text-2xl font-bold">Lunch & catch-up</h3>
-              <p class="mt-1 text-ink/65">A long table, good food, no agenda.</p>
-            </div>
-          </li>
-          <li class="grid grid-cols-[80px_1fr] gap-5 py-5"><time class="font-bold text-coral">16:00</time>
-            <div>
-              <h3 class="font-display text-2xl font-bold">Games, music & group photo</h3>
-              <p class="mt-1 text-ink/65">Because some traditions deserve a sequel.</p>
-            </div>
-          </li>
-          <li class="grid grid-cols-[80px_1fr] gap-5 py-5"><time class="font-bold text-coral">18:30</time>
-            <div>
-              <h3 class="font-display text-2xl font-bold">Sunset dinner</h3>
-              <p class="mt-1 text-ink/65">One final toast to a very good beginning.</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </section>
+      <!-- Scroll Indicator -->
 
-    <section id="gallery" class="bg-[#E5E9DF] py-20 lg:py-28">
-      <div class="mx-auto max-w-7xl px-5 lg:px-8">
-        <div class="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
-          <div>
-            <p class="text-sm font-bold uppercase tracking-[.18em] text-coral">Our shared album</p>
-            <h2 class="mt-4 font-display text-4xl font-bold sm:text-5xl">The wall of moments.</h2>
-          </div><a href="upload/"
-            class="font-bold text-ink underline decoration-coral decoration-2 underline-offset-4">Add your moment</a>
-        </div>
-        <div id="galleryGrid" class="mt-10 columns-2 gap-3 sm:columns-3 lg:columns-4"></div>
-        <p id="galleryState" class="hidden mx-auto mt-10 max-w-md text-center text-lg leading-8 text-ink/70"></p>
-        <button id="loadMore"
-          class="mx-auto mt-10 hidden rounded-md bg-ink px-5 py-3 text-sm font-bold text-white transition hover:bg-[#245553]">Load
-          more memories</button>
-      </div>
-    </section>
-
-    <section class="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
       <div
-        class="flex flex-col items-start justify-between gap-8 border-y border-ink/15 py-12 lg:flex-row lg:items-center">
-        <div>
-          <p class="text-sm font-bold uppercase tracking-[.18em] text-coral">Live photo upload</p>
-          <h2 class="mt-3 font-display text-4xl font-bold">Your lens. Our memory.</h2>
-          <p class="mt-3 max-w-xl text-ink/70">Share your moments from the reunion directly from your phone. Compressed
-            photos will appear in the gallery shortly after upload.</p>
-        </div><a href="upload/"
-          class="rounded-md bg-coral px-7 py-4 font-bold text-white transition hover:bg-[#dc4f41]">Upload reunion
-          photos</a>
+        class="absolute bottom-8 left-1/2 hidden -translate-x-1/2 animate-bounce md:block"
+      >
+        <a href="#welcome">
+          <div
+            class="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/10 backdrop-blur"
+          >
+            <i data-lucide="chevron-down" class="text-white"></i>
+          </div>
+        </a>
       </div>
     </section>
 
-    <section id="guidelines" class="bg-sun py-20 lg:py-28">
-      <div class="mx-auto max-w-7xl px-5 lg:px-8">
-        <div class="max-w-2xl">
-          <p class="text-sm font-bold uppercase tracking-[.18em] text-coral">For a thoughtful gathering</p>
-          <h2 class="mt-4 font-display text-4xl font-bold leading-tight sm:text-5xl">School Administration Guidelines
+    <!-- ========================= -->
+    <!-- Welcome -->
+    <!-- ========================= -->
+
+    <section id="welcome" class="bg-white py-24">
+      <div
+        class="mx-auto grid max-w-7xl items-center gap-20 px-6 lg:grid-cols-2 lg:px-8"
+      >
+        <!-- Left Image -->
+
+        <div class="relative">
+          <!-- Background Shape -->
+
+          <div
+            class="absolute -left-8 -top-8 h-48 w-48 rounded-full bg-orange-100 blur-3xl"
+          ></div>
+
+          <div class="relative overflow-hidden rounded-[32px] shadow-2xl">
+            <img
+              src="assets/images/school.jpg"
+              alt="TGTWURJC"
+              class="h-full w-full object-cover transition duration-700 hover:scale-105"
+            />
+          </div>
+
+          <!-- Floating Badge -->
+
+          <div
+            class="absolute -bottom-8 left-10 rounded-3xl bg-white p-6 shadow-xl"
+          >
+            <div class="flex items-center gap-4">
+              <div
+                class="flex h-14 w-14 items-center justify-center rounded-full bg-orange-100"
+              >
+                <i data-lucide="school" class="h-7 w-7 text-orange-600"></i>
+              </div>
+
+              <div>
+                <p class="text-sm text-slate-500">Since</p>
+
+                <h4 class="text-xl font-bold">Our School Days</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right -->
+
+        <div>
+          <span
+            class="inline-flex rounded-full bg-orange-100 px-4 py-2 text-sm font-semibold text-orange-700"
+          >
+            ❤️ Welcome Back
+          </span>
+
+          <h2
+            class="mt-6 font-display text-5xl font-bold leading-tight text-slate-900"
+          >
+            Welcome Back
+
+            <br />
+
+            To Our Alma Mater
           </h2>
-          <p class="mt-5 text-lg leading-8 text-ink/75">A few shared commitments will help us celebrate our reunion with
-            respect for the school, its students, and every guest.</p>
+
+          <p class="mt-8 text-lg leading-8 text-slate-600">
+            Years may have passed, but the memories created at
+
+            <strong>
+              Telangana Government Tribal Welfare Residential Upgraded Junior
+              College
+            </strong>
+
+            continue to live in our hearts.
+          </p>
+
+          <p class="mt-6 text-lg leading-8 text-slate-600">
+            From morning assemblies, classrooms, hostel life, sports, cultural
+            events, examinations, and lifelong friendships— this campus shaped
+            our lives forever.
+          </p>
+
+          <p class="mt-6 text-lg leading-8 text-slate-600">
+            The
+
+            <strong class="text-orange-600"> Grand Reunion 2026 </strong>
+
+            is our opportunity to reconnect with classmates, honour our beloved
+            teachers, revisit cherished memories, and create many more together.
+          </p>
+
+          <!-- Quote -->
+
+          <div
+            class="mt-10 rounded-3xl border-l-4 border-orange-500 bg-orange-50 p-6"
+          >
+            <p class="font-display text-2xl font-bold text-orange-700">
+              "Once a TGTWURJC student,
+
+              <br />
+
+              Always a part of the TGTWURJC family."
+            </p>
+          </div>
+
+          <!-- Features -->
+
+          <div class="mt-10 grid gap-5 sm:grid-cols-2">
+            <div class="rounded-2xl border border-slate-200 p-5">
+              <div
+                class="flex h-12 w-12 items-center justify-center rounded-full bg-orange-100"
+              >
+                <i data-lucide="users" class="text-orange-600"> </i>
+              </div>
+
+              <h4 class="mt-4 font-bold">Reconnect</h4>
+
+              <p class="mt-2 text-sm leading-6 text-slate-600">
+                Meet classmates after years and relive old memories.
+              </p>
+            </div>
+
+            <div class="rounded-2xl border border-slate-200 p-5">
+              <div
+                class="flex h-12 w-12 items-center justify-center rounded-full bg-orange-100"
+              >
+                <i data-lucide="heart-handshake" class="text-orange-600"> </i>
+              </div>
+
+              <h4 class="mt-4 font-bold">Celebrate</h4>
+
+              <p class="mt-2 text-sm leading-6 text-slate-600">
+                Celebrate friendships that stood the test of time.
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <article class="border rounded-xl border-ink/15 bg-mist p-6"><i data-lucide="map-pin"
-              class="h-6 w-6 text-coral"></i>
-            <h3 class="mt-5 font-display text-2xl font-bold">Restricted Access</h3>
-            <p class="mt-3 leading-7 text-ink/70">Alumni should remain within designated event areas unless accompanied
-              by school representatives.</p>
-          </article>
-          <article class="border rounded-xl border-ink/15 bg-mist p-6"><i data-lucide="school"
-              class="h-6 w-6 text-coral"></i>
-            <h3 class="mt-5 font-display text-2xl font-bold">Respect School Property</h3>
-            <p class="mt-3 leading-7 text-ink/70">Classrooms, laboratories, library, sports facilities, and
-              infrastructure should not be used without prior permission.</p>
-          </article>
-          <article class="border rounded-xl border-ink/15 bg-mist p-6"><i data-lucide="camera"
-              class="h-6 w-6 text-coral"></i>
-            <h3 class="mt-5 font-display text-2xl font-bold">Photography & Videography</h3>
-            <p class="mt-3 leading-7 text-ink/70">Capture memories responsibly and follow the school’s privacy policies
-              and committee instructions.</p>
-          </article>
-          <article class="border rounded-xl border-ink/15 bg-mist p-6"><i data-lucide="heart-handshake"
-              class="h-6 w-6 text-coral"></i>
-            <h3 class="mt-5 font-display text-2xl font-bold">Appropriate Conduct</h3>
-            <p class="mt-3 leading-7 text-ink/70">Maintain discipline, respectful language, and the dignity and values
-              of the institution throughout the event.</p>
-          </article>
-          <article class="border rounded-xl border-ink/15 bg-mist p-6"><i data-lucide="ban"
-              class="h-6 w-6 text-coral"></i>
-            <h3 class="mt-5 font-display text-2xl font-bold">No Political or Commercial Activities</h3>
-            <p class="mt-3 leading-7 text-ink/70">This is a non-political, non-religious, and non-commercial event.
-              Promotions, advertising, and marketing are prohibited.</p>
-          </article>
-          <article class="border rounded-xl border-ink/15 bg-mist p-6"><i data-lucide="message-square-heart"
-              class="h-6 w-6 text-coral"></i>
-            <h3 class="mt-5 font-display text-2xl font-bold">No Public Criticism</h3>
-            <p class="mt-3 leading-7 text-ink/70">Please do not publicly criticize school facilities or administration.
-              Share constructive suggestions privately after the event.</p>
-          </article>
-          <article class="border rounded-xl border-ink/15 bg-mist p-6"><i data-lucide="wine-off"
-              class="h-6 w-6 text-coral"></i>
-            <h3 class="mt-5 font-display text-2xl font-bold">Alcohol-Free Event</h3>
-            <p class="mt-3 leading-7 text-ink/70">Participants under the influence of alcohol or carrying alcoholic
-              beverages will not be permitted to attend.</p>
-          </article>
-          <article class="border rounded-xl border-ink/15 bg-mist p-6"><i data-lucide="shield-check"
-              class="h-6 w-6 text-coral"></i>
-            <h3 class="mt-5 font-display text-2xl font-bold">Follow Safety Instructions</h3>
-            <p class="mt-3 leading-7 text-ink/70">Follow all instructions issued by school authorities and volunteers,
-              including emergency procedures and crowd management.</p>
-          </article>
-          <article class="border rounded-xl border-ink/15 bg-mist p-6"><i data-lucide="trash-2"
-              class="h-6 w-6 text-coral"></i>
-            <h3 class="mt-5 font-display text-2xl font-bold">Keep the Campus Clean</h3>
-            <p class="mt-3 leading-7 text-ink/70">Help maintain cleanliness throughout the event. Use dustbins and
-              dispose of waste responsibly.</p>
-          </article>
-          <article class="border rounded-xl border-ink/15 bg-mist p-6"><i data-lucide="car-front"
-              class="h-6 w-6 text-coral"></i>
-            <h3 class="mt-5 font-display text-2xl font-bold">Parking & Traffic</h3>
-            <p class="mt-3 leading-7 text-ink/70">Park vehicles only in designated parking areas and follow directions
-              from volunteers and school authorities.</p>
-          </article>
-          <article class="border rounded-xl border-ink/15 bg-mist p-6 sm:col-span-2 lg:col-span-1"><i
-              data-lucide="utensils" class="h-6 w-6 text-coral"></i>
-            <h3 class="mt-5 font-display text-2xl font-bold">Food & Refreshments</h3>
-            <p class="mt-3 leading-7 text-ink/70">Consume food only in designated areas while helping maintain
-              cleanliness.</p>
-          </article>
-        </div>
-        <p class="mx-auto mt-14 max-w-3xl text-center font-display text-3xl font-bold leading-snug text-ink">Let’s make
-          the TGTWURJC Grand Reunion 2026 memorable, respectful, and meaningful for our beloved alma mater.</p>
       </div>
     </section>
-  </main>
 
-  <footer id="contact" class="bg-ink text-white">
-    <div class="mx-auto flex max-w-7xl flex-col justify-between gap-8 px-5 py-12 sm:flex-row lg:px-8">
-      <div>
-        <p class="font-display text-3xl font-bold">Government Tribal Welfare<br />Residential Junior College</p>
-        <p class="mt-3 text-sm font-bold uppercase tracking-[.18em] text-sun">TGTWURJC</p>
-        <p class="mt-2 text-sm text-white/65">Sangareddy, Jinnaram, Telangana 502319</p>
-      </div>
-      <div class="text-sm sm:text-right">
-        <p class="font-display text-2xl font-bold">Grand Reunion 2026</p>
-        <p class="mt-2 text-white/65">2007-2012 Batches</p><button id="contactButton"
-          class="mt-5 rounded-md border border-white/25 px-4 py-2 font-bold text-white transition hover:border-sun hover:text-sun">View
-          committee contacts</button>
-      </div>
-    </div>
-    <div class="border-t border-white/15 px-5 py-4 text-center text-xs text-white/65">Made with <span class="text-coral"
-        aria-label="love">&#9829;</span> for the TGTWURJC Alumni Community.</div>
-  </footer>
+    <!-- ========================= -->
+    <!-- School -->
+    <!-- ========================= -->
 
-  <div id="contactModal" class="fixed inset-0 z-50 hidden items-end justify-center bg-ink/70 p-0 sm:items-center sm:p-6"
-    role="dialog" aria-modal="true" aria-labelledby="contactTitle">
-    <div class="max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-t-lg bg-mist shadow-2xl sm:rounded-lg">
-      <div class="sticky top-0 z-10 flex items-start justify-between border-b border-ink/10 bg-mist px-6 py-5 sm:px-8">
-        <div>
-          <p class="text-xs font-bold uppercase tracking-[.18em] text-coral">2007 - 2012 Batch</p>
-          <h2 id="contactTitle" class="mt-1 font-display text-3xl font-bold">Contact information</h2>
-        </div><button id="closeContact"
-          class="flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 text-2xl leading-none text-ink transition hover:bg-sun"
-          aria-label="Close contacts">&times;</button>
-      </div>
-      <div class="p-6 sm:p-8">
-        <section class="rounded-sm bg-ink p-6 text-white">
-          <p class="text-xs font-bold uppercase tracking-[.18em] text-sun">Organizer & convener</p>
-          <div class="mt-3 flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <h3 class="font-display text-3xl font-bold">Vamshi</h3>
-              <p class="mt-1 text-sm text-white/70">2009 Batch</p>
-            </div><a href="tel:+919553548429"
-              class="rounded-md bg-sun px-4 py-3 text-sm font-bold text-ink transition hover:bg-white">Call +91 95535
-              48429</a>
+    <section
+      id="school"
+      class="relative overflow-hidden bg-gradient-to-br from-orange-50 via-white to-yellow-50 py-24"
+    >
+      <!-- Background Decoration -->
+      <div
+        class="absolute -top-32 right-0 h-80 w-80 rounded-full bg-orange-200/30 blur-3xl"
+      ></div>
+      <div
+        class="absolute bottom-0 -left-24 h-96 w-96 rounded-full bg-yellow-200/40 blur-3xl"
+      ></div>
+
+      <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
+        <!-- Heading -->
+
+        <div class="mx-auto max-w-3xl text-center">
+          <span
+            class="inline-flex rounded-full bg-orange-100 px-4 py-2 text-sm font-semibold text-orange-700"
+          >
+            🏫 About Our School
+          </span>
+
+          <h2 class="mt-6 font-display text-5xl font-bold text-slate-900">
+            Telangana Government Tribal Welfare Residential Upgraded Junior
+            College
+          </h2>
+
+          <p class="mt-5 text-xl font-medium text-orange-600">
+            TGTWURJC • Jinnaram • Sangareddy District
+          </p>
+
+          <p class="mt-8 text-lg leading-8 text-slate-600">
+            More than a school, this campus has been a second home that nurtured
+            dreams, built character, and created lifelong friendships.
+          </p>
+        </div>
+
+        <!-- Content -->
+
+        <div class="mt-20 grid items-center gap-16 lg:grid-cols-2">
+          <!-- Left -->
+
+          <div>
+            <img
+              src="assets/images/campus.jpg"
+              class="rounded-[32px] shadow-2xl"
+              alt="School Campus"
+            />
           </div>
-        </section>
-        <p class="mt-8 text-sm font-semibold text-ink/65">Core Committee Contacts</p>
-        <div class="mt-3 divide-y divide-ink/15 border-y border-ink/15">
-          <details class="group py-1">
-            <summary
-              class="flex cursor-pointer list-none items-center justify-between py-4 font-display text-xl font-bold">
-              2007 Batch Committee <span class="text-coral transition group-open:rotate-180">⌄</span></summary>
-            <div class="grid gap-2 pb-4 sm:grid-cols-2"><a href="tel:+919440106080">Pruthvi Raj <span>94401
-                  06080</span></a><a href="tel:+919704238720">Manohar <span>97042 38720</span></a><a
-                href="tel:+919674818882">Mahesh <span>96748 18882</span></a><a href="tel:+917336764737">Vinod
-                <span>73367 64737</span></a><a href="tel:+919494494860">Boddupally Kiran <span>94944 94860</span></a>
+
+          <!-- Right -->
+
+          <div>
+            <h3 class="font-display text-3xl font-bold text-slate-900">
+              A Place That Shaped Our Lives
+            </h3>
+
+            <p class="mt-6 text-lg leading-8 text-slate-600">
+              Telangana Government Tribal Welfare Residential Upgraded Junior
+              College has played a vital role in shaping the future of thousands
+              of students through quality education, discipline, leadership, and
+              values.
+            </p>
+
+            <p class="mt-6 text-lg leading-8 text-slate-600">
+              Beyond academics, it gave us unforgettable hostel life, inspiring
+              teachers, sports, cultural activities, lifelong friendships, and
+              memories that remain with us forever.
+            </p>
+
+            <p class="mt-6 text-lg leading-8 text-slate-600">
+              For every student from the
+              <strong>2007–2012 batches</strong>, this campus will always be our
+              second home.
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature Cards -->
+
+        <div class="mt-20 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div
+            class="rounded-3xl bg-white p-8 shadow-lg transition hover:-translate-y-1 hover:shadow-2xl"
+          >
+            <div
+              class="flex h-14 w-14 items-center justify-center rounded-full bg-blue-100"
+            >
+              <i data-lucide="graduation-cap" class="text-blue-600"></i>
             </div>
-          </details>
-          <details class="group py-1">
-            <summary
-              class="flex cursor-pointer list-none items-center justify-between py-4 font-display text-xl font-bold">
-              2008 Batch Committee <span class="text-coral transition group-open:rotate-180">⌄</span></summary>
-            <div class="grid gap-2 pb-4 sm:grid-cols-2"><a href="tel:+918500836580">Lal Singh <span>85008
-                  36580</span></a><a href="tel:+918340934212">Nagaraj <span>83409 34212</span></a><a
-                href="tel:+919494523600">Kailash <span>94945 23600</span></a><a href="tel:+919642898672">Kasna
-                <span>96428 98672</span></a><a href="tel:+919490018971">Kishore <span>94900 18971</span></a><a
-                href="tel:+919906886840">Ganesh <span>99068 86840</span></a></div>
-          </details>
-          <details class="group py-1">
-            <summary
-              class="flex cursor-pointer list-none items-center justify-between py-4 font-display text-xl font-bold">
-              2009 Batch Committee <span class="text-coral transition group-open:rotate-180">⌄</span></summary>
-            <div class="grid gap-2 pb-4 sm:grid-cols-2"><a href="tel:+919010806571">Ramdas <span>90108
-                  06571</span></a><a href="tel:+919603385606">Soma <span>96033 85606</span></a><a
-                href="tel:+919492581632">Pruthvi Raj <span>94925 81632</span></a><a href="tel:+919502208595">Karthik
-                <span>95022 08595</span></a><a href="tel:+916305857946">Naresh <span>63058 57946</span></a><a
-                href="tel:+919390000284">Gopal <span>93900 00284</span></a></div>
-          </details>
-          <details class="group py-1">
-            <summary
-              class="flex cursor-pointer list-none items-center justify-between py-4 font-display text-xl font-bold">
-              2010 Batch Committee <span class="text-coral transition group-open:rotate-180">⌄</span></summary>
-            <div class="grid gap-2 pb-4 sm:grid-cols-2"><a href="tel:+919666386708">Hari Prasad <span>96663
-                  86708</span></a><a href="tel:+919398058292">Vijay <span>93980 58292</span></a><a
-                href="tel:+918331996536">Srinivas <span>83319 96536</span></a></div>
-          </details>
-          <details class="group py-1">
-            <summary
-              class="flex cursor-pointer list-none items-center justify-between py-4 font-display text-xl font-bold">
-              2011 Batch Committee <span class="text-coral transition group-open:rotate-180">⌄</span></summary>
-            <div class="grid gap-2 pb-4 sm:grid-cols-2"><a href="tel:+918106373109">Kiran <span>81063 73109</span></a><a
-                href="tel:+919573730448">Ganesh <span>95737 30448</span></a></div>
-          </details>
-          <details class="group py-1">
-            <summary
-              class="flex cursor-pointer list-none items-center justify-between py-4 font-display text-xl font-bold">
-              2012 Batch Committee <span class="text-coral transition group-open:rotate-180">⌄</span></summary>
-            <div class="grid gap-2 pb-4 sm:grid-cols-2"><a href="tel:+919989629741">Devuja <span>99896
-                  29741</span></a><a href="tel:+919912238755">Rajesh <span>99122 38755</span></a><a
-                href="tel:+917659996124">Vinay <span>76599 96124</span></a></div>
-          </details>
+
+            <h3 class="mt-6 text-xl font-bold">Quality Education</h3>
+
+            <p class="mt-3 leading-7 text-slate-600">
+              A strong academic foundation that empowered every student.
+            </p>
+          </div>
+
+          <div
+            class="rounded-3xl bg-white p-8 shadow-lg transition hover:-translate-y-1 hover:shadow-2xl"
+          >
+            <div
+              class="flex h-14 w-14 items-center justify-center rounded-full bg-green-100"
+            >
+              <i data-lucide="heart-handshake" class="text-green-600"></i>
+            </div>
+
+            <h3 class="mt-6 text-xl font-bold">Lifelong Friendships</h3>
+
+            <p class="mt-3 leading-7 text-slate-600">
+              Friendships built here continue to inspire us every day.
+            </p>
+          </div>
+
+          <div
+            class="rounded-3xl bg-white p-8 shadow-lg transition hover:-translate-y-1 hover:shadow-2xl"
+          >
+            <div
+              class="flex h-14 w-14 items-center justify-center rounded-full bg-orange-100"
+            >
+              <i data-lucide="sparkles" class="text-orange-600"></i>
+            </div>
+
+            <h3 class="mt-6 text-xl font-bold">Life Lessons</h3>
+
+            <p class="mt-3 leading-7 text-slate-600">
+              Discipline, confidence, teamwork and values that stay forever.
+            </p>
+          </div>
+
+          <div
+            class="rounded-3xl bg-white p-8 shadow-lg transition hover:-translate-y-1 hover:shadow-2xl"
+          >
+            <div
+              class="flex h-14 w-14 items-center justify-center rounded-full bg-purple-100"
+            >
+              <i data-lucide="school" class="text-purple-600"></i>
+            </div>
+
+            <h3 class="mt-6 text-xl font-bold">Our Alma Mater</h3>
+
+            <p class="mt-3 leading-7 text-slate-600">
+              A place that will always remain close to our hearts.
+            </p>
+          </div>
+        </div>
+
+        <!-- Quote -->
+
+        <div
+          class="mt-24 rounded-[36px] bg-gradient-to-r from-orange-500 to-amber-500 p-12 text-center shadow-2xl"
+        >
+          <i data-lucide="quote" class="mx-auto h-10 w-10 text-white"></i>
+
+          <p
+            class="mx-auto mt-8 max-w-4xl font-display text-3xl font-bold leading-relaxed text-white"
+          >
+            "No matter where life takes us, our roots will always lead back to
+            TGTWURJC."
+          </p>
+
+          <p class="mt-6 text-lg text-orange-100">
+            Together again. Forever connected.
+          </p>
         </div>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <script>
-    const target = new Date('2026-08-16T10:00:00+05:30').getTime();
-    const countdown = document.getElementById('countdown');
-    function updateCountdown() {
-      let difference = Math.max(0, target - Date.now());
-      const values = [['Days', Math.floor(difference / 86400000)], ['Hours', Math.floor(difference / 3600000) % 24], ['Mins', Math.floor(difference / 60000) % 60], ['Secs', Math.floor(difference / 1000) % 60]];
-      countdown.innerHTML = values.map(([label, value]) => `<div><strong class="block font-display text-3xl leading-none sm:text-4xl">${String(value).padStart(2, '0')}</strong><span class="mt-1 block text-[10px] font-bold uppercase tracking-wider">${label}</span></div>`).join('');
-    }
-    updateCountdown(); setInterval(updateCountdown, 1000);
+    <!-- ========================= -->
+    <!-- Event Details -->
+    <!-- ========================= -->
 
-    const contactModal = document.getElementById('contactModal'); const contactButton = document.getElementById('contactButton'); const closeContact = document.getElementById('closeContact');
-    function setContacts(open) { contactModal.classList.toggle('hidden', !open); contactModal.classList.toggle('flex', open); document.body.classList.toggle('overflow-hidden', open); if (open) closeContact.focus(); }
-    contactButton.addEventListener('click', () => setContacts(true)); closeContact.addEventListener('click', () => setContacts(false));
-    contactModal.addEventListener('click', event => { if (event.target === contactModal) setContacts(false); });
-    document.addEventListener('keydown', event => { if (event.key === 'Escape' && !contactModal.classList.contains('hidden')) setContacts(false); });
-    lucide.createIcons();
-  </script>
-  <script type="module">import { initGallery } from './js/gallery.js'; initGallery({ preview: true });</script>
-</body>
+    <section
+      id="details"
+      class="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-24 text-white"
+    >
+      <!-- Background -->
+      <div
+        class="absolute -top-32 -left-32 h-96 w-96 rounded-full bg-orange-500/20 blur-3xl"
+      ></div>
+      <div
+        class="absolute bottom-0 right-0 h-[500px] w-[500px] rounded-full bg-yellow-400/10 blur-3xl"
+      ></div>
 
+      <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
+        <!-- Heading -->
+
+        <div class="text-center">
+          <span
+            class="inline-flex rounded-full bg-orange-500/20 px-4 py-2 text-sm font-semibold text-orange-300"
+          >
+            📅 Event Information
+          </span>
+
+          <h2 class="mt-6 font-display text-5xl font-bold">
+            Everything You Need To Know
+          </h2>
+
+          <p class="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+            Save the date and get ready for an unforgettable reunion with your
+            classmates, teachers, and friends.
+          </p>
+        </div>
+
+        <!-- Cards -->
+
+        <div class="mt-20 grid gap-8 md:grid-cols-3">
+          <!-- Date -->
+
+          <div
+            class="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur transition hover:-translate-y-2 hover:shadow-2xl"
+          >
+            <div
+              class="flex h-14 w-14 items-center justify-center rounded-full bg-orange-500/20"
+            >
+              <i data-lucide="calendar-days" class="text-orange-300"></i>
+            </div>
+
+            <h3 class="mt-6 text-2xl font-bold">Date</h3>
+
+            <p class="mt-5 text-3xl font-bold">16 August 2026</p>
+
+            <p class="mt-3 text-slate-300">Sunday</p>
+          </div>
+
+          <!-- Time -->
+
+          <div
+            class="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur transition hover:-translate-y-2 hover:shadow-2xl"
+          >
+            <div
+              class="flex h-14 w-14 items-center justify-center rounded-full bg-blue-500/20"
+            >
+              <i data-lucide="clock-3" class="text-blue-300"></i>
+            </div>
+
+            <h3 class="mt-6 text-2xl font-bold">Time</h3>
+
+            <p class="mt-5 text-3xl font-bold">10:00 AM</p>
+
+            <p class="mt-3 text-slate-300">Until 8:30 PM</p>
+          </div>
+
+          <!-- Venue -->
+
+          <div
+            class="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur transition hover:-translate-y-2 hover:shadow-2xl"
+          >
+            <div
+              class="flex h-14 w-14 items-center justify-center rounded-full bg-green-500/20"
+            >
+              <i data-lucide="map-pin" class="text-green-300"></i>
+            </div>
+
+            <h3 class="mt-6 text-2xl font-bold">Venue</h3>
+
+            <p class="mt-5 text-xl font-bold">TGTWURJC</p>
+
+            <p class="mt-3 text-slate-300 leading-7">
+              Jinnaram<br />
+
+              Sangareddy District<br />
+
+              Telangana - 502319
+            </p>
+          </div>
+        </div>
+
+        <!-- Bottom Layout -->
+
+        <div class="mt-24 grid gap-14 lg:grid-cols-2 lg:items-center">
+          <!-- Google Map -->
+
+          <div
+            class="overflow-hidden rounded-[32px] border border-white/10 shadow-2xl"
+          >
+            <iframe
+              title="TGTWURJC Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d562.9625003492702!2d78.31856251419816!3d17.61812581791026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb8b685e16ee83%3A0xb6e2c64d746d75b3!2sT.S.T.W.R.%20E%2FM%20SCHOOL!5e1!3m2!1sen!2sin!4v1785769804944!5m2!1sen!2sin"
+              class="h-[420px] w-full border-0"
+              loading="lazy"
+              allowfullscreen
+            >
+            </iframe>
+          </div>
+
+          <!-- Right -->
+
+          <div>
+            <span
+              class="text-sm font-semibold uppercase tracking-[0.2em] text-orange-300"
+            >
+              Location
+            </span>
+
+            <h3 class="mt-5 font-display text-4xl font-bold">
+              Find Your Way Back
+            </h3>
+
+            <p class="mt-6 text-lg leading-8 text-slate-300">
+              Telangana Government Tribal Welfare Residential Upgraded Junior
+              College, Jinnaram, Sangareddy District, Telangana.
+            </p>
+
+            <div class="mt-10 flex flex-wrap gap-4">
+              <a
+                href="https://maps.app.goo.gl/kwgcy6f1jwkvQ2bQA"
+                target="_blank"
+                class="rounded-xl bg-orange-500 px-6 py-4 font-semibold text-white transition hover:bg-orange-600"
+              >
+                📍 Open Google Maps
+              </a>
+
+              <a
+                href="#contact"
+                class="rounded-xl border border-white/20 px-6 py-4 font-semibold transition hover:bg-white/10"
+              >
+                Contact Organizers
+              </a>
+            </div>
+
+            <!-- Quick Stats -->
+
+            <div class="mt-12 grid gap-5">
+              <div class="flex items-center gap-4">
+                <div
+                  class="flex h-12 w-12 items-center justify-center rounded-full bg-orange-500/20"
+                >
+                  <i data-lucide="users" class="text-orange-300"></i>
+                </div>
+
+                <div>
+                  <h4 class="font-semibold">Alumni</h4>
+
+                  <p class="text-slate-400">2007–2012 Batches</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4">
+                <div
+                  class="flex h-12 w-12 items-center justify-center rounded-full bg-green-500/20"
+                >
+                  <i data-lucide="calendar-heart" class="text-green-300"></i>
+                </div>
+
+                <div>
+                  <h4 class="font-semibold">Reunion</h4>
+
+                  <p class="text-slate-400">One Day • Countless Memories</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4">
+                <div
+                  class="flex h-12 w-12 items-center justify-center rounded-full bg-blue-500/20"
+                >
+                  <i data-lucide="school" class="text-blue-300"></i>
+                </div>
+
+                <div>
+                  <h4 class="font-semibold">Venue</h4>
+
+                  <p class="text-slate-400">Our Beloved Alma Mater</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= -->
+    <!-- Schedule -->
+    <!-- ========================= -->
+
+    <section id="schedule" class="bg-white py-24">
+      <div class="mx-auto max-w-6xl px-6 lg:px-8">
+        <!-- Heading -->
+
+        <div class="mx-auto max-w-3xl text-center">
+          <span
+            class="inline-flex rounded-full bg-orange-100 px-4 py-2 text-sm font-semibold text-orange-700"
+          >
+            🗓 Event Schedule
+          </span>
+
+          <h2 class="mt-6 font-display text-5xl font-bold text-slate-900">
+            Reunion Day Timeline
+          </h2>
+
+          <p class="mt-6 text-lg leading-8 text-slate-600">
+            A day filled with memories, laughter, friendship, gratitude, and
+            celebrations.
+          </p>
+        </div>
+
+        <!-- Timeline -->
+
+        <div class="relative mt-20">
+          <!-- Vertical Line -->
+
+          <div
+            class="absolute left-6 top-0 h-full w-1 rounded bg-orange-200"
+          ></div>
+
+          <!-- Item -->
+
+          <div class="relative mb-12 flex gap-8">
+            <div
+              class="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-orange-500 text-white shadow-lg"
+            >
+              <i data-lucide="coffee"></i>
+            </div>
+
+            <div
+              class="flex-1 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+            >
+              <div class="flex flex-wrap items-center justify-between gap-3">
+                <h3 class="text-2xl font-bold">Registration & Welcome</h3>
+
+                <span
+                  class="rounded-full bg-orange-100 px-4 py-2 font-semibold text-orange-700"
+                >
+                  10:00 AM
+                </span>
+              </div>
+
+              <p class="mt-5 text-lg leading-7 text-slate-600">
+                Alumni registration, welcome drinks, meeting classmates,
+                greeting teachers, and collecting reunion kits.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item -->
+
+          <div class="relative mb-12 flex gap-8">
+            <div
+              class="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-blue-500 text-white shadow-lg"
+            >
+              <i data-lucide="camera"></i>
+            </div>
+
+            <div
+              class="flex-1 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+            >
+              <div class="flex flex-wrap items-center justify-between gap-3">
+                <h3 class="text-2xl font-bold">Memory Lane</h3>
+
+                <span
+                  class="rounded-full bg-blue-100 px-4 py-2 font-semibold text-blue-700"
+                >
+                  11:30 AM
+                </span>
+              </div>
+
+              <p class="mt-5 text-lg leading-7 text-slate-600">
+                Old photographs, memorable stories, classroom visits, and
+                interactions with teachers.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item -->
+
+          <div class="relative mb-12 flex gap-8">
+            <div
+              class="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-white shadow-lg"
+            >
+              <i data-lucide="utensils"></i>
+            </div>
+
+            <div
+              class="flex-1 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+            >
+              <div class="flex flex-wrap items-center justify-between gap-3">
+                <h3 class="text-2xl font-bold">Lunch & Fellowship</h3>
+
+                <span
+                  class="rounded-full bg-green-100 px-4 py-2 font-semibold text-green-700"
+                >
+                  01:00 PM
+                </span>
+              </div>
+
+              <p class="mt-5 text-lg leading-7 text-slate-600">
+                Delicious lunch while reconnecting, sharing memories, and
+                enjoying conversations with old friends.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item -->
+
+          <div class="relative mb-12 flex gap-8">
+            <div
+              class="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-purple-500 text-white shadow-lg"
+            >
+              <i data-lucide="music-4"></i>
+            </div>
+
+            <div
+              class="flex-1 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+            >
+              <div class="flex flex-wrap items-center justify-between gap-3">
+                <h3 class="text-2xl font-bold">Games, Music & Group Photos</h3>
+
+                <span
+                  class="rounded-full bg-purple-100 px-4 py-2 font-semibold text-purple-700"
+                >
+                  04:00 PM
+                </span>
+              </div>
+
+              <p class="mt-5 text-lg leading-7 text-slate-600">
+                Fun games, cultural activities, music, dance, and memorable
+                group photographs.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item -->
+
+          <div class="relative flex gap-8">
+            <div
+              class="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-red-500 text-white shadow-lg"
+            >
+              <i data-lucide="sunset"></i>
+            </div>
+
+            <div
+              class="flex-1 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+            >
+              <div class="flex flex-wrap items-center justify-between gap-3">
+                <h3 class="text-2xl font-bold">Closing Ceremony</h3>
+
+                <span
+                  class="rounded-full bg-red-100 px-4 py-2 font-semibold text-red-700"
+                >
+                  06:30 PM
+                </span>
+              </div>
+
+              <p class="mt-5 text-lg leading-7 text-slate-600">
+                Vote of thanks, farewell, appreciation for teachers, and a
+                promise to meet again.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= -->
+    <!-- Guidelines -->
+    <!-- ========================= -->
+
+    <section
+      id="guidelines"
+      class="relative overflow-hidden bg-gradient-to-br from-orange-50 via-white to-yellow-50 py-24"
+    >
+      <!-- Background -->
+
+      <div
+        class="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-orange-300/20 blur-3xl"
+      ></div>
+      <div
+        class="absolute bottom-0 -left-24 h-[450px] w-[450px] rounded-full bg-yellow-300/20 blur-3xl"
+      ></div>
+
+      <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
+        <!-- Heading -->
+
+        <div class="mx-auto max-w-3xl text-center">
+          <span
+            class="inline-flex rounded-full bg-orange-100 px-4 py-2 text-sm font-semibold text-orange-700"
+          >
+            📜 Official Guidelines
+          </span>
+
+          <h2 class="mt-6 font-display text-5xl font-bold text-slate-900">
+            School Administration Guidelines
+          </h2>
+
+          <p class="mt-6 text-lg leading-8 text-slate-600">
+            These guidelines are issued by the school administration to ensure
+            everyone enjoys a safe, respectful and memorable reunion.
+          </p>
+        </div>
+
+        <!-- Notice -->
+
+        <div
+          class="mt-14 rounded-[32px] border border-orange-200 bg-gradient-to-r from-orange-500 to-amber-500 p-10 text-white shadow-2xl"
+        >
+          <div class="flex items-start gap-6">
+            <div
+              class="flex h-16 w-16 items-center justify-center rounded-full bg-white/20"
+            >
+              <i data-lucide="badge-info"></i>
+            </div>
+
+            <div>
+              <h3 class="text-3xl font-bold">Dear Alumni,</h3>
+
+              <p class="mt-4 text-lg leading-8 text-orange-100">
+                We warmly welcome you back to our beloved campus. Your
+                cooperation and discipline will help us conduct this reunion
+                successfully while respecting our institution, teachers,
+                students and fellow alumni.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Guidelines -->
+
+        <div class="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <!-- Card -->
+
+          <div
+            class="rounded-3xl bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+          >
+            <div
+              class="flex h-14 w-14 items-center justify-center rounded-full bg-orange-100"
+            >
+              📍
+            </div>
+
+            <h3 class="mt-6 text-xl font-bold">Restricted Access</h3>
+
+            <p class="mt-4 leading-7 text-slate-600">
+              Stay only in the designated reunion areas unless accompanied by
+              school representatives.
+            </p>
+          </div>
+
+          <!-- Card -->
+
+          <div
+            class="rounded-3xl bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+          >
+            <div
+              class="flex h-14 w-14 items-center justify-center rounded-full bg-blue-100"
+            >
+              🏫
+            </div>
+
+            <h3 class="mt-6 text-xl font-bold">Respect School Property</h3>
+
+            <p class="mt-4 leading-7 text-slate-600">
+              Do not enter classrooms, laboratories, library or hostel areas
+              without permission.
+            </p>
+          </div>
+
+          <!-- Card -->
+
+          <div
+            class="rounded-3xl bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+          >
+            <div
+              class="flex h-14 w-14 items-center justify-center rounded-full bg-purple-100"
+            >
+              📸
+            </div>
+
+            <h3 class="mt-6 text-xl font-bold">Photography</h3>
+
+            <p class="mt-4 leading-7 text-slate-600">
+              Capture memories responsibly while respecting everyone's privacy.
+            </p>
+          </div>
+
+          <!-- Card -->
+
+          <div
+            class="rounded-3xl bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+          >
+            <div
+              class="flex h-14 w-14 items-center justify-center rounded-full bg-green-100"
+            >
+              🤝
+            </div>
+
+            <h3 class="mt-6 text-xl font-bold">Appropriate Conduct</h3>
+
+            <p class="mt-4 leading-7 text-slate-600">
+              Maintain discipline, respectful language and good behaviour
+              throughout the event.
+            </p>
+          </div>
+
+          <!-- Card -->
+
+          <div
+            class="rounded-3xl bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+          >
+            <div
+              class="flex h-14 w-14 items-center justify-center rounded-full bg-red-100"
+            >
+              🚫
+            </div>
+
+            <h3 class="mt-6 text-xl font-bold">No Political Activities</h3>
+
+            <p class="mt-4 leading-7 text-slate-600">
+              Political, commercial and religious activities are strictly
+              prohibited.
+            </p>
+          </div>
+
+          <!-- Card -->
+
+          <div
+            class="rounded-3xl bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+          >
+            <div
+              class="flex h-14 w-14 items-center justify-center rounded-full bg-yellow-100"
+            >
+              🍺
+            </div>
+
+            <h3 class="mt-6 text-xl font-bold">Alcohol-Free Event</h3>
+
+            <p class="mt-4 leading-7 text-slate-600">
+              Alcohol and intoxication are strictly prohibited inside the
+              campus.
+            </p>
+          </div>
+
+          <!-- Card -->
+
+          <div
+            class="rounded-3xl bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+          >
+            <div
+              class="flex h-14 w-14 items-center justify-center rounded-full bg-cyan-100"
+            >
+              🛡️
+            </div>
+
+            <h3 class="mt-6 text-xl font-bold">Follow Instructions</h3>
+
+            <p class="mt-4 leading-7 text-slate-600">
+              Cooperate with volunteers and follow instructions from school
+              authorities.
+            </p>
+          </div>
+
+          <!-- Card -->
+
+          <div
+            class="rounded-3xl bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+          >
+            <div
+              class="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100"
+            >
+              🗑️
+            </div>
+
+            <h3 class="mt-6 text-xl font-bold">Keep Campus Clean</h3>
+
+            <p class="mt-4 leading-7 text-slate-600">
+              Use dustbins and help us keep our beautiful campus clean.
+            </p>
+          </div>
+
+          <!-- Card -->
+
+          <div
+            class="rounded-3xl bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+          >
+            <div
+              class="flex h-14 w-14 items-center justify-center rounded-full bg-indigo-100"
+            >
+              🚗
+            </div>
+
+            <h3 class="mt-6 text-xl font-bold">Parking</h3>
+
+            <p class="mt-4 leading-7 text-slate-600">
+              Park only in designated parking areas and follow volunteer
+              guidance.
+            </p>
+          </div>
+        </div>
+
+        <!-- Footer -->
+
+        <div
+          class="mt-20 rounded-[36px] bg-slate-900 p-12 text-center shadow-2xl"
+        >
+          <i
+            data-lucide="heart-handshake"
+            class="mx-auto h-12 w-12 text-orange-400"
+          ></i>
+
+          <h3 class="mt-6 font-display text-4xl font-bold text-white">
+            Let's Make This Reunion Unforgettable ❤️
+          </h3>
+
+          <p class="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+            Together, let's celebrate our friendships, honour our teachers,
+            respect our alma mater, and create memories that will last a
+            lifetime.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= -->
+    <!-- Gallery -->
+    <!-- ========================= -->
+
+    <section class="bg-slate-50 py-24">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-3xl text-center">
+          <span
+            class="inline-flex rounded-full bg-orange-100 px-4 py-2 text-sm font-semibold text-orange-700"
+          >
+            ❤️ Memory Wall
+          </span>
+
+          <h2 class="mt-6 font-display text-5xl font-bold">
+            Memories That Never Fade
+          </h2>
+
+          <p class="mt-6 text-lg leading-8 text-slate-600">
+            Every classroom, hostel corridor, playground and morning assembly
+            became a chapter of our lives.
+          </p>
+        </div>
+
+        <div class="mt-16 grid gap-8 md:grid-cols-3">
+          <div class="rounded-3xl bg-white p-8 shadow-sm">
+            <div class="text-5xl">🏫</div>
+
+            <h3 class="mt-5 text-2xl font-bold">Our Classrooms</h3>
+
+            <p class="mt-3 leading-7 text-slate-600">
+              Where dreams started and lifelong lessons were learned.
+            </p>
+          </div>
+
+          <div class="rounded-3xl bg-white p-8 shadow-sm">
+            <div class="text-5xl">🏏</div>
+
+            <h3 class="mt-5 text-2xl font-bold">Playground</h3>
+
+            <p class="mt-3 leading-7 text-slate-600">
+              The place where friendships grew stronger every day.
+            </p>
+          </div>
+
+          <div class="rounded-3xl bg-white p-8 shadow-sm">
+            <div class="text-5xl">🎉</div>
+
+            <h3 class="mt-5 text-2xl font-bold">Cultural Days</h3>
+
+            <p class="mt-3 leading-7 text-slate-600">
+              The unforgettable moments that still bring smiles today.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="bg-white py-24">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <!-- Heading -->
+
+        <div
+          class="flex flex-col items-center justify-between gap-8 lg:flex-row"
+        >
+          <div>
+            <span
+              class="inline-flex rounded-full bg-orange-100 px-4 py-2 text-sm font-semibold text-orange-700"
+            >
+              📸 Memories Gallery
+            </span>
+
+            <h2 class="mt-6 font-display text-5xl font-bold text-slate-900">
+              Relive Every Moment
+            </h2>
+
+            <p class="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
+              Every photo tells a story. Browse memories shared by classmates
+              and upload yours to keep our reunion alive forever.
+            </p>
+          </div>
+
+          <!-- Upload Button -->
+
+          <a
+            href="upload.html"
+            class="rounded-xl bg-orange-500 px-7 py-4 font-semibold text-white shadow-lg transition hover:-translate-y-1 hover:bg-orange-600"
+          >
+            📤 Upload Photos
+          </a>
+        </div>
+
+        <!-- Stats -->
+
+        <div class="mt-12 grid gap-6 sm:grid-cols-3">
+          <div
+            class="rounded-3xl border border-slate-200 bg-orange-50 p-6 text-center"
+          >
+            <h3 id="photoCount" class="text-4xl font-bold text-orange-600">
+              0
+            </h3>
+
+            <p class="mt-2 text-slate-600">Photos Shared</p>
+          </div>
+
+          <div
+            class="rounded-3xl border border-slate-200 bg-blue-50 p-6 text-center"
+          >
+            <h3 class="text-4xl font-bold text-blue-600">2007–2012</h3>
+
+            <p class="mt-2 text-slate-600">Alumni Batches</p>
+          </div>
+
+          <div
+            class="rounded-3xl border border-slate-200 bg-green-50 p-6 text-center"
+          >
+            <h3 class="text-4xl font-bold text-green-600">❤️</h3>
+
+            <p class="mt-2 text-slate-600">One Family Forever</p>
+          </div>
+        </div>
+
+        <!-- Gallery -->
+
+        <div
+          id="galleryGrid"
+          class="mt-16 columns-2 gap-5 space-y-5 md:columns-3 lg:columns-4"
+        >
+          <!-- Images inserted by JS -->
+          <p id="galleryState" class="hidden mx-auto mt-10 max-w-md text-center text-lg leading-8 text-ink/70"></p>
+          <button id="loadMore"
+            class="mx-auto mt-10 hidden rounded-md bg-ink px-5 py-3 text-sm font-bold text-white transition hover:bg-[#245553]">
+            Load more memories
+          </button>
+        </div>
+
+        <!-- View All -->
+
+        <div id="viewAllWrapper" class="mt-14 hidden text-center">
+          <a
+            href="gallery.html"
+            class="inline-flex items-center gap-3 rounded-xl border border-orange-500 px-8 py-4 font-semibold text-orange-600 transition hover:bg-orange-50"
+          >
+            View All Photos
+
+            <i data-lucide="arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Bottom CTA -->
+
+        <div
+          class="mt-20 rounded-[36px] bg-gradient-to-r from-orange-500 to-amber-500 p-12 text-center text-white shadow-2xl"
+        >
+          <i data-lucide="image-plus" class="mx-auto h-12 w-12"></i>
+
+          <h3 class="mt-6 font-display text-4xl font-bold">
+            Your Photos Matter
+          </h3>
+
+          <p class="mx-auto mt-6 max-w-3xl text-lg leading-8 text-orange-100">
+            Every picture captures a smile, a friendship, and a memory. Help us
+            preserve this beautiful reunion by sharing your moments.
+          </p>
+
+          <a
+            href="upload.html"
+            class="mt-8 inline-flex rounded-xl bg-white px-8 py-4 font-semibold text-orange-600 transition hover:scale-105"
+          >
+            Upload Your Memories
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= -->
+    <!-- Contact -->
+    <!-- ========================= -->
+
+    <section id="contact" class="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-24 text-white">
+
+      <div class="absolute -top-20 -left-20 h-72 w-72 rounded-full bg-orange-500/20 blur-3xl"></div>
+      <div class="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-amber-400/10 blur-3xl"></div>
+    
+      <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
+    
+        <div class="mx-auto max-w-3xl text-center">
+    
+          <span class="inline-flex rounded-full bg-orange-500/20 px-4 py-2 text-sm font-semibold text-orange-300">
+            📞 Organizing Committee
+          </span>
+    
+          <h2 class="mt-6 font-display text-5xl font-bold">
+            Need Assistance?
+          </h2>
+    
+          <p class="mt-6 text-lg leading-8 text-slate-300">
+            Our organizing committee is here to help with registrations,
+            event information, accommodation and any reunion-related queries.
+          </p>
+    
+        </div>
+    
+        <!-- Convener -->
+    
+        <div class="mt-16 overflow-hidden rounded-[32px] bg-gradient-to-r from-orange-500 to-amber-500 shadow-2xl">
+    
+          <div class="flex flex-col items-center justify-between gap-8 p-10 md:flex-row">
+    
+            <div>
+    
+              <p class="text-sm font-semibold uppercase tracking-[0.2em] text-orange-100">
+                Organizer & Convener
+              </p>
+    
+              <h3 class="mt-3 text-5xl font-bold">
+                Vamshi
+              </h3>
+    
+              <p class="mt-2 text-lg text-orange-100">
+                2009 Batch Coordinator
+              </p>
+    
+            </div>
+    
+            <a
+              href="tel:+919553548429"
+              class="rounded-xl bg-white px-8 py-4 text-lg font-bold text-orange-600 transition hover:scale-105">
+    
+              📞 Call +91 95535 48429
+    
+            </a>
+    
+          </div>
+    
+        </div>
+    
+        <!-- Representatives -->
+    
+        <div class="mt-16">
+    
+          <h3 class="text-center font-display text-3xl font-bold">
+    
+            Batch Representatives
+    
+          </h3>
+    
+          <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    
+            <div class="rounded-3xl bg-white/5 p-6 backdrop-blur">
+              <p class="text-sm text-orange-300">2007 Batch</p>
+              <h4 class="mt-2 text-2xl font-bold">Pruthvi Raj</h4>
+              <a href="tel:+919440106080" class="mt-4 inline-block text-orange-300 hover:text-orange-200">
+                📞 94401 06080
+              </a>
+            </div>
+    
+            <div class="rounded-3xl bg-white/5 p-6 backdrop-blur">
+              <p class="text-sm text-orange-300">2008 Batch</p>
+              <h4 class="mt-2 text-2xl font-bold">Lal Singh</h4>
+              <a href="tel:+918500836580" class="mt-4 inline-block text-orange-300 hover:text-orange-200">
+                📞 85008 36580
+              </a>
+            </div>
+    
+            <div class="rounded-3xl bg-white/5 p-6 backdrop-blur">
+              <p class="text-sm text-orange-300">2009 Batch</p>
+              <h4 class="mt-2 text-2xl font-bold">Ramdas</h4>
+              <a href="tel:+919010806571" class="mt-4 inline-block text-orange-300 hover:text-orange-200">
+                📞 90108 06571
+              </a>
+            </div>
+    
+            <div class="rounded-3xl bg-white/5 p-6 backdrop-blur">
+              <p class="text-sm text-orange-300">2010 Batch</p>
+              <h4 class="mt-2 text-2xl font-bold">Hari Prasad</h4>
+              <a href="tel:+919666386708" class="mt-4 inline-block text-orange-300 hover:text-orange-200">
+                📞 96663 86708
+              </a>
+            </div>
+    
+            <div class="rounded-3xl bg-white/5 p-6 backdrop-blur">
+              <p class="text-sm text-orange-300">2011 Batch</p>
+              <h4 class="mt-2 text-2xl font-bold">Kiran</h4>
+              <a href="tel:+918106373109" class="mt-4 inline-block text-orange-300 hover:text-orange-200">
+                📞 81063 73109
+              </a>
+            </div>
+    
+            <div class="rounded-3xl bg-white/5 p-6 backdrop-blur">
+              <p class="text-sm text-orange-300">2012 Batch</p>
+              <h4 class="mt-2 text-2xl font-bold">Devuja</h4>
+              <a href="tel:+919989629741" class="mt-4 inline-block text-orange-300 hover:text-orange-200">
+                📞 99896 29741
+              </a>
+            </div>
+    
+          </div>
+    
+        </div>
+    
+        <!-- CTA -->
+    
+        <div class="mt-16 rounded-3xl border border-orange-500/30 bg-white/5 p-10 text-center">
+    
+          <h3 class="font-display text-3xl font-bold">
+    
+            Looking for More Contacts?
+    
+          </h3>
+    
+          <p class="mx-auto mt-5 max-w-3xl text-lg leading-8 text-slate-300">
+    
+            Every batch has its own organizing committee. Click below to view the
+            complete committee list with all contact numbers.
+    
+          </p>
+    
+          <button
+            id="openContactModal"
+            class="mt-8 rounded-xl bg-orange-500 px-8 py-4 text-lg font-semibold transition hover:bg-orange-600">
+    
+            👥 View Full Contact Committee
+    
+          </button>
+    
+        </div>
+    
+      </div>
+    
+    </section>
+
+    <!-- ========================= -->
+    <!-- Footer -->
+    <!-- ========================= -->
+
+    <footer class="relative overflow-hidden bg-slate-950 text-white">
+      <!-- Background Decoration -->
+      <div class="absolute inset-0 opacity-10">
+        <div
+          class="absolute -top-20 left-10 h-72 w-72 rounded-full bg-orange-500 blur-3xl"
+        ></div>
+        <div
+          class="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-amber-400 blur-3xl"
+        ></div>
+      </div>
+
+      <div class="relative mx-auto max-w-7xl px-6 py-20 lg:px-8">
+        <div class="grid gap-12 lg:grid-cols-3">
+          <!-- School Info -->
+
+          <div>
+            <div class="flex items-center gap-4">
+              <div
+                class="flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-500 text-2xl"
+              >
+                🎓
+              </div>
+
+              <div>
+                <h3 class="font-display text-2xl font-bold">TGTWURJC</h3>
+
+                <p class="text-slate-400">Grand Reunion 2026</p>
+              </div>
+            </div>
+
+            <p class="mt-6 leading-8 text-slate-400">
+              Telangana Government Tribal Welfare Residential Upgraded Junior
+              College, Jinnaram, Sangareddy District, Telangana.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+
+          <div>
+            <h3 class="text-xl font-bold">Quick Links</h3>
+
+            <ul class="mt-6 space-y-4">
+              <li>
+                <a
+                  href="#hero"
+                  class="text-slate-400 transition hover:text-orange-400"
+                  >Home</a
+                >
+              </li>
+
+              <li>
+                <a
+                  href="#school"
+                  class="text-slate-400 transition hover:text-orange-400"
+                  >About School</a
+                >
+              </li>
+
+              <li>
+                <a
+                  href="#details"
+                  class="text-slate-400 transition hover:text-orange-400"
+                  >Event Details</a
+                >
+              </li>
+
+              <li>
+                <a
+                  href="#schedule"
+                  class="text-slate-400 transition hover:text-orange-400"
+                  >Schedule</a
+                >
+              </li>
+
+              <li>
+                <a
+                  href="#guidelines"
+                  class="text-slate-400 transition hover:text-orange-400"
+                  >Guidelines</a
+                >
+              </li>
+
+              <li>
+                <a
+                  href="#gallery"
+                  class="text-slate-400 transition hover:text-orange-400"
+                  >Gallery</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Reunion Message -->
+
+          <div>
+            <h3 class="text-xl font-bold">Reunion Message</h3>
+
+            <p class="mt-6 leading-8 text-slate-400">
+              Time may change our paths, but it never changes the memories we
+              created together. May this reunion strengthen our friendships and
+              remind us that TGTWURJC will always be our second home.
+            </p>
+
+            <div
+              class="mt-8 rounded-2xl border border-orange-500/30 bg-orange-500/10 p-5"
+            >
+              <p class="font-display text-xl font-bold text-orange-300">
+                ❤️ Once a TGTWURJC Student, Always a TGTWURJC Family.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Divider -->
+
+        <div class="my-12 border-t border-white/10"></div>
+
+        <!-- Bottom -->
+
+        <div
+          class="flex flex-col items-center justify-between gap-6 lg:flex-row"
+        >
+          <p class="text-center text-slate-500">
+            © 2026 TGTWURJC Grand Reunion. All Rights Reserved.
+          </p>
+
+          <div class="flex items-center gap-6">
+            <a
+              href="#hero"
+              class="text-slate-400 transition hover:text-orange-400"
+            >
+              Home
+            </a>
+
+            <a
+              href="gallery.html"
+              class="text-slate-400 transition hover:text-orange-400"
+            >
+              Gallery
+            </a>
+
+            <a
+              href="upload.html"
+              class="text-slate-400 transition hover:text-orange-400"
+            >
+              Upload
+            </a>
+          </div>
+        </div>
+
+        <!-- Quote -->
+
+        <div class="mt-16 text-center">
+          <p class="font-display text-3xl font-bold text-white">
+            "Some journeys begin in a classroom, but never truly end."
+          </p>
+
+          <p class="mt-4 text-slate-400">— TGTWURJC Grand Reunion 2026</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+      lucide.createIcons();
+    </script>
+
+    <script type="module">
+      import { initGallery } from "./js/gallery.js";
+      initGallery({ preview: true });
+    </script>
+  </body>
 </html>
