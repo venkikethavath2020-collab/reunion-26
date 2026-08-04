@@ -379,88 +379,260 @@
         aria-label="love">&#9829;</span> for the TGTWURJC Alumni Community.</div>
   </footer>
 
-  <div id="contactModal" class="fixed inset-0 z-50 hidden items-end justify-center bg-ink/70 p-0 sm:items-center sm:p-6"
-    role="dialog" aria-modal="true" aria-labelledby="contactTitle">
-    <div class="max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-t-lg bg-mist shadow-2xl sm:rounded-lg">
-      <div class="sticky top-0 z-10 flex items-start justify-between border-b border-ink/10 bg-mist px-6 py-5 sm:px-8">
-        <div>
-          <p class="text-xs font-bold uppercase tracking-[.18em] text-coral">2007 - 2012 Batch</p>
-          <h2 id="contactTitle" class="mt-1 font-display text-3xl font-bold">Contact information</h2>
-        </div><button id="closeContact"
-          class="flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 text-2xl leading-none text-ink transition hover:bg-sun"
-          aria-label="Close contacts">&times;</button>
+ 
+
+  <div id="contactModal"
+  class="fixed inset-0 z-50 hidden items-end justify-center bg-black/60 backdrop-blur-sm p-0 sm:items-center sm:p-6"
+  role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+  <div
+    class="max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-t-2xl bg-white shadow-2xl ring-1 ring-black/5 sm:rounded-2xl">
+    <!-- Header -->
+    <div
+      class="sticky top-0 z-10 flex items-start justify-between border-b border-slate-100 bg-white/95 px-6 py-5 backdrop-blur-md sm:px-8">
+      <div>
+        <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-rose-500">2007 – 2012 Batch</p>
+        <h2 id="contactTitle" class="mt-1.5 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+          Contact information
+        </h2>
       </div>
-      <div class="p-6 sm:p-8">
-        <section class="rounded-sm bg-ink p-6 text-white">
-          <p class="text-xs font-bold uppercase tracking-[.18em] text-sun">Organizer & convener</p>
-          <div class="mt-3 flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <h3 class="font-display text-3xl font-bold">Vamshi</h3>
-              <p class="mt-1 text-sm text-white/70">2009 Batch</p>
-            </div><a href="tel:+919553548429"
-              class="rounded-md bg-sun px-4 py-3 text-sm font-bold text-ink transition hover:bg-white">Call +91 95535
-              48429</a>
+      <button id="closeContact"
+        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500 transition hover:bg-slate-200 hover:text-slate-800 focus:outline-none focus:ring-2 focus:ring-rose-400/50"
+        aria-label="Close contacts">
+        <span class="text-xl leading-none">&times;</span>
+      </button>
+    </div>
+
+    <div class="p-6 sm:p-8">
+      <!-- Organizer card -->
+      <section
+        class="relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-6 text-white shadow-lg">
+        <div class="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-rose-500/20 blur-2xl"></div>
+        <div class="absolute -bottom-10 -left-6 h-28 w-28 rounded-full bg-amber-400/10 blur-2xl"></div>
+
+        <p class="relative text-[11px] font-semibold uppercase tracking-[0.2em] text-amber-300">
+          Organizer &amp; convener
+        </p>
+        <div class="relative mt-4 flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <h3 class="text-2xl font-bold tracking-tight sm:text-3xl">Vamshi</h3>
+            <p class="mt-1 text-sm text-slate-300">2009 Batch</p>
           </div>
-        </section>
-        <p class="mt-8 text-sm font-semibold text-ink/65">Core Committee Contacts</p>
-        <div class="mt-3 divide-y divide-ink/15 border-y border-ink/15">
-          <details class="group py-1">
-            <summary
-              class="flex cursor-pointer list-none items-center justify-between py-4 font-display text-xl font-bold">
-              2007 Batch Committee <span class="text-coral transition group-open:rotate-180">⌄</span></summary>
-            <div class="grid gap-2 pb-4 sm:grid-cols-2"><a href="tel:+919440106080">Pruthvi Raj <span>94401
-                  06080</span></a><a href="tel:+919704238720">Manohar <span>97042 38720</span></a><a
-                href="tel:+919674818882">Mahesh <span>96748 18882</span></a><a href="tel:+917336764737">Vinod
-                <span>73367 64737</span></a><a href="tel:+919494494860">Boddupally Kiran <span>94944 94860</span></a>
-            </div>
-          </details>
-          <details class="group py-1">
-            <summary
-              class="flex cursor-pointer list-none items-center justify-between py-4 font-display text-xl font-bold">
-              2008 Batch Committee <span class="text-coral transition group-open:rotate-180">⌄</span></summary>
-            <div class="grid gap-2 pb-4 sm:grid-cols-2"><a href="tel:+918500836580">Lal Singh <span>85008
-                  36580</span></a><a href="tel:+918340934212">Nagaraj <span>83409 34212</span></a><a
-                href="tel:+919494523600">Kailash <span>94945 23600</span></a><a href="tel:+919642898672">Kasna
-                <span>96428 98672</span></a><a href="tel:+919490018971">Kishore <span>94900 18971</span></a><a
-                href="tel:+919906886840">Ganesh <span>99068 86840</span></a></div>
-          </details>
-          <details class="group py-1">
-            <summary
-              class="flex cursor-pointer list-none items-center justify-between py-4 font-display text-xl font-bold">
-              2009 Batch Committee <span class="text-coral transition group-open:rotate-180">⌄</span></summary>
-            <div class="grid gap-2 pb-4 sm:grid-cols-2"><a href="tel:+919010806571">Ramdas <span>90108
-                  06571</span></a><a href="tel:+919603385606">Soma <span>96033 85606</span></a><a
-                href="tel:+919492581632">Pruthvi Raj <span>94925 81632</span></a><a href="tel:+919502208595">Karthik
-                <span>95022 08595</span></a><a href="tel:+916305857946">Naresh <span>63058 57946</span></a><a
-                href="tel:+919390000284">Gopal <span>93900 00284</span></a></div>
-          </details>
-          <details class="group py-1">
-            <summary
-              class="flex cursor-pointer list-none items-center justify-between py-4 font-display text-xl font-bold">
-              2010 Batch Committee <span class="text-coral transition group-open:rotate-180">⌄</span></summary>
-            <div class="grid gap-2 pb-4 sm:grid-cols-2"><a href="tel:+919666386708">Hari Prasad <span>96663
-                  86708</span></a><a href="tel:+919398058292">Vijay <span>93980 58292</span></a><a
-                href="tel:+918331996536">Srinivas <span>83319 96536</span></a></div>
-          </details>
-          <details class="group py-1">
-            <summary
-              class="flex cursor-pointer list-none items-center justify-between py-4 font-display text-xl font-bold">
-              2011 Batch Committee <span class="text-coral transition group-open:rotate-180">⌄</span></summary>
-            <div class="grid gap-2 pb-4 sm:grid-cols-2"><a href="tel:+918106373109">Kiran <span>81063 73109</span></a><a
-                href="tel:+919573730448">Ganesh <span>95737 30448</span></a></div>
-          </details>
-          <details class="group py-1">
-            <summary
-              class="flex cursor-pointer list-none items-center justify-between py-4 font-display text-xl font-bold">
-              2012 Batch Committee <span class="text-coral transition group-open:rotate-180">⌄</span></summary>
-            <div class="grid gap-2 pb-4 sm:grid-cols-2"><a href="tel:+919989629741">Devuja <span>99896
-                  29741</span></a><a href="tel:+919912238755">Rajesh <span>99122 38755</span></a><a
-                href="tel:+917659996124">Vinay <span>76599 96124</span></a></div>
-          </details>
+          <a href="tel:+919553548429"
+            class="inline-flex items-center gap-2 rounded-lg bg-amber-400 px-5 py-3 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-300/60">
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            Call +91 95535 48429
+          </a>
         </div>
+      </section>
+
+      <!-- Core committee -->
+      <p class="mt-8 text-xs font-semibold uppercase tracking-wider text-slate-400">
+        Core Committee Contacts
+      </p>
+
+      <div class="mt-3 divide-y divide-slate-100 rounded-xl border border-slate-100 bg-slate-50/50">
+        <!-- 2007 -->
+        <details class="group">
+          <summary
+            class="flex cursor-pointer list-none items-center justify-between px-4 py-4 text-base font-semibold text-slate-800 transition hover:bg-white sm:px-5 sm:text-lg">
+            2007 Batch Committee
+            <span
+              class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200/80 text-slate-500 transition group-open:rotate-180 group-open:bg-rose-100 group-open:text-rose-500">
+              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </span>
+          </summary>
+          <div class="grid gap-2 px-4 pb-4 sm:grid-cols-2 sm:px-5">
+            <a href="tel:+919440106080"
+              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+              Pruthvi Raj <span class="font-normal text-slate-400">94401 06080</span>
+            </a>
+            <a href="tel:+919704238720"
+              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+              Manohar <span class="font-normal text-slate-400">97042 38720</span>
+            </a>
+            <a href="tel:+919674818882"
+              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+              Mahesh <span class="font-normal text-slate-400">96748 18882</span>
+            </a>
+            <a href="tel:+917336764737"
+              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+              Vinod <span class="font-normal text-slate-400">73367 64737</span>
+            </a>
+            <a href="tel:+919494494860"
+              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+              Boddupally Kiran <span class="font-normal text-slate-400">94944 94860</span>
+            </a>
+          </div>
+        </details>
+
+        <!-- 2008 -->
+        <details class="group">
+          <summary
+            class="flex cursor-pointer list-none items-center justify-between px-4 py-4 text-base font-semibold text-slate-800 transition hover:bg-white sm:px-5 sm:text-lg">
+            2008 Batch Committee
+            <span
+              class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200/80 text-slate-500 transition group-open:rotate-180 group-open:bg-rose-100 group-open:text-rose-500">
+              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </span>
+          </summary>
+          <div class="grid gap-2 px-4 pb-4 sm:grid-cols-2 sm:px-5">
+            <a href="tel:+918500836580"
+              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+              Lal Singh <span class="font-normal text-slate-400">85008 36580</span>
+            </a>
+            <a href="tel:+918340934212"
+              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+              Nagaraj <span class="font-normal text-slate-400">83409 34212</span>
+            </a>
+            <a href="tel:+919494523600"
+              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+              Kailash <span class="font-normal text-slate-400">94945 23600</span>
+            </a>
+            <a href="tel:+919642898672"
+              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+              Kasna <span class="font-normal text-slate-400">96428 98672</span>
+            </a>
+            <a href="tel:+919490018971"
+              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+              Kishore <span class="font-normal text-slate-400">94900 18971</span>
+            </a>
+            <a href="tel:+919906886840"
+              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+              Ganesh <span class="font-normal text-slate-400">99068 86840</span>
+            </a>
+          </div>
+        </details>
+
+        <!-- 2009 -->
+        <details class="group">
+          <summary
+            class="flex cursor-pointer list-none items-center justify-between px-4 py-4 text-base font-semibold text-slate-800 transition hover:bg-white sm:px-5 sm:text-lg">
+            2009 Batch Committee
+            <span
+              class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200/80 text-slate-500 transition group-open:rotate-180 group-open:bg-rose-100 group-open:text-rose-500">
+              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </span>
+          </summary>
+          <div class="grid gap-2 px-4 pb-4 sm:grid-cols-2 sm:px-5">
+            <a href="tel:+919010806571"
+              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+              Ramdas <span class="font-normal text-slate-400">90108 06571</span>
+            </a>
+            <a href="tel:+919603385606"
+              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+              Soma <span class="font-normal text-slate-400">96033 85606</span>
+            </a>
+            <a href="tel:+919492581632"
+              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+              Pruthvi Raj <span class="font-normal text-slate-400">94925 81632</span>
+            </a>
+            <a href="tel:+919502208595"
+              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+              Karthik <span class="font-normal text-slate-400">95022 08595</span>
+            </a>
+            <a href="tel:+916305857946"
+              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+              Naresh <span class="font-normal text-slate-400">63058 57946</span>
+            </a>
+            <a href="tel:+919390000284"
+              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+              Gopal <span class="font-normal text-slate-400">93900 00284</span>
+            </a>
+          </div>
+        </details>
+
+        <!-- 2010 -->
+        <details class="group">
+          <summary
+            class="flex cursor-pointer list-none items-center justify-between px-4 py-4 text-base font-semibold text-slate-800 transition hover:bg-white sm:px-5 sm:text-lg">
+            2010 Batch Committee
+            <span
+              class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200/80 text-slate-500 transition group-open:rotate-180 group-open:bg-rose-100 group-open:text-rose-500">
+              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </span>
+          </summary>
+          <div class="grid gap-2 px-4 pb-4 sm:grid-cols-2 sm:px-5">
+            <a href="tel:+919666386708"
+              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+              Hari Prasad <span class="font-normal text-slate-400">96663 86708</span>
+            </a>
+            <a href="tel:+919398058292"
+              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+              Vijay <span class="font-normal text-slate-400">93980 58292</span>
+            </a>
+            <a href="tel:+918331996536"
+              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+              Srinivas <span class="font-normal text-slate-400">83319 96536</span>
+            </a>
+          </div>
+        </details>
+
+        <!-- 2011 -->
+        <details class="group">
+          <summary
+            class="flex cursor-pointer list-none items-center justify-between px-4 py-4 text-base font-semibold text-slate-800 transition hover:bg-white sm:px-5 sm:text-lg">
+            2011 Batch Committee
+            <span
+              class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200/80 text-slate-500 transition group-open:rotate-180 group-open:bg-rose-100 group-open:text-rose-500">
+              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </span>
+          </summary>
+          <div class="grid gap-2 px-4 pb-4 sm:grid-cols-2 sm:px-5">
+            <a href="tel:+918106373109"
+              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+              Kiran <span class="font-normal text-slate-400">81063 73109</span>
+            </a>
+            <a href="tel:+919573730448"
+              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+              Ganesh <span class="font-normal text-slate-400">95737 30448</span>
+            </a>
+          </div>
+        </details>
+
+        <!-- 2012 -->
+        <details class="group">
+          <summary
+            class="flex cursor-pointer list-none items-center justify-between px-4 py-4 text-base font-semibold text-slate-800 transition hover:bg-white sm:px-5 sm:text-lg">
+            2012 Batch Committee
+            <span
+              class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200/80 text-slate-500 transition group-open:rotate-180 group-open:bg-rose-100 group-open:text-rose-500">
+              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </span>
+          </summary>
+          <div class="grid gap-2 px-4 pb-4 sm:grid-cols-2 sm:px-5">
+            <a href="tel:+919989629741"
+              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+              Devuja <span class="font-normal text-slate-400">99896 29741</span>
+            </a>
+            <a href="tel:+919912238755"
+              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+              Rajesh <span class="font-normal text-slate-400">99122 38755</span>
+            </a>
+            <a href="tel:+917659996124"
+              class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+              Vinay <span class="font-normal text-slate-400">76599 96124</span>
+            </a>
+          </div>
+        </details>
       </div>
     </div>
   </div>
+</div>
 
   <script>
     const target = new Date('2026-08-16T10:00:00+05:30').getTime();
