@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="2007-2012 Batch Grand Reunion - 16 August 2026" />
-  <title>Reunion '26 | 2007-2012 Batch</title>
+  <meta name="description" content="2007-2013 Batch Grand Reunion - 16 August 2026" />
+  <title>Reunion '26 | 2007-2013 Batch</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>
@@ -107,8 +107,13 @@
     }
 
     @keyframes kenburns {
-      from { transform: scale(1); }
-      to { transform: scale(1.08); }
+      from {
+        transform: scale(1);
+      }
+
+      to {
+        transform: scale(1.08);
+      }
     }
 
     #heroDots button {
@@ -129,6 +134,7 @@
         opacity: 0;
         transform: translateY(18px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -148,19 +154,81 @@
       <a href="#top" class="font-display text-xl font-bold tracking-wide text-white">
         Reunion <span class="text-sun">'26</span>
       </a>
+
+      <!-- Desktop links -->
       <div class="hidden items-center gap-8 text-sm font-semibold text-white/85 md:flex">
         <a class="transition hover:text-sun" href="#about">Our school</a>
         <a class="transition hover:text-sun" href="#schedule">Schedule</a>
+        <a class="transition hover:text-sun" href="#register">Register</a>
         <a class="rounded-full border border-sun/60 px-3.5 py-1.5 text-sun transition hover:bg-sun hover:text-ink"
           href="#guidelines">Guidelines</a>
         <a class="transition hover:text-sun" href="#gallery">Gallery</a>
         <a class="transition hover:text-sun" href="#contact">Contact</a>
       </div>
-      <a href="upload/"
-        class="rounded-full bg-sun px-4 py-2 text-sm font-bold text-ink shadow-sm transition hover:bg-white hover:shadow-md">
-        Share a photo
-      </a>
+
+      <div class="flex items-center gap-3">
+        <a href="upload/"
+          class="hidden rounded-full bg-sun px-4 py-2 text-sm font-bold text-ink shadow-sm transition hover:bg-white hover:shadow-md sm:inline-flex">
+          Share a photo
+        </a>
+
+        <!-- Mobile menu button -->
+        <button id="menuToggle" type="button"
+          class="flex h-10 w-10 items-center justify-center rounded-full border border-white/25 text-white transition hover:bg-white/10 md:hidden"
+          aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <svg id="menuIconOpen" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="menuIconClose" class="hidden h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+            stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
     </nav>
+
+    <!-- Mobile panel -->
+    <div id="mobileMenu" class="fixed inset-0 z-30 hidden md:hidden" role="dialog" aria-modal="true"
+      aria-label="Mobile navigation">
+      <!-- Backdrop -->
+      <div id="menuBackdrop" class="absolute inset-0 bg-ink/70 backdrop-blur-sm"></div>
+
+      <!-- Sheet -->
+      <div class="absolute inset-x-0 top-0 border-b border-white/10 bg-ink px-5 pb-8 pt-5 shadow-lift">
+        <div class="flex items-center justify-between">
+          <a href="#top" class="font-display text-xl font-bold tracking-wide text-white" data-close-menu>
+            Reunion <span class="text-sun">'26</span>
+          </a>
+          <button type="button" id="menuClose"
+            class="flex h-10 w-10 items-center justify-center rounded-full border border-white/25 text-white transition hover:bg-white/10"
+            aria-label="Close menu">
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="mt-8 flex flex-col gap-1 text-base font-semibold text-white">
+          <a data-close-menu class="rounded-xl px-4 py-3 transition hover:bg-white/10 hover:text-sun" href="#about">Our
+            school</a>
+          <a data-close-menu class="rounded-xl px-4 py-3 transition hover:bg-white/10 hover:text-sun"
+            href="#schedule">Schedule</a>
+          <a data-close-menu class="rounded-xl px-4 py-3 transition hover:bg-white/10 hover:text-sun"
+            href="#register">Register</a>
+          <a data-close-menu class="rounded-xl px-4 py-3 text-sun transition hover:bg-white/10"
+            href="#guidelines">Guidelines</a>
+          <a data-close-menu class="rounded-xl px-4 py-3 transition hover:bg-white/10 hover:text-sun"
+            href="#gallery">Gallery</a>
+          <a data-close-menu class="rounded-xl px-4 py-3 transition hover:bg-white/10 hover:text-sun"
+            href="#contact">Contact</a>
+        </div>
+
+        <a data-close-menu href="upload/"
+          class="mt-6 flex w-full items-center justify-center rounded-full bg-sun px-5 py-3.5 text-sm font-bold text-ink transition hover:bg-white">
+          Share a photo
+        </a>
+      </div>
+    </div>
   </header>
 
   <main id="top">
@@ -170,10 +238,11 @@
       <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/80 to-ink/25"></div>
       <div class="grain pointer-events-none absolute inset-0 opacity-20"></div>
 
-      <div class="relative mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-end px-5 pb-16 pt-28 sm:pb-20 lg:px-8">
+      <div
+        class="relative mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-end px-5 pb-16 pt-28 sm:pb-20 lg:px-8">
         <p class="mb-5 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.22em] text-sun">
           <span class="h-px w-10 bg-sun"></span>
-          2007 – 2012 Batch
+          2007 – 2013 Batch
         </p>
 
         <h1 class="max-w-4xl font-display text-5xl font-bold leading-[0.95] tracking-tight sm:text-7xl lg:text-8xl">
@@ -216,15 +285,19 @@
     <!-- Welcome -->
     <section id="about"
       class="relative mx-auto grid max-w-7xl gap-14 overflow-hidden px-5 py-20 lg:grid-cols-2 lg:items-center lg:gap-20 lg:px-8 lg:py-28">
-      <div class="pointer-events-none absolute -left-24 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-sun/25 blur-3xl"></div>
+      <div
+        class="pointer-events-none absolute -left-24 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-sun/25 blur-3xl">
+      </div>
 
       <div class="relative">
         <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-coral animate-fade-up">Welcome message</p>
-        <h2 class="mt-3 max-w-xl font-display text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl animate-fade-up"
+        <h2
+          class="mt-3 max-w-xl font-display text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl animate-fade-up"
           style="animation-delay: 80ms">
           Welcome Back to<br class="hidden sm:block" /> Our Alma Mater
         </h2>
-        <p class="mt-6 max-w-xl text-base leading-8 text-muted sm:text-lg animate-fade-up" style="animation-delay: 140ms">
+        <p class="mt-6 max-w-xl text-base leading-8 text-muted sm:text-lg animate-fade-up"
+          style="animation-delay: 140ms">
           Years may have passed, but the memories we created at
           <span class="relative inline font-semibold text-ink">
             Telangana Government Tribal Welfare Residential Upgraded Junior College (TGTWURJC), Jinnaram
@@ -232,10 +305,13 @@
           </span>
           remain close to our hearts.
         </p>
-        <p class="mt-4 max-w-xl text-base leading-8 text-muted sm:text-lg animate-fade-up" style="animation-delay: 200ms">
-          From morning assemblies and classrooms to hostel life, sports, cultural events, examinations, and lifelong friendships, this campus shaped who we are today. The
+        <p class="mt-4 max-w-xl text-base leading-8 text-muted sm:text-lg animate-fade-up"
+          style="animation-delay: 200ms">
+          From morning assemblies and classrooms to hostel life, sports, cultural events, examinations, and lifelong
+          friendships, this campus shaped who we are today. The
           <span class="rounded-md bg-coral/10 px-1.5 py-0.5 font-semibold text-coral">Grand Reunion 2026</span>
-          is our opportunity to reconnect with classmates, honor our beloved teachers, revisit cherished memories, and create new ones together.
+          is our opportunity to reconnect with classmates, honor our beloved teachers, revisit cherished memories, and
+          create new ones together.
         </p>
         <div class="mt-8 flex gap-4 animate-fade-up" style="animation-delay: 280ms">
           <div class="w-1 shrink-0 rounded-full bg-coral"></div>
@@ -249,9 +325,11 @@
       <div class="relative mx-auto w-full max-w-md animate-fade-up" style="animation-delay: 180ms">
         <div class="absolute -left-6 -top-6 h-28 w-28 rounded-full bg-sun"></div>
         <div class="absolute -right-4 top-12 h-16 w-16 rounded-full border-2 border-coral/25"></div>
-        <img class="relative aspect-[4/5] w-full rounded-2xl object-cover shadow-lift transition duration-500 hover:scale-[1.02]"
+        <img
+          class="relative aspect-[4/5] w-full rounded-2xl object-cover shadow-lift transition duration-500 hover:scale-[1.02]"
           src="assets/hero/image_6.jpeg" alt="Friends smiling together" loading="lazy" />
-        <div class="absolute -bottom-6 -right-2 max-w-[240px] rounded-2xl bg-coral p-5 text-white shadow-glow sm:-right-4">
+        <div
+          class="absolute -bottom-6 -right-2 max-w-[240px] rounded-2xl bg-coral p-5 text-white shadow-glow sm:-right-4">
           <p class="font-display text-xl font-bold leading-tight sm:text-2xl">
             Friendship.<br />Gratitude.<br />Home.
           </p>
@@ -263,26 +341,30 @@
     <!-- About school -->
     <section class="relative overflow-hidden bg-[#E8EBE4] py-20 lg:py-28">
       <div class="pointer-events-none absolute -right-20 top-1/3 h-80 w-80 rounded-full bg-sun/20 blur-3xl"></div>
-      <div class="relative mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-start lg:gap-16 lg:px-8">
+      <div
+        class="relative mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-start lg:gap-16 lg:px-8">
         <div>
           <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-coral animate-fade-up">About our school</p>
           <h2 class="mt-3 font-display text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl animate-fade-up"
             style="animation-delay: 80ms">
             Telangana Tribal Welfare Residential Upgraded Junior College
           </h2>
-          <p class="mt-5 flex items-center gap-2 text-sm font-semibold text-muted animate-fade-up" style="animation-delay: 140ms">
+          <p class="mt-5 flex items-center gap-2 text-sm font-semibold text-muted animate-fade-up"
+            style="animation-delay: 140ms">
             <span class="inline-block h-1.5 w-1.5 rounded-full bg-coral"></span>
             TGTWURJC, Jinnaram, Sangareddy District
           </p>
         </div>
         <div class="space-y-5 text-base leading-8 text-muted sm:text-lg">
           <p class="animate-fade-up" style="animation-delay: 160ms">
-            Telangana Government Tribal Welfare Residential Upgraded Junior College has played an important role in nurturing generations of students through
+            Telangana Government Tribal Welfare Residential Upgraded Junior College has played an important role in
+            nurturing generations of students through
             <span class="font-semibold text-ink">quality education, discipline, values, and character</span>.
           </p>
           <p class="animate-fade-up" style="animation-delay: 220ms">
-            The institution has provided opportunities for academic excellence while fostering leadership, teamwork, respect, and lifelong friendships. For every student from the
-            <span class="rounded-md bg-coral/10 px-1.5 py-0.5 font-semibold text-coral">2007–2012 batches</span>,
+            The institution has provided opportunities for academic excellence while fostering leadership, teamwork,
+            respect, and lifelong friendships. For every student from the
+            <span class="rounded-md bg-coral/10 px-1.5 py-0.5 font-semibold text-coral">2007–2013 batches</span>,
             this campus represents unforgettable memories that continue to inspire us throughout life.
           </p>
           <div class="mt-2 flex gap-4 pt-2 animate-fade-up" style="animation-delay: 300ms">
@@ -375,7 +457,8 @@
           <!-- keep all schedule items exactly as before; only color tokens updated -->
           <li class="relative grid grid-cols-[72px_1fr] gap-4 py-6 sm:grid-cols-[88px_1fr] sm:gap-6">
             <div class="relative flex flex-col items-end pr-4 text-right sm:pr-6">
-              <span class="absolute -right-[9px] top-1.5 h-4 w-4 rounded-full border-2 border-coral bg-mist sm:-right-[13px]"></span>
+              <span
+                class="absolute -right-[9px] top-1.5 h-4 w-4 rounded-full border-2 border-coral bg-mist sm:-right-[13px]"></span>
               <time class="text-sm font-bold text-coral">09:00</time>
               <span class="text-xs text-ink/35">– 10:00</span>
             </div>
@@ -391,7 +474,8 @@
           </li>
           <li class="relative grid grid-cols-[72px_1fr] gap-4 py-6 sm:grid-cols-[88px_1fr] sm:gap-6">
             <div class="relative flex flex-col items-end pr-4 text-right sm:pr-6">
-              <span class="absolute -right-[9px] top-1.5 h-4 w-4 rounded-full border-2 border-coral bg-mist sm:-right-[13px]"></span>
+              <span
+                class="absolute -right-[9px] top-1.5 h-4 w-4 rounded-full border-2 border-coral bg-mist sm:-right-[13px]"></span>
               <time class="text-sm font-bold text-coral">10:00</time>
               <span class="text-xs text-ink/35">– 10:20</span>
             </div>
@@ -405,7 +489,8 @@
           </li>
           <li class="relative grid grid-cols-[72px_1fr] gap-4 py-6 sm:grid-cols-[88px_1fr] sm:gap-6">
             <div class="relative flex flex-col items-end pr-4 text-right sm:pr-6">
-              <span class="absolute -right-[9px] top-1.5 h-4 w-4 rounded-full border-2 border-coral bg-mist sm:-right-[13px]"></span>
+              <span
+                class="absolute -right-[9px] top-1.5 h-4 w-4 rounded-full border-2 border-coral bg-mist sm:-right-[13px]"></span>
               <time class="text-sm font-bold text-coral">10:20</time>
               <span class="text-xs text-ink/35">– 10:30</span>
             </div>
@@ -415,7 +500,8 @@
           </li>
           <li class="relative grid grid-cols-[72px_1fr] gap-4 py-6 sm:grid-cols-[88px_1fr] sm:gap-6">
             <div class="relative flex flex-col items-end pr-4 text-right sm:pr-6">
-              <span class="absolute -right-[9px] top-1.5 h-4 w-4 rounded-full border-2 border-coral bg-mist sm:-right-[13px]"></span>
+              <span
+                class="absolute -right-[9px] top-1.5 h-4 w-4 rounded-full border-2 border-coral bg-mist sm:-right-[13px]"></span>
               <time class="text-sm font-bold text-coral">10:30</time>
               <span class="text-xs text-ink/35">– 10:50</span>
             </div>
@@ -426,7 +512,8 @@
           </li>
           <li class="relative grid grid-cols-[72px_1fr] gap-4 py-6 sm:grid-cols-[88px_1fr] sm:gap-6">
             <div class="relative flex flex-col items-end pr-4 text-right sm:pr-6">
-              <span class="absolute -right-[9px] top-1.5 h-4 w-4 rounded-full border-2 border-coral bg-mist sm:-right-[13px]"></span>
+              <span
+                class="absolute -right-[9px] top-1.5 h-4 w-4 rounded-full border-2 border-coral bg-mist sm:-right-[13px]"></span>
               <time class="text-sm font-bold text-coral">10:50</time>
               <span class="text-xs text-ink/35">– 11:40</span>
             </div>
@@ -440,14 +527,16 @@
           </li>
           <li class="relative grid grid-cols-[72px_1fr] gap-4 py-6 sm:grid-cols-[88px_1fr] sm:gap-6">
             <div class="relative flex flex-col items-end pr-4 text-right sm:pr-6">
-              <span class="absolute -right-[9px] top-1.5 h-4 w-4 rounded-full border-2 border-sun bg-sun sm:-right-[13px]"></span>
+              <span
+                class="absolute -right-[9px] top-1.5 h-4 w-4 rounded-full border-2 border-sun bg-sun sm:-right-[13px]"></span>
               <time class="text-sm font-bold text-coral">11:40</time>
               <span class="text-xs text-ink/35">– 12:10</span>
             </div>
             <div class="rounded-2xl border border-sun/40 bg-[#FFF9EB] p-4 sm:p-5">
               <div class="flex flex-wrap items-center gap-2">
                 <h3 class="font-display text-xl font-bold sm:text-2xl">“Pay Back to School” Session</h3>
-                <span class="rounded-full bg-sun px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-ink">Key</span>
+                <span
+                  class="rounded-full bg-sun px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-ink">Key</span>
               </div>
               <ul class="mt-2 space-y-1 text-sm leading-6 text-ink/70">
                 <li>Announcement of Alumni Contribution</li>
@@ -459,18 +548,21 @@
           </li>
           <li class="relative grid grid-cols-[72px_1fr] gap-4 py-6 sm:grid-cols-[88px_1fr] sm:gap-6">
             <div class="relative flex flex-col items-end pr-4 text-right sm:pr-6">
-              <span class="absolute -right-[9px] top-1.5 h-4 w-4 rounded-full border-2 border-coral bg-mist sm:-right-[13px]"></span>
+              <span
+                class="absolute -right-[9px] top-1.5 h-4 w-4 rounded-full border-2 border-coral bg-mist sm:-right-[13px]"></span>
               <time class="text-sm font-bold text-coral">12:10</time>
               <span class="text-xs text-ink/35">– 12:40</span>
             </div>
             <div>
               <h3 class="font-display text-xl font-bold sm:text-2xl">Memory Lane & Interaction</h3>
-              <p class="mt-1.5 text-sm leading-6 text-muted">Open Mic: Senior–Junior sharing thoughts, ideas & memories.</p>
+              <p class="mt-1.5 text-sm leading-6 text-muted">Open Mic: Senior–Junior sharing thoughts, ideas & memories.
+              </p>
             </div>
           </li>
           <li class="relative grid grid-cols-[72px_1fr] gap-4 py-6 sm:grid-cols-[88px_1fr] sm:gap-6">
             <div class="relative flex flex-col items-end pr-4 text-right sm:pr-6">
-              <span class="absolute -right-[9px] top-1.5 h-4 w-4 rounded-full border-2 border-coral bg-mist sm:-right-[13px]"></span>
+              <span
+                class="absolute -right-[9px] top-1.5 h-4 w-4 rounded-full border-2 border-coral bg-mist sm:-right-[13px]"></span>
               <time class="text-sm font-bold text-coral">12:40</time>
               <span class="text-xs text-ink/35">– 13:20</span>
             </div>
@@ -485,7 +577,8 @@
           </li>
           <li class="relative grid grid-cols-[72px_1fr] gap-4 py-6 sm:grid-cols-[88px_1fr] sm:gap-6">
             <div class="relative flex flex-col items-end pr-4 text-right sm:pr-6">
-              <span class="absolute -right-[9px] top-1.5 h-4 w-4 rounded-full border-2 border-coral bg-mist sm:-right-[13px]"></span>
+              <span
+                class="absolute -right-[9px] top-1.5 h-4 w-4 rounded-full border-2 border-coral bg-mist sm:-right-[13px]"></span>
               <time class="text-sm font-bold text-coral">13:20</time>
               <span class="text-xs text-ink/35">– 14:20</span>
             </div>
@@ -495,7 +588,8 @@
           </li>
           <li class="relative grid grid-cols-[72px_1fr] gap-4 py-6 sm:grid-cols-[88px_1fr] sm:gap-6">
             <div class="relative flex flex-col items-end pr-4 text-right sm:pr-6">
-              <span class="absolute -right-[9px] top-1.5 h-4 w-4 rounded-full border-2 border-coral bg-mist sm:-right-[13px]"></span>
+              <span
+                class="absolute -right-[9px] top-1.5 h-4 w-4 rounded-full border-2 border-coral bg-mist sm:-right-[13px]"></span>
               <time class="text-sm font-bold text-coral">14:20</time>
               <span class="text-xs text-ink/35">– 14:30</span>
             </div>
@@ -509,6 +603,274 @@
             </div>
           </li>
         </ol>
+      </div>
+    </section>
+
+    <!-- Register -->
+    <section id="register" class="relative overflow-hidden bg-mist py-20 lg:py-28">
+      <!-- Soft ambient glow -->
+      <div class="pointer-events-none absolute -left-16 top-1/4 h-72 w-72 rounded-full bg-sun/30 blur-3xl"></div>
+      <div class="pointer-events-none absolute -right-20 bottom-0 h-64 w-64 rounded-full bg-coral/10 blur-3xl"></div>
+
+      <div class="relative mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-16">
+          <!-- Left: copy -->
+          <div>
+            <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-coral">
+              Join the reunion
+            </p>
+            <h2 class="mt-3 font-display text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl">
+              Register &amp; contribute
+            </h2>
+            <p class="mt-5 max-w-lg text-base leading-8 text-muted sm:text-lg">
+              Confirm your presence and support the day. Your contribution helps cover event costs and our
+              <span class="font-semibold text-ink">“Pay Back to School”</span> initiatives.
+            </p>
+
+            <!-- Key points -->
+            <ul class="mt-8 space-y-4">
+              <li class="flex gap-3">
+                <span
+                  class="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-coral/10 text-coral">
+                  <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </span>
+                <div>
+                  <p class="font-semibold text-ink">Contribution</p>
+                  <p class="mt-0.5 text-sm leading-6 text-muted">
+                    <strong class="text-ink">Minimum ₹1,000</strong> per person.
+                    You’re welcome to contribute more if you wish — every extra rupee supports the event and our school.
+                  </p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span
+                  class="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-coral/10 text-coral">
+                  <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </span>
+                <div>
+                  <p class="font-semibold text-ink">How to contribute</p>
+                  <p class="mt-0.5 text-sm leading-6 text-muted">
+                    Pay directly to your <strong class="text-ink">batch committee member</strong> (cash / UPI).
+                    Do not transfer to random accounts.
+                  </p>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span
+                  class="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-coral/10 text-coral">
+                  <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </span>
+                <div>
+                  <p class="font-semibold text-ink">Where it goes</p>
+                  <p class="mt-0.5 text-sm leading-6 text-muted">
+                    Event arrangements, hospitality, and alumni contributions toward school support.
+                  </p>
+                </div>
+              </li>
+            </ul>
+
+            <p class="mt-8 text-sm leading-6 text-muted/80">
+              Need the right contact? Open
+              <button type="button" id="contactButton"
+                class="font-semibold text-coral underline decoration-coral/40 underline-offset-2 transition hover:text-[#d44e3f]">
+                committee contacts
+              </button>
+              and reach your batch coordinator.
+            </p>
+          </div>
+
+          <!-- Right: CTA card -->
+          <div class="relative">
+            <div class="rounded-2xl border border-ink/8 bg-white p-7 shadow-lift sm:p-9">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-[11px] font-bold uppercase tracking-[0.18em] text-coral">
+                    Registration form
+                  </p>
+                  <h3 class="mt-2 font-display text-2xl font-bold tracking-tight sm:text-3xl">
+                    Confirm your seat
+                  </h3>
+                </div>
+                <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-sun text-ink shadow-sm">
+                  <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+              </div>
+
+              <p class="mt-4 text-sm leading-6 text-muted">
+                Fill the short Google Form with your name, batch, and contact details.
+                Then complete your contribution with your batch committee member.
+              </p>
+
+              <!-- Contribution highlight -->
+              <div class="mt-6 rounded-xl bg-[#FFF9EB] px-4 py-4 ring-1 ring-sun/40">
+                <div class="flex items-center gap-4">
+                  <div
+                    class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-sun font-display text-lg font-bold text-ink">
+                    ₹
+                  </div>
+                  <div>
+                    <p class="text-sm font-bold text-ink">Minimum ₹1,000 · more welcome</p>
+                    <p class="text-xs leading-5 text-muted">
+                      Per person · Pay only to your batch committee member
+                    </p>
+                  </div>
+                </div>
+                <p class="mt-3 border-t border-sun/30 pt-3 text-xs leading-5 text-ink/70">
+                  Happy to give more? Any amount above ₹1,000 is gratefully accepted and goes further toward the reunion
+                  and school support.
+                </p>
+              </div>
+
+              <a href="https://docs.google.com/forms/d/1MLx2j_mj42p_GPg7vqCSBcgqHkOF9Gz54sVgGAwCvaA/viewform"
+                target="_blank" rel="noopener noreferrer"
+                class="mt-7 flex w-full items-center justify-center gap-2 rounded-full bg-coral px-6 py-4 text-base font-bold text-white shadow-glow transition hover:bg-[#d44e3f]">
+                Open registration form
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+
+              <p class="mt-4 text-center text-xs leading-5 text-muted/70">
+                Opens in a new tab · Google Form · Takes about 1–2 minutes
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Guidlines -->
+
+    <section id="guidelines" class="bg-sun py-16 lg:py-20">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <!-- Header -->
+        <div class="max-w-2xl">
+          <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-coral">
+            For a thoughtful gathering
+          </p>
+          <h2 class="mt-2 font-display text-3xl font-bold tracking-tight sm:text-4xl">
+            School Administration Guidelines
+          </h2>
+          <p class="mt-3 text-sm leading-6 text-ink/65 sm:text-base">
+            A few shared commitments will help us celebrate with respect for the school, its students, and every guest.
+          </p>
+        </div>
+
+        <!-- Compact list -->
+        <div class="mt-10 divide-y divide-ink/10 border-y border-ink/10">
+          <div class="flex gap-4 py-4 sm:gap-5">
+            <i data-lucide="map-pin" class="mt-0.5 h-5 w-5 shrink-0 text-coral"></i>
+            <div>
+              <h3 class="font-display text-base font-bold sm:text-lg">Restricted Access</h3>
+              <p class="mt-0.5 text-sm leading-6 text-ink/60">Stay within designated event areas unless accompanied by
+                school representatives.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 py-4 sm:gap-5">
+            <i data-lucide="school" class="mt-0.5 h-5 w-5 shrink-0 text-coral"></i>
+            <div>
+              <h3 class="font-display text-base font-bold sm:text-lg">Respect School Property</h3>
+              <p class="mt-0.5 text-sm leading-6 text-ink/60">Classrooms, labs, library, and sports facilities need
+                prior permission before use.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 py-4 sm:gap-5">
+            <i data-lucide="camera" class="mt-0.5 h-5 w-5 shrink-0 text-coral"></i>
+            <div>
+              <h3 class="font-display text-base font-bold sm:text-lg">Photography & Videography</h3>
+              <p class="mt-0.5 text-sm leading-6 text-ink/60">Capture memories responsibly and follow the school’s
+                privacy policies.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 py-4 sm:gap-5">
+            <i data-lucide="heart-handshake" class="mt-0.5 h-5 w-5 shrink-0 text-coral"></i>
+            <div>
+              <h3 class="font-display text-base font-bold sm:text-lg">Appropriate Conduct</h3>
+              <p class="mt-0.5 text-sm leading-6 text-ink/60">Maintain discipline, respectful language, and the dignity
+                of the institution.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 py-4 sm:gap-5">
+            <i data-lucide="ban" class="mt-0.5 h-5 w-5 shrink-0 text-coral"></i>
+            <div>
+              <h3 class="font-display text-base font-bold sm:text-lg">No Political or Commercial Activities</h3>
+              <p class="mt-0.5 text-sm leading-6 text-ink/60">Non-political, non-religious, non-commercial event. No
+                promotions or advertising.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 py-4 sm:gap-5">
+            <i data-lucide="message-square-heart" class="mt-0.5 h-5 w-5 shrink-0 text-coral"></i>
+            <div>
+              <h3 class="font-display text-base font-bold sm:text-lg">No Public Criticism</h3>
+              <p class="mt-0.5 text-sm leading-6 text-ink/60">Share constructive suggestions privately after the event —
+                not publicly on campus.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 py-4 sm:gap-5">
+            <i data-lucide="wine-off" class="mt-0.5 h-5 w-5 shrink-0 text-coral"></i>
+            <div>
+              <h3 class="font-display text-base font-bold sm:text-lg">Alcohol-Free Event</h3>
+              <p class="mt-0.5 text-sm leading-6 text-ink/60">No alcohol on campus. Anyone under the influence will not
+                be permitted to attend.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 py-4 sm:gap-5">
+            <i data-lucide="shield-check" class="mt-0.5 h-5 w-5 shrink-0 text-coral"></i>
+            <div>
+              <h3 class="font-display text-base font-bold sm:text-lg">Follow Safety Instructions</h3>
+              <p class="mt-0.5 text-sm leading-6 text-ink/60">Follow directions from school authorities and volunteers,
+                including emergency procedures.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 py-4 sm:gap-5">
+            <i data-lucide="trash-2" class="mt-0.5 h-5 w-5 shrink-0 text-coral"></i>
+            <div>
+              <h3 class="font-display text-base font-bold sm:text-lg">Keep the Campus Clean</h3>
+              <p class="mt-0.5 text-sm leading-6 text-ink/60">Use dustbins and dispose of waste responsibly throughout
+                the event.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 py-4 sm:gap-5">
+            <i data-lucide="car-front" class="mt-0.5 h-5 w-5 shrink-0 text-coral"></i>
+            <div>
+              <h3 class="font-display text-base font-bold sm:text-lg">Parking & Traffic</h3>
+              <p class="mt-0.5 text-sm leading-6 text-ink/60">Park only in designated areas and follow volunteer
+                directions.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 py-4 sm:gap-5">
+            <i data-lucide="utensils" class="mt-0.5 h-5 w-5 shrink-0 text-coral"></i>
+            <div>
+              <h3 class="font-display text-base font-bold sm:text-lg">Food & Refreshments</h3>
+              <p class="mt-0.5 text-sm leading-6 text-ink/60">Eat only in designated areas and help keep those spaces
+                clean.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Closing line -->
+        <p class="mx-auto mt-10 max-w-2xl text-center font-display text-xl font-bold leading-snug text-ink sm:text-2xl">
+          Let’s make the TGTWURJC Grand Reunion 2026 memorable, respectful, and meaningful.
+        </p>
       </div>
     </section>
 
@@ -536,12 +898,14 @@
 
     <!-- Upload CTA -->
     <section class="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
-      <div class="flex flex-col items-start justify-between gap-8 border-y border-ink/10 py-12 lg:flex-row lg:items-center">
+      <div
+        class="flex flex-col items-start justify-between gap-8 border-y border-ink/10 py-12 lg:flex-row lg:items-center">
         <div>
           <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-coral">Live photo upload</p>
           <h2 class="mt-3 font-display text-4xl font-bold tracking-tight">Your lens. Our memory.</h2>
           <p class="mt-3 max-w-xl text-muted">
-            Share your moments from the reunion directly from your phone. Compressed photos will appear in the gallery shortly after upload.
+            Share your moments from the reunion directly from your phone. Compressed photos will appear in the gallery
+            shortly after upload.
           </p>
         </div>
         <a href="upload/"
@@ -550,122 +914,20 @@
         </a>
       </div>
     </section>
-
-    <!-- Guidelines -->
-    <section id="guidelines" class="bg-sun py-20 lg:py-28">
-      <div class="mx-auto max-w-7xl px-5 lg:px-8">
-        <div class="max-w-2xl">
-          <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-coral">For a thoughtful gathering</p>
-          <h2 class="mt-3 font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
-            School Administration Guidelines
-          </h2>
-          <p class="mt-5 text-base leading-7 text-ink/70 sm:text-lg sm:leading-8">
-            A few shared commitments will help us celebrate our reunion with respect for the school, its students, and every guest.
-          </p>
-        </div>
-
-        <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <!-- same 11 articles; only class tokens updated for modern look -->
-          <article class="group rounded-2xl border border-ink/8 bg-mist p-6 shadow-soft transition hover:border-ink/15 hover:shadow-md">
-            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-coral/10 text-coral transition group-hover:bg-coral group-hover:text-white">
-              <i data-lucide="map-pin" class="h-5 w-5"></i>
-            </div>
-            <h3 class="mt-5 font-display text-xl font-bold tracking-tight">Restricted Access</h3>
-            <p class="mt-2.5 text-sm leading-6 text-muted">Alumni should remain within designated event areas unless accompanied by school representatives.</p>
-          </article>
-          <article class="group rounded-2xl border border-ink/8 bg-mist p-6 shadow-soft transition hover:border-ink/15 hover:shadow-md">
-            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-coral/10 text-coral transition group-hover:bg-coral group-hover:text-white">
-              <i data-lucide="school" class="h-5 w-5"></i>
-            </div>
-            <h3 class="mt-5 font-display text-xl font-bold tracking-tight">Respect School Property</h3>
-            <p class="mt-2.5 text-sm leading-6 text-muted">Classrooms, laboratories, library, sports facilities, and infrastructure should not be used without prior permission.</p>
-          </article>
-          <article class="group rounded-2xl border border-ink/8 bg-mist p-6 shadow-soft transition hover:border-ink/15 hover:shadow-md">
-            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-coral/10 text-coral transition group-hover:bg-coral group-hover:text-white">
-              <i data-lucide="camera" class="h-5 w-5"></i>
-            </div>
-            <h3 class="mt-5 font-display text-xl font-bold tracking-tight">Photography & Videography</h3>
-            <p class="mt-2.5 text-sm leading-6 text-muted">Capture memories responsibly and follow the school’s privacy policies and committee instructions.</p>
-          </article>
-          <article class="group rounded-2xl border border-ink/8 bg-mist p-6 shadow-soft transition hover:border-ink/15 hover:shadow-md">
-            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-coral/10 text-coral transition group-hover:bg-coral group-hover:text-white">
-              <i data-lucide="heart-handshake" class="h-5 w-5"></i>
-            </div>
-            <h3 class="mt-5 font-display text-xl font-bold tracking-tight">Appropriate Conduct</h3>
-            <p class="mt-2.5 text-sm leading-6 text-muted">Maintain discipline, respectful language, and the dignity and values of the institution throughout the event.</p>
-          </article>
-          <article class="group rounded-2xl border border-ink/8 bg-mist p-6 shadow-soft transition hover:border-ink/15 hover:shadow-md">
-            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-coral/10 text-coral transition group-hover:bg-coral group-hover:text-white">
-              <i data-lucide="ban" class="h-5 w-5"></i>
-            </div>
-            <h3 class="mt-5 font-display text-xl font-bold tracking-tight">No Political or Commercial Activities</h3>
-            <p class="mt-2.5 text-sm leading-6 text-muted">This is a non-political, non-religious, and non-commercial event. Promotions, advertising, and marketing are prohibited.</p>
-          </article>
-          <article class="group rounded-2xl border border-ink/8 bg-mist p-6 shadow-soft transition hover:border-ink/15 hover:shadow-md">
-            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-coral/10 text-coral transition group-hover:bg-coral group-hover:text-white">
-              <i data-lucide="message-square-heart" class="h-5 w-5"></i>
-            </div>
-            <h3 class="mt-5 font-display text-xl font-bold tracking-tight">No Public Criticism</h3>
-            <p class="mt-2.5 text-sm leading-6 text-muted">Please do not publicly criticize school facilities or administration. Share constructive suggestions privately after the event.</p>
-          </article>
-          <article class="group rounded-2xl border border-ink/8 bg-mist p-6 shadow-soft transition hover:border-ink/15 hover:shadow-md">
-            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-coral/10 text-coral transition group-hover:bg-coral group-hover:text-white">
-              <i data-lucide="wine-off" class="h-5 w-5"></i>
-            </div>
-            <h3 class="mt-5 font-display text-xl font-bold tracking-tight">Alcohol-Free Event</h3>
-            <p class="mt-2.5 text-sm leading-6 text-muted">Participants under the influence of alcohol or carrying alcoholic beverages will not be permitted to attend.</p>
-          </article>
-          <article class="group rounded-2xl border border-ink/8 bg-mist p-6 shadow-soft transition hover:border-ink/15 hover:shadow-md">
-            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-coral/10 text-coral transition group-hover:bg-coral group-hover:text-white">
-              <i data-lucide="shield-check" class="h-5 w-5"></i>
-            </div>
-            <h3 class="mt-5 font-display text-xl font-bold tracking-tight">Follow Safety Instructions</h3>
-            <p class="mt-2.5 text-sm leading-6 text-muted">Follow all instructions issued by school authorities and volunteers, including emergency procedures and crowd management.</p>
-          </article>
-          <article class="group rounded-2xl border border-ink/8 bg-mist p-6 shadow-soft transition hover:border-ink/15 hover:shadow-md">
-            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-coral/10 text-coral transition group-hover:bg-coral group-hover:text-white">
-              <i data-lucide="trash-2" class="h-5 w-5"></i>
-            </div>
-            <h3 class="mt-5 font-display text-xl font-bold tracking-tight">Keep the Campus Clean</h3>
-            <p class="mt-2.5 text-sm leading-6 text-muted">Help maintain cleanliness throughout the event. Use dustbins and dispose of waste responsibly.</p>
-          </article>
-          <article class="group rounded-2xl border border-ink/8 bg-mist p-6 shadow-soft transition hover:border-ink/15 hover:shadow-md">
-            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-coral/10 text-coral transition group-hover:bg-coral group-hover:text-white">
-              <i data-lucide="car-front" class="h-5 w-5"></i>
-            </div>
-            <h3 class="mt-5 font-display text-xl font-bold tracking-tight">Parking & Traffic</h3>
-            <p class="mt-2.5 text-sm leading-6 text-muted">Park vehicles only in designated parking areas and follow directions from volunteers and school authorities.</p>
-          </article>
-          <article class="group rounded-2xl border border-ink/8 bg-mist p-6 shadow-soft transition hover:border-ink/15 hover:shadow-md sm:col-span-2 lg:col-span-1">
-            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-coral/10 text-coral transition group-hover:bg-coral group-hover:text-white">
-              <i data-lucide="utensils" class="h-5 w-5"></i>
-            </div>
-            <h3 class="mt-5 font-display text-xl font-bold tracking-tight">Food & Refreshments</h3>
-            <p class="mt-2.5 text-sm leading-6 text-muted">Consume food only in designated areas while helping maintain cleanliness.</p>
-          </article>
-        </div>
-
-        <div class="mx-auto mt-16 max-w-3xl text-center">
-          <div class="mx-auto mb-5 h-px w-16 bg-ink/20"></div>
-          <p class="font-display text-2xl font-bold leading-snug text-ink sm:text-3xl">
-            Let’s make the TGTWURJC Grand Reunion 2026 memorable, respectful, and meaningful for our beloved alma mater.
-          </p>
-        </div>
-      </div>
-    </section>
   </main>
 
   <!-- Footer -->
   <footer id="contact" class="bg-ink text-white">
     <div class="mx-auto flex max-w-7xl flex-col justify-between gap-8 px-5 py-12 sm:flex-row lg:px-8">
       <div>
-        <p class="font-display text-3xl font-bold tracking-tight">Government Tribal Welfare<br />Residential Junior College</p>
+        <p class="font-display text-3xl font-bold tracking-tight">Government Tribal Welfare<br />Residential Junior
+          College</p>
         <p class="mt-3 text-xs font-bold uppercase tracking-[0.18em] text-sun">TGTWURJC</p>
         <p class="mt-2 text-sm text-white/60">Sangareddy, Jinnaram, Telangana 502319</p>
       </div>
       <div class="text-sm sm:text-right">
         <p class="font-display text-2xl font-bold">Grand Reunion 2026</p>
-        <p class="mt-2 text-white/60">2007–2012 Batches</p>
+        <p class="mt-2 text-white/60">2007–2013 Batches</p>
         <button id="contactButton"
           class="mt-5 rounded-full border border-white/20 px-5 py-2.5 font-bold text-white transition hover:border-sun hover:text-sun">
           View committee contacts
@@ -675,7 +937,7 @@
     <div class="border-t border-white/10 px-5 py-5 text-center text-sm text-white/55">
       Built with <span class="text-coral">♥</span> by
       <span class="font-semibold text-white">Venkatesh Kethavath</span>
-      <span class="text-white/40">(2012 Batch)</span>
+      <span class="text-white/40">(2013 Batch)</span>
       <br />
       Celebrating memories, friendships, and the lifelong spirit of
       <span class="font-medium text-white">TGTWURJC Grand Reunion 2026</span>.
@@ -686,10 +948,12 @@
   <div id="contactModal"
     class="fixed inset-0 z-50 hidden items-end justify-center bg-ink/60 p-0 backdrop-blur-sm sm:items-center sm:p-6"
     role="dialog" aria-modal="true" aria-labelledby="contactTitle">
-    <div class="max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-t-2xl bg-white shadow-lift ring-1 ring-ink/5 sm:rounded-2xl">
-      <div class="sticky top-0 z-10 flex items-start justify-between border-b border-ink/8 bg-white/95 px-6 py-5 backdrop-blur-md sm:px-8">
+    <div
+      class="max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-t-2xl bg-white shadow-lift ring-1 ring-ink/5 sm:rounded-2xl">
+      <div
+        class="sticky top-0 z-10 flex items-start justify-between border-b border-ink/8 bg-white/95 px-6 py-5 backdrop-blur-md sm:px-8">
         <div>
-          <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-coral">2007 – 2012 Batch</p>
+          <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-coral">2007 – 2013 Batch</p>
           <h2 id="contactTitle" class="mt-1.5 font-display text-2xl font-bold tracking-tight text-ink sm:text-3xl">
             Contact information
           </h2>
@@ -702,7 +966,8 @@
       </div>
 
       <div class="p-6 sm:p-8">
-        <section class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-ink via-[#1a4543] to-ink p-6 text-white shadow-lift">
+        <section
+          class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-ink via-[#1a4543] to-ink p-6 text-white shadow-lift">
           <div class="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-coral/20 blur-2xl"></div>
           <div class="absolute -bottom-10 -left-6 h-28 w-28 rounded-full bg-sun/10 blur-2xl"></div>
           <p class="relative text-[11px] font-semibold uppercase tracking-[0.2em] text-sun">Organizer &amp; convener</p>
@@ -724,9 +989,9 @@
 
         <p class="mt-8 text-xs font-semibold uppercase tracking-wider text-muted">Core Committee Contacts</p>
         <div class="mt-3 divide-y divide-ink/8 rounded-2xl border border-ink/8 bg-mist/50">
-        
-           <!-- 2007 -->
-           <details class="group">
+
+          <!-- 2007 -->
+          <details class="group">
             <summary
               class="flex cursor-pointer list-none items-center justify-between px-4 py-4 text-base font-semibold text-slate-800 transition hover:bg-white sm:px-5 sm:text-lg">
               2007 Batch Committee
@@ -920,7 +1185,27 @@
               </a>
             </div>
           </details>
-          
+
+          <!-- 2013 -->
+          <details class="group">
+            <summary
+              class="flex cursor-pointer list-none items-center justify-between px-4 py-4 text-base font-semibold text-slate-800 transition hover:bg-white sm:px-5 sm:text-lg">
+              2013 Batch Committee
+              <span
+                class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200/80 text-slate-500 transition group-open:rotate-180 group-open:bg-rose-100 group-open:text-rose-500">
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </span>
+            </summary>
+            <div class="grid gap-2 px-4 pb-4 sm:grid-cols-2 sm:px-5">
+              <a href="tel:+918179772962"
+                class="flex items-center justify-between rounded-lg bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-100 transition hover:ring-rose-200 hover:text-rose-600">
+                Sreenu <span class="font-normal text-slate-400">81797 72962</span>
+              </a>
+            </div>
+          </details>
+
         </div>
       </div>
     </div>
@@ -1010,6 +1295,42 @@
       });
     })();
   </script>
+
+  <script>
+    (function () {
+      const toggle = document.getElementById('menuToggle');
+      const menu = document.getElementById('mobileMenu');
+      const closeBtn = document.getElementById('menuClose');
+      const backdrop = document.getElementById('menuBackdrop');
+      const iconOpen = document.getElementById('menuIconOpen');
+      const iconClose = document.getElementById('menuIconClose');
+      if (!toggle || !menu) return;
+
+      function setOpen(open) {
+        menu.classList.toggle('hidden', !open);
+        document.body.classList.toggle('overflow-hidden', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        if (iconOpen) iconOpen.classList.toggle('hidden', open);
+        if (iconClose) iconClose.classList.toggle('hidden', !open);
+      }
+
+      toggle.addEventListener('click', () => {
+        setOpen(menu.classList.contains('hidden'));
+      });
+      closeBtn?.addEventListener('click', () => setOpen(false));
+      backdrop?.addEventListener('click', () => setOpen(false));
+
+      menu.querySelectorAll('[data-close-menu]').forEach((link) => {
+        link.addEventListener('click', () => setOpen(false));
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !menu.classList.contains('hidden')) setOpen(false);
+      });
+    })();
+  </script>
+
   <script type="module">
     import { initGallery } from './js/gallery.js';
     initGallery({ preview: true });
