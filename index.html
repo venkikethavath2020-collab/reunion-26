@@ -677,7 +677,7 @@
 
             <p class="mt-8 text-sm leading-6 text-muted/80">
               Need the right contact? Open
-              <button type="button" id="contactButton"
+              <button type="button" id="contactButtonTop"
                 class="font-semibold text-coral underline decoration-coral/40 underline-offset-2 transition hover:text-[#d44e3f]">
                 committee contacts
               </button>
@@ -928,7 +928,7 @@
       <div class="text-sm sm:text-right">
         <p class="font-display text-2xl font-bold">Grand Reunion 2026</p>
         <p class="mt-2 text-white/60">2007–2013 Batches</p>
-        <button id="contactButton"
+        <button id="contactButtonFooter"
           class="mt-5 rounded-full border border-white/20 px-5 py-2.5 font-bold text-white transition hover:border-sun hover:text-sun">
           View committee contacts
         </button>
@@ -1233,22 +1233,48 @@
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    const contactModal = document.getElementById('contactModal');
-    const contactButton = document.getElementById('contactButton');
-    const closeContact = document.getElementById('closeContact');
-    function setContacts(open) {
-      contactModal.classList.toggle('hidden', !open);
-      contactModal.classList.toggle('flex', open);
-      document.body.classList.toggle('overflow-hidden', open);
-      if (open) closeContact.focus();
+    // =============================
+    // Contact Modal
+    // =============================
+
+    const contactModal = document.getElementById("contactModal");
+    const contactButtonTop = document.getElementById("contactButtonTop");
+    const contactButtonFooter = document.getElementById("contactButtonFooter");
+    const closeContact = document.getElementById("closeContact");
+
+    function openContactModal() {
+      contactModal.classList.remove("hidden");
+      contactModal.classList.add("flex");
+      document.body.style.overflow = "hidden";
     }
-    contactButton.addEventListener('click', () => setContacts(true));
-    closeContact.addEventListener('click', () => setContacts(false));
-    contactModal.addEventListener('click', (event) => {
-      if (event.target === contactModal) setContacts(false);
+
+    function closeContactModal() {
+      contactModal.classList.remove("flex");
+      contactModal.classList.add("hidden");
+      document.body.style.overflow = "";
+    }
+
+    // Open from top button
+    contactButtonTop?.addEventListener("click", openContactModal);
+
+    // Open from footer button
+    contactButtonFooter?.addEventListener("click", openContactModal);
+
+    // Close button
+    closeContact?.addEventListener("click", closeContactModal);
+
+    // Close when clicking outside modal
+    contactModal?.addEventListener("click", (e) => {
+      if (e.target === contactModal) {
+        closeContactModal();
+      }
     });
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && !contactModal.classList.contains('hidden')) setContacts(false);
+
+    // Close with Escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && contactModal.classList.contains("flex")) {
+        closeContactModal();
+      }
     });
     lucide.createIcons();
   </script>
