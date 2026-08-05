@@ -128,22 +128,22 @@
         <!-- Meta fields -->
         <div class="mt-8 grid gap-4 sm:grid-cols-2">
           <label class="block text-sm font-semibold text-ink/80">
-            Your Name
-            <input name="name" maxlength="80"
+            Your Name <span class="text-coral">*</span>
+            <input name="name" maxlength="80" required
               class="mt-2 w-full rounded-lg border border-ink/15 bg-white px-3.5 py-3 text-sm font-normal outline-none transition focus:border-coral focus:ring-2 focus:ring-coral/20"
-              placeholder="Optional" />
+              placeholder="Your full name" />
           </label>
           <label class="block text-sm font-semibold text-ink/80">
-            Batch
-            <select name="batch"
+            Batch <span class="text-coral">*</span>
+            <select name="batch" required
               class="mt-2 w-full rounded-lg border border-ink/15 bg-white px-3.5 py-3 text-sm font-normal outline-none transition focus:border-coral focus:ring-2 focus:ring-coral/20">
-              <option value="">Select batch (optional)</option>
+              <option value="">Select batch</option>
               <option>2007</option>
               <option>2008</option>
               <option>2009</option>
               <option>2010</option>
               <option>2011</option>
-              <option>2011</option>
+              <option>2012</option>
               <option>2013</option>
             </select>
           </label>

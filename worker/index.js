@@ -60,7 +60,7 @@ async function list(request, env) {
   const url = new URL(request.url);
   const limit = Math.min(Math.max(Number(url.searchParams.get('limit')) || 24, 1), 100);
   const cursor = url.searchParams.get('cursor') || undefined;
-  const result = await env.PHOTOS.list({ prefix: GALLERY_PREFIX, limit, cursor });
+  const result = await env.PHOTOS.list({ prefix: GALLERY_PREFIX, limit, cursor, include: ['customMetadata', 'httpMetadata'] });
   return json({
     items: result.objects.map((object) => ({
       key: object.key,

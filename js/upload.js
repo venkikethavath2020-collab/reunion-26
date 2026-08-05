@@ -29,15 +29,30 @@ export function initUpload() {
   const progressPercent = document.getElementById("progressPercent");
   const progressDetail = document.getElementById("progressDetail");
 
+  const nameInput = form?.querySelector('[name="name"]');
+  const batchSelect = form?.querySelector('[name="batch"]');
+
   if (!input || !zone || !form) return;
 
   let selected = [];
+
+  // ── Validate required fields + files ───────────────────
+  const updateButtonState = () => {
+    if (!btn) return;
+    const hasName = nameInput?.value.trim().length > 0;
+    const hasBatch = batchSelect?.value.trim().length > 0;
+    const hasFiles = selected.length > 0;
+
+    btn.disabled = !(hasName && hasBatch && hasFiles);
+  };
 
   const setLoading = (loading) => {
     if (!btn) return;
     btn.disabled = loading;
     if (btnText) btnText.textContent = loading ? "Uploading…" : "Upload Photos";
     if (btnSpinner) btnSpinner.classList.toggle("hidden", !loading);
+    // After loading finishes, re-check required fields
+    if (!loading) updateButtonState();
   };
 
   const showMessage = (text, type = "error") => {
@@ -57,13 +72,14 @@ export function initUpload() {
     if (!selectedSummary || !selectedCount) return;
     if (selected.length === 0) {
       selectedSummary.classList.add("hidden");
-      return;
+    } else {
+      selectedSummary.classList.remove("hidden");
+      selectedCount.textContent =
+        selected.length === 1
+          ? "1 photo selected"
+          : `${selected.length} photos selected`;
     }
-    selectedSummary.classList.remove("hidden");
-    selectedCount.textContent =
-      selected.length === 1
-        ? "1 photo selected"
-        : `${selected.length} photos selected`;
+    updateButtonState();
   };
 
   const setProgress = (percent, label, detail = "") => {
@@ -79,6 +95,10 @@ export function initUpload() {
     if (progressBar) progressBar.style.width = "0%";
   };
 
+  // Listen for changes on name & batch
+  nameInput?.addEventListener("input", updateButtonState);
+  batchSelect?.addEventListener("change", updateButtonState);
+
   const choose = (files) => {
     const incoming = [...files];
     const accepted = incoming.filter(
@@ -86,7 +106,6 @@ export function initUpload() {
     );
     const typeOrSizeRejected = incoming.length - accepted.length;
 
-    // Cap at 10
     let final = accepted;
     let overLimit = 0;
     if (accepted.length > MAX_FILES) {
@@ -114,7 +133,6 @@ export function initUpload() {
       clearMessage();
     }
 
-    // Reset input so the same files can be re-selected later if needed
     input.value = "";
   };
 
@@ -154,6 +172,19 @@ export function initUpload() {
       return;
     }
 
+    const name = form.name.value.trim();
+    const batch = form.batch.value.trim();
+
+    if (!name) {
+      showMessage("Please enter your name.");
+      nameInput?.focus();
+      return;
+    }
+    if (!batch) {
+      showMessage("Please select your batch.");
+      batchSelect?.focus();
+      return;
+    }
     if (!selected.length) {
       showMessage("Choose at least one image to upload.");
       return;
@@ -164,21 +195,18 @@ export function initUpload() {
     setProgress(0, "Starting…", `0 of ${selected.length} photos`);
 
     const metadata = {
-      name: form.name.value.trim(),
-      batch: form.batch.value,
+      name,
+      batch,
       caption: form.caption.value.trim(),
     };
 
     const total = selected.length;
     let complete = 0;
     let failed = 0;
-
-    // Each file contributes equally to overall progress
-    // Compress ≈ 20%, upload ≈ 80% of that file's share
     const fileWeight = 100 / total;
 
     async function uploadOne(file) {
-      const base = complete * fileWeight; // progress already earned by finished files
+      const base = complete * fileWeight;
 
       try {
         setProgress(
@@ -195,7 +223,6 @@ export function initUpload() {
         );
 
         await uploadImage(compressed, metadata, (percent) => {
-          // percent is 0–100 for the upload portion
           const overall = base + fileWeight * (0.2 + 0.8 * (percent / 100));
           setProgress(
             Math.min(overall, 99),
@@ -212,7 +239,7 @@ export function initUpload() {
         );
       } catch (error) {
         failed++;
-        complete++; // still advance so progress doesn't stall
+        complete++;
         setProgress(
           (complete / total) * 100,
           "Uploading…",
@@ -258,4 +285,7 @@ export function initUpload() {
       showMessage("None of the photos could be uploaded. Please try again.");
     }
   });
+
+  // Initial state
+  updateButtonState();
 }
